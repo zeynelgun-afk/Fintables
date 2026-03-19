@@ -1,9 +1,7 @@
 # 📊 BIST Bilanço Sonrası Değerleme Tarayıcısı
 
 > Fintables MCP entegrasyonu ile BIST hisselerinde sistematik 6 yöntem değerleme taraması.
-> Deterministik pipeline: **MCP → CSV → Skorlama → GitHub**
-
----
+> Pipeline: **MCP CTE Sorgu (6 batch) → SQL Filtreleme → Python Skorlama → GitHub**
 
 ## ⚙️ Parametreler
 
@@ -13,73 +11,69 @@
 | Faiz Trendi | İNDİRİM (5 ardışık sonrası ilk sabit) |
 | Baz Adil F/K | 3.89x |
 | Dönem | Q4 2025 (2025/12) |
+| Taranan Hisse | 574 |
+| Filtre Geçen | 93 (NK>0 + FAVÖK>0 + F/K iskontolu) |
 | Son Güncelleme | 2026-03-19 |
 
----
+## 📋 Son Tarama — TOP 20
 
-## 📋 Son Tarama Sonuçları
+| # | Kod | Skor | Sektör | PD (B₺) | F/K İsk% | PD/DD | Sinyal |
+|---|-----|------|--------|---------|----------|-------|--------|
+| 1 | **EUHOL** | 85 | Holding | 1.9 | 96.5 | 0.44 | 🟢 ALTIN FIRSAT |
+| 2 | **HLGYO** | 83 | Gayrimenkul | 20.0 | 71.8 | 0.36 | 🟢 ALTIN FIRSAT |
+| 3 | **GLRYH** | 80 | Holding | 2.6 | 83.6 | 0.50 | 🟢 ALTIN FIRSAT |
+| 4 | **RGYAS** | 80 | Gayrimenkul | 53.2 | 79.0 | 0.40 | 🟢 ALTIN FIRSAT |
+| 5 | **ESCOM** | 70 | Bilişim | 3.8 | 57.5 | 1.13 | 🟡 FORWARD UCUZ |
+| 6 | **RTALB** | 68 | İlaç/Sağlık | 1.9 | 81.1 | 0.64 | 🟡 FORWARD UCUZ |
+| 7 | **SRVGY** | 65 | Gayrimenkul | 10.8 | 11.4 | 0.38 | 🟡 FORWARD UCUZ |
+| 8 | **AKFGY** | 64 | Gayrimenkul | 11.3 | 18.9 | 0.34 | 🟡 FORWARD UCUZ |
+| 9 | **A1CAP** | 60 | Aracı Kurum | 10.6 | 78.6 | 1.17 | 🟡 FORWARD UCUZ |
+| 10 | **CATES** | 60 | Enerji | 8.1 | 67.7 | 0.58 | 🟡 FORWARD UCUZ |
+| 11 | MERIT | 58 | Turizm | 5.4 | 77.6 | 0.32 | 🟠 TAVSİYE |
+| 12 | MHRGY | 58 | Gayrimenkul | 4.3 | 73.2 | 0.52 | 🟠 TAVSİYE |
+| 13 | KRSTL | 58 | Gıda | 1.7 | 64.9 | 0.97 | 🟠 TAVSİYE |
+| 14 | KZBGY | 56 | Gayrimenkul | 12.5 | 37.2 | 0.57 | 🟠 TAVSİYE |
+| 15 | AYES | 53 | İmalat | 4.8 | 78.7 | 1.60 | 🟠 TAVSİYE |
+| 16 | ATATP | 53 | Bilişim | 13.8 | 76.1 | 3.09 | 🟠 TAVSİYE |
+| 17 | GSDDE | 53 | Ulaştırma | 1.5 | 75.0 | 0.54 | 🟠 TAVSİYE |
+| 18 | MTRKS | 51 | Bilişim | 2.2 | 73.2 | 2.24 | 🟠 TAVSİYE |
+| 19 | FORTE | 49 | Bilişim | 7.1 | 8.5 | 2.64 | 🟠 TAVSİYE |
+| 20 | THYAO | 45 | Ulaştırma | 399.5 | 9.4 | 0.44 | 🟠 TAVSİYE |
 
-| # | Kod | Sektör | PD (B₺) | NK TTM (M₺) | Q4 NK (M₺) | FAVÖK TTM (M₺) | PD/DD | ROE% | Skor | Sinyal |
-|---|-----|--------|---------|-------------|------------|----------------|-------|------|------|--------|
-| 1 | MAVI | Tekstil, Giyim | 35.1 | 2,294 | -60 | 8,841 | 2.54 | 16.8 | 26 | 🔴 ELEN (Skor<30) |
-| 2 | KLGYO | Gayrimenkul | 7.8 | -660 | 103 | 204 | 0.33 | -2.8 | 32 | ⚪ İZLEME |
-| 3 | BRLSM | Enerji Tek. | 3.5 | -201 | -177 | 433 | 2.29 | -11.4 | 0 | 🔴 ELEN (NK Çift Zarar) |
-| 4 | IEYHO | Holding | 48.4 | -711 | -285 | -131 | 21.44 | -26.0 | 15 | 🔴 ELEN (PD/DD Primli) |
-| 5 | ARZUM | Dayanıklı Tük. | 1.6 | -931 | -432 | -100 | -5.70 | -2314 | 0 | 🔴 ELEN (FAVÖK Negatif) |
+> Tam 93 hisse listesi: [`data/son_tarama.csv`](data/son_tarama.csv)
 
-> **Not:** Bu 5 bilançodan 4'ü zarar açıklamış. %37 faiz ortamında Adil F/K 3.89x — çoğu hisse bu çarpanın çok üzerinde.
+## 📊 Sinyal Dağılımı
 
----
+| Sinyal | Sayı |
+|--------|------|
+| 🟢 ALTIN FIRSAT | 4 |
+| 🟡 FORWARD UCUZ | 6 |
+| 🟠 TAVSİYE | 28 |
+| ⚪ İZLEME | 17 |
+| 🔴 ELEN | 38 |
+| ❌ Ön Filtre Elenen | 481 |
 
 ## 📁 Repo Yapısı
 
 ```
 Fintables/
-├── README.md                    ← Güncel özet (bu dosya)
-├── config.json                  ← Faiz, dönem, filtre parametreleri
+├── README.md              ← Güncel özet
+├── config.json            ← Parametreler
 ├── data/
-│   ├── son_tarama.csv           ← Her zaman en güncel sonuç
-│   ├── cumulative.csv           ← Tüm zamanların birleşik tablosu
-│   └── arsiv/
-│       └── 2026-03-19.csv       ← Tarih bazlı arşiv
-├── reports/
-│   └── *.xlsx                   ← Excel raporlar
-└── scripts/
-    └── pipeline_v24.py          ← Skorlama pipeline
+│   ├── son_tarama.csv     ← En güncel sonuç
+│   ├── cumulative.csv     ← Tüm zamanlar
+│   └── arsiv/2025_4Q.csv  ← Çeyrek arşivi
+├── reports/2025_4Q.xlsx
+└── scripts/pipeline_v24.py
 ```
 
 ## 🔄 Güncelleme Akışı
 
-1. KAP'ta yeni bilanço açıklanır
-2. Claude'a "X bilançosunu değerle" yazılır
-3. Fintables MCP'den canlı veri çekilir → 6 yöntem skorlama
-4. CSV + Excel üretilir → GitHub'a push edilir
-5. README otomatik güncellenir
-
----
-
-## 📖 Metodoloji
-
-**6 Yöntem Değerleme:**
-- Y1: FD/FAVÖK İskontosu (3Y ort. karşılaştırma)
-- Y2: F/K İskontosu (12Q mean-reversion)
-- Y3: Net Kâr Kapitalizasyonu
-- Y4: PD/DD Değerleme
-- Y5: ROE Kalite
-- Y6: Forward vs TTM Momentum
-
-**Sektör Çarpanları:** Teknoloji 1.875x | Sanayi 1.00x | Banka 0.50x (F/DD) | Enerji 0.75x
-
-**GYO/Holding:** NAV bazlı çift filtre (PD/DD + F/K iskontosu)
-
-**v2.4 Filtreleri:**
-- NK Q4 ≤ 0 + TTM NK ≤ 0 → ELEN
-- Forward F/K N/A → potansiyel × 0.7
-- Minimum skor < 30 → ELEN
-
----
+1. Claude'a "bilanço tarama yap" yaz
+2. Tek CTE sorgusu ile 574 hisse çekilir (6 batch × 100)
+3. SQL filtreleme → Python skorlama → CSV
+4. GitHub'a push
 
 ## ⚠️ Sorumluluk Reddi
 
-Bu repo yatırım tavsiyesi değildir. Sistematik tarama aracı olarak tasarlanmıştır.
-Yatırım kararlarınızı kendi araştırmanıza dayandırın.
+Bu repo yatırım tavsiyesi değildir.

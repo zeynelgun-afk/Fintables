@@ -5,35 +5,17 @@
   "donem": "Q4_2025",
   "donem_yil_ay": "2025/12",
   "son_guncelleme": "2026-03-19",
-  "on_filtreler": {
-    "min_piyasa_degeri_tl": 500000000,
-    "favok_pozitif": true,
-    "nk_cift_zarar_elen": true,
-    "min_skor_esigi": 30,
-    "fwd_fk_na_ceza": 0.7
-  },
-  "sektor_carpanlari": {
-    "Sanayi": 1.00,
-    "Teknoloji": 1.875,
-    "Savunma": 1.875,
-    "Bankacılık": 0.50,
-    "Enerji": 0.75,
-    "Perakende": 1.00,
-    "İnşaat": 0.625,
-    "Turizm": 1.00,
-    "Telekom": 0.875,
-    "Gıda": 1.00,
-    "Sigorta": 0.75,
-    "Maden": 0.75,
-    "Gayrimenkul": "NAV",
-    "Holding": "NAV"
-  },
-  "sinyal_esikleri": {
-    "altin_firsat": {"skor": 80, "potansiyel": 50},
-    "derin_iskonto": {"skor": 80},
-    "forward_ucuz": {"skor": 60},
-    "tavsiye": {"skor": 40},
-    "izleme": {"skor": 30},
-    "elen": {"skor_alti": 30}
+  "taranan_hisse": 574,
+  "filtre_gecen": 93,
+  "pipeline_versiyon": "v2.5_pratik",
+  "pipeline_yontem": "Tek CTE sorgu (6 batch x 100) → SQL filtreleme → Python skorlama → CSV",
+  "skorlama": {
+    "forward_fk_vs_sektor_adil": 25,
+    "fk_iskontosu_3y": 15,
+    "pddd_degerleme": 25,
+    "pddd_iskontosu_bonus": 5,
+    "q4_nk_pozitif_bonus": 5,
+    "gyo_holding_cift_filtre": 10,
+    "min_skor_esigi": 30
   }
 }
