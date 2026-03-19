@@ -1,0 +1,6 @@
+tarama_tarihi,kod,sektor,bilanco_aciklama,pd_tl,nk_ttm,nk_q4,favok_ttm,pddd,roe_pct,fk_ttm,fk_fwd,ort_fk_3y,ort_pddd_3y,fk_iskonto_pct,pddd_iskonto_pct,skor,sinyal,potansiyel,detay
+2026-03-19,ARZUM,Dayanıklı Tüketim Ürünleri,2026-03-19,1566000000,-931168968,-431753796,-99728178,-5.70,-2313.6,,,22.41,6.52,,,0,🔴 ELEN (FAVÖK Negatif),0,FAVÖK TTM: -100M → Operasyonel sağlık yok
+2026-03-19,IEYHO,Holding,2026-03-18,48352840450,-711342881,-285000662,-130816352,21.44,-26.0,,,12.41,3.48,,-516.1,15,🔴 ELEN (PD/DD Primli),0,NAV bazlı | PD/DD primli
+2026-03-19,BRLSM,Enerji Teknolojileri,2026-03-18,3494400000,-200768000,-177202911,432896608,2.29,-11.4,,,11.77,4.52,,49.3,0,🔴 ELEN (NK Çift Zarar),0,Q4 NK: -177M + TTM NK: -201M → Her ikisi de zarar
+2026-03-19,KLGYO,Gayrimenkul,2026-03-17,7812000000,-660179000,102916494,203657000,0.33,-2.75,,,14.17,0.53,,37.7,32,⚪ İZLEME,37.7,NAV bazlı | PD/DD İsk: 37.7%
+2026-03-19,MAVI,Tekstil Giyim ve Deri,2026-03-17,35053869440,2293527000,-60108044,8840960000,2.54,16.8,15.38,,12.58,4.07,-22.3,37.6,26,🔴 ELEN (Skor<30),0,F/K primli -22.3% | PD/DD isk 37.6%
