@@ -1,94 +1,94 @@
-tarama_tarihi,kod,sektor,pd_b_tl,nk_ttm_m,nk_q4_m,favok_m,son_fk,ort_fk_3y,fk_iskonto_pct,son_pddd,ort_pddd_3y,pddd_iskonto_pct,skor,sinyal,katalist_tier,katalist_sayi,katalist_ozet,duzeltilmis_skor,duzeltme_notu
-2026-03-19,ESCOM,Bilişim ve Yazılım,3.8,1151.0,1144.0,1651.0,3.26,7.67,57.5,1.13,2.37,52.3,70,🟡 FORWARD UCUZ,,,,60,Standart Katalistsiz: 70×0.85=60
-2026-03-19,RTALB,İlaç ve Sağlık,1.9,881.0,465.0,14.0,2.14,11.35,81.1,0.64,1.17,45.3,68,🟠 TAVSİYE,,,,58,Standart Katalistsiz: 68×0.85=58
-2026-03-19,FORTE,Bilişim ve Yazılım,7.1,2329.0,449.0,816.0,2.79,3.05,8.5,2.64,6.86,61.5,58,🟠 TAVSİYE,T1,2,2 yeni iş ilişkisi (Şub 2026),58,Standart+Katalist ✅
-2026-03-19,AKFIS,İnşaat,25.3,1685.0,1251.0,290.0,14.68,23.79,38.3,0.78,0.55,-41.8,56,🟠 TAVSİYE,T1,1,Haydarpaşa Sağlık Kampüsü yeniden yapım ihalesi,56,Standart+Katalist ✅
-2026-03-19,ORGE,Enerji Teknolojileri,5.4,593.0,239.0,1726.0,9.1,11.43,20.4,1.36,3.26,58.3,56,🟠 TAVSİYE,T1,3,Bayburt-Gümüşhane Havalimanı + Altunizade Metro + THY İstanbul Hub,56,Standart+Katalist ✅
-2026-03-19,FONET,Bilişim ve Yazılım,4.4,222.0,112.0,378.0,19.74,49.22,59.9,2.6,23.04,88.7,53,🟠 TAVSİYE,T1,5,Şanlıurfa+Sivas Sağlık ihaleleri + Amerika sözleşmesi,53,Standart+Katalist ✅
-2026-03-19,A1CAP,Aracı Kurum,10.6,3824.0,2380.0,8703.0,2.81,13.15,78.6,1.17,1.62,27.8,60,🟠 TAVSİYE,,,,51,Standart Katalistsiz: 60×0.85=51
-2026-03-19,CATES,Enerji Üretim ve Dağıtım,8.1,1787.0,1855.0,763.0,4.17,12.91,67.7,0.58,0.63,7.9,60,🟠 TAVSİYE,,,,51,Standart Katalistsiz: 60×0.85=51
-2026-03-19,ELITE,Gıda ve İçecek,3.7,247.0,11.0,529.0,14.86,20.89,28.9,1.63,5.39,69.8,51,🟠 TAVSİYE,T1,3,KeHE Distributors ABD ihracat sözleşmesi (3 ayrı haber),51,Standart+Katalist ✅
-2026-03-19,MERIT,Turizm,5.4,754.0,322.0,187.0,7.29,32.48,77.6,0.32,0.82,61.0,58,🟠 TAVSİYE,,,,49,Standart Katalistsiz: 58×0.85=49
-2026-03-19,KRSTL,Gıda ve İçecek,1.7,251.0,13.0,452.0,6.7,19.1,64.9,0.97,2.47,60.7,58,🟠 TAVSİYE,,,,49,Standart Katalistsiz: 58×0.85=49
-2026-03-19,PLTUR,Servis Taşımacılığı ve Araç Kiralama,5.9,709.0,483.0,2342.0,8.2,10.42,21.3,0.68,1.49,54.4,49,🟠 TAVSİYE,T2,1,Yeni iş ilişkisi (Mar 2026),49,Standart+Katalist ✅
-2026-03-19,CGCAM,"Cam, Seramik, Porselen",6.0,455.0,286.0,526.0,13.29,27.27,51.3,1.31,1.5,12.7,48,🟠 TAVSİYE,T2,1,Sipariş alınması,48,Standart+Katalist ✅
-2026-03-19,HLGYO,Gayrimenkul,20.0,13278.0,8659.0,2830.0,1.49,5.28,71.8,0.36,0.53,32.1,83,🟠 TAVSİYE,,,,46,GYO ÇiftUcuz Katalistsiz: 83×0.55=46
-2026-03-19,AYES,İmalat,4.8,1035.0,1161.0,264.0,4.71,22.1,78.7,1.6,2.53,36.8,53,🟠 TAVSİYE,,,,45,Standart Katalistsiz: 53×0.85=45
-2026-03-19,THYAO,Ulaştırma,399.5,118208.0,37144.0,158217.0,3.39,3.74,9.4,0.44,0.8,45.0,53,🟠 TAVSİYE,,,,45,Standart Katalistsiz: 53×0.85=45
-2026-03-19,GESAN,Enerji Teknolojileri,20.6,903.0,52.0,3749.0,22.76,25.37,10.3,1.51,5.55,72.8,45,🟠 TAVSİYE,T1,8,Çok sayıda ihale sonucu + yeni iş sözleşmeleri (EUPWR ortak),45,Standart+Katalist ✅
-2026-03-19,RGYAS,Gayrimenkul,53.2,16306.0,3319.0,8213.0,3.24,15.42,79.0,0.4,1.01,60.4,80,🟠 TAVSİYE,,,,44,GYO ÇiftUcuz Katalistsiz: 80×0.55=44
-2026-03-19,INFO,Aracı Kurum,3.3,633.0,9.0,1028.0,5.23,14.72,64.5,1.11,2.11,47.4,51,🟠 TAVSİYE,,,,43,Standart Katalistsiz: 51×0.85=43
-2026-03-19,AHSGY,Gayrimenkul,14.8,3124.0,1933.0,390.0,4.77,9.77,51.2,1.62,1.23,-31.7,58,🟠 TAVSİYE,T2,2,Başakşehir Doğu + Prime Tower Maslak arsa ihaleleri,41,GYO+Katalist: 58×0.70=41
-2026-03-19,MTRKS,Bilişim ve Yazılım,2.2,241.0,100.0,350.0,8.87,33.15,73.2,2.24,16.64,86.5,48,🟠 TAVSİYE,,,,41,Standart Katalistsiz: 48×0.85=41
-2026-03-19,IHGZT,Kağıt ve Kağıt Ürünleri,1.2,231.0,380.0,9.0,4.98,5.01,0.6,0.28,0.54,48.1,48,🟠 TAVSİYE,,,,41,Standart Katalistsiz: 48×0.85=41
-2026-03-19,KIMMR,Gıda Perakendeciliği,4.6,650.0,339.0,1188.0,7.01,11.96,41.4,1.04,1.58,34.2,47,🟠 TAVSİYE,,,,40,Standart Katalistsiz: 47×0.85=40
-2026-03-19,BNTAS,Ambalaj,1.5,240.0,79.0,191.0,6.32,8.25,23.4,0.98,1.6,38.8,47,🟠 TAVSİYE,,,,40,Standart Katalistsiz: 47×0.85=40
-2026-03-19,YEOTK,Enerji Teknolojileri,17.3,1477.0,726.0,3176.0,11.98,30.12,60.2,4.29,14.72,70.9,40,🟠 TAVSİYE,T1,2,2 yeni iş ilişkisi (Şub-Mar 2026),40,Standart+Katalist ✅
-2026-03-19,TTKOM,Haberleşme,207.0,22980.0,718.0,99102.0,9.02,15.1,40.3,0.98,1.99,50.8,46,⚪ İZLEME,,,,39,Standart Katalistsiz: 46×0.85=39
-2026-03-19,ATATP,Bilişim ve Yazılım,13.8,2053.0,340.0,4003.0,6.63,27.7,76.1,3.09,8.07,61.7,45,⚪ İZLEME,,,,38,Standart Katalistsiz: 45×0.85=38
-2026-03-19,GSDDE,Ulaştırma,1.5,187.0,336.0,261.0,7.96,31.83,75.0,0.54,0.75,28.0,45,⚪ İZLEME,,,,38,Standart Katalistsiz: 45×0.85=38
-2026-03-19,KATMR,Metal Eşya ve Makine,6.4,662.0,111.0,606.0,9.37,17.86,47.5,0.72,1.35,46.7,44,⚪ İZLEME,,,,37,Standart Katalistsiz: 44×0.85=37
-2026-03-19,PGSUS,Ulaştırma,88.8,13750.0,423.0,37096.0,6.49,6.81,4.7,0.76,1.93,60.6,43,⚪ İZLEME,,,,37,Standart Katalistsiz: 43×0.85=37
-2026-03-19,SAYAS,Enerji Teknolojileri,3.3,153.0,9.0,363.0,21.86,31.76,31.2,2.73,8.07,66.2,37,⚪ İZLEME,T2,2,Rüzgar enerji sektörü 2 ihale,37,Standart+Katalist ✅
-2026-03-19,SRVGY,Gayrimenkul,10.8,3338.0,2991.0,2656.0,3.2,3.61,11.4,0.38,1.13,66.4,65,⚪ İZLEME,,,,36,GYO ÇiftUcuz Katalistsiz: 65×0.55=36
-2026-03-19,AKFGY,Gayrimenkul,11.3,2611.0,1147.0,1387.0,4.32,5.33,18.9,0.34,0.58,41.4,64,⚪ İZLEME,,,,35,GYO ÇiftUcuz Katalistsiz: 64×0.55=35
-2026-03-19,TUREX,Servis Taşımacılığı ve Araç Kiralama,8.1,608.0,24.0,2110.0,13.71,20.56,33.3,1.13,3.46,67.3,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35
-2026-03-19,PNLSN,İnşaat,3.8,257.0,170.0,379.0,14.73,21.59,31.8,1.26,3.06,58.8,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35
-2026-03-19,ASUZU,Otomotiv,16.7,904.0,551.0,1513.0,18.49,26.83,31.1,1.15,2.43,52.7,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35
-2026-03-19,YUNSA,"Tekstil, Giyim ve Deri",3.9,378.0,51.0,321.0,10.55,14.28,26.1,0.91,1.94,53.1,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35
-2026-03-19,YYLGD,Gıda ve İçecek,12.1,903.0,36.0,2037.0,13.4,17.9,25.1,0.9,2.67,66.3,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35
-2026-03-19,HTTBT,Bilişim ve Yazılım,11.1,388.0,101.0,699.0,28.85,54.21,46.8,3.78,5.64,33.0,34,⚪ İZLEME,T1,1,Basra Airlines havacılık yazılım sözleşmesi,34,Standart+Katalist ✅
-2026-03-19,AKSA,Kimya ve Plastik,43.1,4016.0,1322.0,5729.0,10.75,21.14,49.1,1.32,2.32,43.1,39,⚪ İZLEME,,,,33,Standart Katalistsiz: 39×0.85=33
-2026-03-19,ARTMS,"Tekstil, Giyim ve Deri",2.8,243.0,71.0,206.0,11.06,16.23,31.9,1.23,1.89,34.9,39,⚪ İZLEME,,,,33,Standart Katalistsiz: 39×0.85=33
-2026-03-19,BESTE,Enerji Üretim ve Dağıtım,4.6,190.0,11.0,261.0,23.72,26.01,8.8,1.24,1.36,8.8,33,⚪ İZLEME,T2,2,Enerji yatırım + araç muayene istasyonu,33,Standart+Katalist ✅
-2026-03-19,EUPWR,Enerji Teknolojileri,22.8,600.0,-60.0,2368.0,37.97,39.75,4.5,2.16,7.3,70.4,33,⚪ İZLEME,T1,7,Yeni sipariş + çok sayıda ihale (GESAN ortak),33,Standart+Katalist ✅
-2026-03-19,MHRGY,Gayrimenkul,4.3,488.0,454.0,152.0,8.75,32.66,73.2,0.52,0.83,37.3,58,⚪ İZLEME,,,,32,GYO ÇiftUcuz Katalistsiz: 58×0.55=32
-2026-03-19,KZBGY,Gayrimenkul,12.5,853.0,792.0,1164.0,14.62,23.29,37.2,0.57,9.09,93.7,56,⚪ İZLEME,,,,31,GYO ÇiftUcuz Katalistsiz: 56×0.55=31
-2026-03-19,VBTYZ,Bilişim ve Yazılım,2.6,175.0,151.0,487.0,14.41,26.97,46.6,2.77,5.67,51.1,37,⚪ İZLEME,,,,31,Standart Katalistsiz: 37×0.85=31
-2026-03-19,ECOGR,Enerji Üretim ve Dağıtım,19.1,451.0,238.0,1856.0,43.47,67.61,35.7,1.17,0.87,-34.5,36,⚪ İZLEME,,,,31,Standart Katalistsiz: 36×0.85=31
-2026-03-19,LILAK,Kağıt ve Kağıt Ürünleri,19.5,1704.0,231.0,2613.0,10.98,15.78,30.4,1.15,1.33,13.5,36,⚪ İZLEME,,,,31,Standart Katalistsiz: 36×0.85=31
-2026-03-19,LOGO,Bilişim ve Yazılım,12.8,1500.0,71.0,2010.0,8.58,21.48,60.1,3.45,4.69,26.4,35,⚪ İZLEME,,,,30,Standart Katalistsiz: 35×0.85=30
-2026-03-19,ULKER,Gıda ve İçecek,41.5,4874.0,80.0,18416.0,8.5,9.32,8.8,0.96,2.05,53.2,35,⚪ İZLEME,,,,30,Standart Katalistsiz: 35×0.85=30
-2026-03-19,OYYAT,Aracı Kurum,19.3,2268.0,2058.0,7645.0,8.37,12.47,32.9,1.56,2.94,46.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29
-2026-03-19,ARASE,Enerji Üretim ve Dağıtım,25.6,2239.0,585.0,7896.0,11.4,14.25,20.0,1.28,2.06,37.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29
-2026-03-19,IZENR,Enerji Üretim ve Dağıtım,23.4,695.0,406.0,2018.0,33.5,40.74,17.8,1.37,2.63,47.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29
-2026-03-19,CWENE,Enerji Teknolojileri,31.1,2215.0,589.0,3173.0,14.13,37.71,62.5,2.24,6.24,64.1,33,🔴 ELEN,,,,28,Standart Katalistsiz: 33×0.85=28
-2026-03-19,SISE,"Cam, Seramik, Porselen",135.6,9877.0,3884.0,18831.0,13.59,15.03,9.6,0.55,0.99,44.4,33,🔴 ELEN,,,,28,Standart Katalistsiz: 33×0.85=28
-2026-03-19,NTGAZ,Enerji Üretim ve Dağıtım,9.0,900.0,343.0,1701.0,9.87,11.06,10.8,1.76,1.84,4.3,28,🔴 ELEN,T2,1,ÇAYKUR satın alma ihalesi,28,Standart+Katalist ✅
-2026-03-19,EUHOL,Holding,1.9,1113.0,1054.0,1698.0,1.79,50.88,96.5,0.44,2.45,82.0,85,🔴 ELEN,,,,26,Holding Katalistsiz: 85×0.30=26
-2026-03-19,BULGS,Girişim Sermayesi Yat. Ort.,11.9,1635.0,697.0,552.0,6.93,10.74,35.5,1.52,1.75,13.1,31,🔴 ELEN,,,,26,Standart Katalistsiz: 31×0.85=26
-2026-03-19,EUREN,Enerji Üretim ve Dağıtım,10.2,835.0,-470.0,1004.0,12.09,13.6,11.1,0.99,2.88,65.6,30,🔴 ELEN,,,,26,Standart Katalistsiz: 30×0.85=26
-2026-03-19,EGPRO,Kimya ve Plastik,15.8,1124.0,337.0,2826.0,14.16,16.72,15.3,1.79,2.87,37.6,29,🔴 ELEN,,,,25,Standart Katalistsiz: 29×0.85=25
-2026-03-19,GLRMK,İnşaat,54.9,4279.0,333.0,6099.0,12.66,13.33,5.0,3.05,4.04,24.5,25,🔴 ELEN,T1,3,Polonya Varşova Metrosu + C1 Tymbark demiryolu ihalesi,25,Standart+Katalist ✅
-2026-03-19,GLRYH,Holding,2.6,1195.0,659.0,9133.0,2.19,13.39,83.6,0.5,2.79,82.1,80,🔴 ELEN,,,,24,Holding Katalistsiz: 80×0.30=24
-2026-03-19,EGEGY,Gayrimenkul,5.8,811.0,404.0,747.0,7.2,16.94,57.5,3.41,7.68,55.6,43,🔴 ELEN,,,,24,GYO ÇiftUcuz Katalistsiz: 43×0.55=24
-2026-03-19,OZSUB,"Tarım, Hayvancılık, Balıkçılık",2.7,294.0,80.0,546.0,10.05,25.73,60.9,2.87,3.74,23.3,28,🔴 ELEN,,,,24,Standart Katalistsiz: 28×0.85=24
-2026-03-19,MEGMT,Ana Metal,18.7,1469.0,311.0,1175.0,12.64,18.12,30.2,4.68,2.79,-67.7,24,🔴 ELEN,T2,2,2 yeni iş ilişkisi,24,Standart+Katalist ✅
-2026-03-19,KRGYO,Gayrimenkul,2.7,142.0,5.0,97.0,19.21,22.19,13.4,1.13,4.62,75.5,40,🔴 ELEN,,,,22,GYO ÇiftUcuz Katalistsiz: 40×0.55=22
-2026-03-19,CMENT,"Taş, Toprak, Çimento",29.5,1200.0,446.0,2718.0,24.6,27.89,11.8,1.87,4.16,55.0,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21
-2026-03-19,ALVES,İmalat,4.8,102.0,34.0,2047.0,46.8,50.27,6.9,1.77,29.47,94.0,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21
-2026-03-19,GENTS,Mobilya ve Dekorasyon,6.3,259.0,185.0,783.0,23.4,24.61,4.9,1.76,4.66,62.2,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21
-2026-03-19,GEDIK,Aracı Kurum,10.7,1507.0,248.0,1329.0,7.12,13.79,48.4,2.11,2.92,27.7,24,🔴 ELEN,,,,20,Standart Katalistsiz: 24×0.85=20
-2026-03-19,TOASO,Otomotiv,155.1,8353.0,5295.0,9997.0,18.46,22.14,16.6,2.57,3.95,34.9,22,🔴 ELEN,,,,19,Standart Katalistsiz: 22×0.85=19
-2026-03-19,TCKRC,İmalat,16.0,1222.0,578.0,1222.0,13.19,16.78,21.4,3.13,2.23,-40.4,19,🔴 ELEN,T2,2,Aydınlatma direği üretim sözleşmesi + Karayolları ihale,19,Standart+Katalist ✅
-2026-03-19,SANEL,İnşaat,0.7,115.0,26.0,68.0,5.64,8.98,37.2,4.62,29.33,84.2,21,🔴 ELEN,,,,18,Standart Katalistsiz: 21×0.85=18
-2026-03-19,TERA,Aracı Kurum,224.2,37334.0,1409.0,38316.0,5.96,12.97,54.0,7.35,4.98,-47.6,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17
-2026-03-19,GENKM,Kimya ve Plastik,8.3,249.0,88.0,725.0,32.33,36.57,11.6,1.53,1.73,11.6,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17
-2026-03-19,ENKAI,İnşaat,557.7,36183.0,9905.0,33943.0,15.95,16.24,1.8,1.55,1.18,-31.4,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17
-2026-03-19,AKHAN,Gıda ve İçecek,6.9,156.0,109.0,612.0,45.09,45.61,1.1,1.89,1.91,1.0,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17
-2026-03-19,GRTHO,Gıda ve İçecek,30.2,1796.0,857.0,786.0,16.84,31.92,47.2,3.35,4.98,32.7,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16
-2026-03-19,PKART,Bilişim ve Yazılım,1.7,68.0,73.0,189.0,24.77,40.88,39.4,3.54,6.47,45.3,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16
-2026-03-19,PKENT,Turizm,3.8,178.0,-3.0,116.0,21.69,30.71,29.4,2.16,9.02,76.1,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16
-2026-03-19,KBORU,Ana Metal,10.7,643.0,0.0,816.0,16.81,18.34,8.3,2.43,3.09,21.4,16,🔴 ELEN,T2,1,Yeni iş sözleşmesi (Mar 2026),16,Standart+Katalist ✅
-2026-03-19,KRONT,Haberleşme,3.6,146.0,89.0,215.0,26.04,38.01,31.5,5.17,6.66,22.4,16,🔴 ELEN,,,,14,Standart Katalistsiz: 16×0.85=14
-2026-03-19,MACKO,Destek ve Hizmet,3.2,321.0,30.0,602.0,9.98,12.31,18.9,4.64,7.08,34.5,14,🔴 ELEN,,,,12,Standart Katalistsiz: 14×0.85=12
-2026-03-19,PSDTC,Toptan ve Perakende Ticaret,1.0,54.0,13.0,5.0,16.39,19.77,17.1,4.03,6.15,34.5,14,🔴 ELEN,,,,12,Standart Katalistsiz: 14×0.85=12
-2026-03-19,CLEBI,Ulaştırma,44.4,3637.0,1391.0,5488.0,11.95,15.82,24.5,5.18,6.67,22.3,11,🔴 ELEN,,,,9,Standart Katalistsiz: 11×0.85=9
-2026-03-19,BEYAZ,Destek ve Hizmet,2.8,132.0,0.0,430.0,21.47,22.81,5.9,2.13,3.6,40.8,11,🔴 ELEN,,,,9,Standart Katalistsiz: 11×0.85=9
-2026-03-19,LYDYE,Enerji Üretim ve Dağıtım,34.9,2055.0,1514.0,15.0,15.99,18.5,13.6,9.26,465.55,98.0,10,🔴 ELEN,,,,8,Standart Katalistsiz: 10×0.85=8
-2026-03-19,RALYH,Holding,46.5,2317.0,1055.0,1795.0,19.66,23.93,17.8,7.32,9.64,24.1,21,🔴 ELEN,,,,6,Holding Katalistsiz: 21×0.30=6
-2026-03-19,TEHOL,Holding,33.1,2788.0,-78.0,1706.0,12.24,17.27,29.1,4.22,6.91,38.9,19,🔴 ELEN,,,,6,Holding Katalistsiz: 19×0.30=6
-2026-03-19,GRSEL,Servis Taşımacılığı ve Araç Kiralama,33.0,2889.0,962.0,3745.0,11.72,12.72,7.9,3.23,3.47,6.9,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4
-2026-03-19,DOFRB,İmalat,15.2,244.0,208.0,354.0,63.85,68.03,6.1,7.57,7.36,-2.9,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4
-2026-03-19,ATATR,Turizm,8.6,377.0,104.0,933.0,22.73,23.8,4.5,3.27,3.42,4.4,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4
-2026-03-19,MEYSU,Gıda ve İçecek,11.5,494.0,206.0,918.0,23.01,23.11,0.4,3.45,3.46,0.3,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4
+tarama_tarihi,kod,sektor,pd_b_tl,nk_ttm_m,nk_q4_m,favok_m,son_fk,ort_fk_3y,fk_iskonto_pct,son_pddd,ort_pddd_3y,pddd_iskonto_pct,skor,sinyal,katalist_tier,katalist_sayi,katalist_ozet,duzeltilmis_skor,duzeltme_notu,nav_notu
+2026-03-19,ESCOM,Bilişim ve Yazılım,3.8,1151.0,1144.0,1651.0,3.26,7.67,57.5,1.13,2.37,52.3,70,🟡 FORWARD UCUZ,,,,60,Standart Katalistsiz: 70×0.85=60,
+2026-03-19,RTALB,İlaç ve Sağlık,1.9,881.0,465.0,14.0,2.14,11.35,81.1,0.64,1.17,45.3,68,🟠 TAVSİYE,,,,58,Standart Katalistsiz: 68×0.85=58,
+2026-03-19,FORTE,Bilişim ve Yazılım,7.1,2329.0,449.0,816.0,2.79,3.05,8.5,2.64,6.86,61.5,58,🟠 TAVSİYE,T1,2,2 yeni iş ilişkisi (Şub 2026),58,Standart+Katalist ✅,
+2026-03-19,AKFIS,İnşaat,25.3,1685.0,1251.0,290.0,14.68,23.79,38.3,0.78,0.55,-41.8,56,🟠 TAVSİYE,T1,1,Haydarpaşa Sağlık Kampüsü yeniden yapım ihalesi,56,Standart+Katalist ✅,
+2026-03-19,ORGE,Enerji Teknolojileri,5.4,593.0,239.0,1726.0,9.1,11.43,20.4,1.36,3.26,58.3,56,🟠 TAVSİYE,T1,3,Bayburt-Gümüşhane Havalimanı + Altunizade Metro + THY İstanbul Hub,56,Standart+Katalist ✅,
+2026-03-19,FONET,Bilişim ve Yazılım,4.4,222.0,112.0,378.0,19.74,49.22,59.9,2.6,23.04,88.7,53,🟠 TAVSİYE,T1,5,Şanlıurfa+Sivas Sağlık ihaleleri + Amerika sözleşmesi,53,Standart+Katalist ✅,
+2026-03-19,A1CAP,Aracı Kurum,10.6,3824.0,2380.0,8703.0,2.81,13.15,78.6,1.17,1.62,27.8,60,🟠 TAVSİYE,,,,51,Standart Katalistsiz: 60×0.85=51,
+2026-03-19,CATES,Enerji Üretim ve Dağıtım,8.1,1787.0,1855.0,763.0,4.17,12.91,67.7,0.58,0.63,7.9,60,🟠 TAVSİYE,,,,51,Standart Katalistsiz: 60×0.85=51,
+2026-03-19,ELITE,Gıda ve İçecek,3.7,247.0,11.0,529.0,14.86,20.89,28.9,1.63,5.39,69.8,51,🟠 TAVSİYE,T1,3,KeHE Distributors ABD ihracat sözleşmesi (3 ayrı haber),51,Standart+Katalist ✅,
+2026-03-19,MERIT,Turizm,5.4,754.0,322.0,187.0,7.29,32.48,77.6,0.32,0.82,61.0,58,🟠 TAVSİYE,,,,49,Standart Katalistsiz: 58×0.85=49,
+2026-03-19,KRSTL,Gıda ve İçecek,1.7,251.0,13.0,452.0,6.7,19.1,64.9,0.97,2.47,60.7,58,🟠 TAVSİYE,,,,49,Standart Katalistsiz: 58×0.85=49,
+2026-03-19,PLTUR,Servis Taşımacılığı ve Araç Kiralama,5.9,709.0,483.0,2342.0,8.2,10.42,21.3,0.68,1.49,54.4,49,🟠 TAVSİYE,T2,1,Yeni iş ilişkisi (Mar 2026),49,Standart+Katalist ✅,
+2026-03-19,CGCAM,"Cam, Seramik, Porselen",6.0,455.0,286.0,526.0,13.29,27.27,51.3,1.31,1.5,12.7,48,🟠 TAVSİYE,T2,1,Sipariş alınması,48,Standart+Katalist ✅,
+2026-03-19,HLGYO,Gayrimenkul,20.0,13278.0,8659.0,2830.0,1.49,5.28,71.8,0.36,0.53,32.1,83,🟠 TAVSİYE,,,,46,GYO ÇiftUcuz Katalistsiz: 83×0.55=46,
+2026-03-19,AYES,İmalat,4.8,1035.0,1161.0,264.0,4.71,22.1,78.7,1.6,2.53,36.8,53,🟠 TAVSİYE,,,,45,Standart Katalistsiz: 53×0.85=45,
+2026-03-19,THYAO,Ulaştırma,399.5,118208.0,37144.0,158217.0,3.39,3.74,9.4,0.44,0.8,45.0,53,🟠 TAVSİYE,,,,45,Standart Katalistsiz: 53×0.85=45,
+2026-03-19,GESAN,Enerji Teknolojileri,20.6,903.0,52.0,3749.0,22.76,25.37,10.3,1.51,5.55,72.8,45,🟠 TAVSİYE,T1,8,Çok sayıda ihale sonucu + yeni iş sözleşmeleri (EUPWR ortak),45,Standart+Katalist ✅,
+2026-03-19,RGYAS,Gayrimenkul,53.2,16306.0,3319.0,8213.0,3.24,15.42,79.0,0.4,1.01,60.4,80,🟠 TAVSİYE,,,,44,GYO ÇiftUcuz Katalistsiz: 80×0.55=44,
+2026-03-19,INFO,Aracı Kurum,3.3,633.0,9.0,1028.0,5.23,14.72,64.5,1.11,2.11,47.4,51,🟠 TAVSİYE,,,,43,Standart Katalistsiz: 51×0.85=43,
+2026-03-19,AHSGY,Gayrimenkul,14.8,3124.0,1933.0,390.0,4.77,9.77,51.2,1.62,1.23,-31.7,58,🟠 TAVSİYE,T2,2,Başakşehir Doğu + Prime Tower Maslak arsa ihaleleri,41,GYO+Katalist: 58×0.70=41,
+2026-03-19,MTRKS,Bilişim ve Yazılım,2.2,241.0,100.0,350.0,8.87,33.15,73.2,2.24,16.64,86.5,48,🟠 TAVSİYE,,,,41,Standart Katalistsiz: 48×0.85=41,
+2026-03-19,IHGZT,Kağıt ve Kağıt Ürünleri,1.2,231.0,380.0,9.0,4.98,5.01,0.6,0.28,0.54,48.1,48,🟠 TAVSİYE,,,,41,Standart Katalistsiz: 48×0.85=41,
+2026-03-19,KIMMR,Gıda Perakendeciliği,4.6,650.0,339.0,1188.0,7.01,11.96,41.4,1.04,1.58,34.2,47,🟠 TAVSİYE,,,,40,Standart Katalistsiz: 47×0.85=40,
+2026-03-19,BNTAS,Ambalaj,1.5,240.0,79.0,191.0,6.32,8.25,23.4,0.98,1.6,38.8,47,🟠 TAVSİYE,,,,40,Standart Katalistsiz: 47×0.85=40,
+2026-03-19,YEOTK,Enerji Teknolojileri,17.3,1477.0,726.0,3176.0,11.98,30.12,60.2,4.29,14.72,70.9,40,🟠 TAVSİYE,T1,2,2 yeni iş ilişkisi (Şub-Mar 2026),40,Standart+Katalist ✅,
+2026-03-19,TTKOM,Haberleşme,207.0,22980.0,718.0,99102.0,9.02,15.1,40.3,0.98,1.99,50.8,46,⚪ İZLEME,,,,39,Standart Katalistsiz: 46×0.85=39,
+2026-03-19,GLRYH,Holding,2.6,1195.0,659.0,9133.0,2.19,13.39,83.6,0.5,2.79,82.1,80,⚪ İZLEME,,,,39,Holding: ham80→düz24 +NAV(+10) +İçAlım(+5) =39,NAV%33isk: A1CAP(3.41B)+PRDGS(0.37B)+RTALB(0.10B)=3.88B>PD2.6B. PayGeriAlım aktif(Mar2026)
+2026-03-19,ATATP,Bilişim ve Yazılım,13.8,2053.0,340.0,4003.0,6.63,27.7,76.1,3.09,8.07,61.7,45,⚪ İZLEME,,,,38,Standart Katalistsiz: 45×0.85=38,
+2026-03-19,GSDDE,Ulaştırma,1.5,187.0,336.0,261.0,7.96,31.83,75.0,0.54,0.75,28.0,45,⚪ İZLEME,,,,38,Standart Katalistsiz: 45×0.85=38,
+2026-03-19,KATMR,Metal Eşya ve Makine,6.4,662.0,111.0,606.0,9.37,17.86,47.5,0.72,1.35,46.7,44,⚪ İZLEME,,,,37,Standart Katalistsiz: 44×0.85=37,
+2026-03-19,PGSUS,Ulaştırma,88.8,13750.0,423.0,37096.0,6.49,6.81,4.7,0.76,1.93,60.6,43,⚪ İZLEME,,,,37,Standart Katalistsiz: 43×0.85=37,
+2026-03-19,SAYAS,Enerji Teknolojileri,3.3,153.0,9.0,363.0,21.86,31.76,31.2,2.73,8.07,66.2,37,⚪ İZLEME,T2,2,Rüzgar enerji sektörü 2 ihale,37,Standart+Katalist ✅,
+2026-03-19,SRVGY,Gayrimenkul,10.8,3338.0,2991.0,2656.0,3.2,3.61,11.4,0.38,1.13,66.4,65,⚪ İZLEME,,,,36,GYO ÇiftUcuz Katalistsiz: 65×0.55=36,
+2026-03-19,AKFGY,Gayrimenkul,11.3,2611.0,1147.0,1387.0,4.32,5.33,18.9,0.34,0.58,41.4,64,⚪ İZLEME,,,,35,GYO ÇiftUcuz Katalistsiz: 64×0.55=35,
+2026-03-19,TUREX,Servis Taşımacılığı ve Araç Kiralama,8.1,608.0,24.0,2110.0,13.71,20.56,33.3,1.13,3.46,67.3,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35,
+2026-03-19,PNLSN,İnşaat,3.8,257.0,170.0,379.0,14.73,21.59,31.8,1.26,3.06,58.8,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35,
+2026-03-19,ASUZU,Otomotiv,16.7,904.0,551.0,1513.0,18.49,26.83,31.1,1.15,2.43,52.7,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35,
+2026-03-19,YUNSA,"Tekstil, Giyim ve Deri",3.9,378.0,51.0,321.0,10.55,14.28,26.1,0.91,1.94,53.1,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35,
+2026-03-19,YYLGD,Gıda ve İçecek,12.1,903.0,36.0,2037.0,13.4,17.9,25.1,0.9,2.67,66.3,41,⚪ İZLEME,,,,35,Standart Katalistsiz: 41×0.85=35,
+2026-03-19,HTTBT,Bilişim ve Yazılım,11.1,388.0,101.0,699.0,28.85,54.21,46.8,3.78,5.64,33.0,34,⚪ İZLEME,T1,1,Basra Airlines havacılık yazılım sözleşmesi,34,Standart+Katalist ✅,
+2026-03-19,AKSA,Kimya ve Plastik,43.1,4016.0,1322.0,5729.0,10.75,21.14,49.1,1.32,2.32,43.1,39,⚪ İZLEME,,,,33,Standart Katalistsiz: 39×0.85=33,
+2026-03-19,ARTMS,"Tekstil, Giyim ve Deri",2.8,243.0,71.0,206.0,11.06,16.23,31.9,1.23,1.89,34.9,39,⚪ İZLEME,,,,33,Standart Katalistsiz: 39×0.85=33,
+2026-03-19,BESTE,Enerji Üretim ve Dağıtım,4.6,190.0,11.0,261.0,23.72,26.01,8.8,1.24,1.36,8.8,33,⚪ İZLEME,T2,2,Enerji yatırım + araç muayene istasyonu,33,Standart+Katalist ✅,
+2026-03-19,EUPWR,Enerji Teknolojileri,22.8,600.0,-60.0,2368.0,37.97,39.75,4.5,2.16,7.3,70.4,33,⚪ İZLEME,T1,7,Yeni sipariş + çok sayıda ihale (GESAN ortak),33,Standart+Katalist ✅,
+2026-03-19,MHRGY,Gayrimenkul,4.3,488.0,454.0,152.0,8.75,32.66,73.2,0.52,0.83,37.3,58,⚪ İZLEME,,,,32,GYO ÇiftUcuz Katalistsiz: 58×0.55=32,
+2026-03-19,KZBGY,Gayrimenkul,12.5,853.0,792.0,1164.0,14.62,23.29,37.2,0.57,9.09,93.7,56,⚪ İZLEME,,,,31,GYO ÇiftUcuz Katalistsiz: 56×0.55=31,
+2026-03-19,VBTYZ,Bilişim ve Yazılım,2.6,175.0,151.0,487.0,14.41,26.97,46.6,2.77,5.67,51.1,37,⚪ İZLEME,,,,31,Standart Katalistsiz: 37×0.85=31,
+2026-03-19,ECOGR,Enerji Üretim ve Dağıtım,19.1,451.0,238.0,1856.0,43.47,67.61,35.7,1.17,0.87,-34.5,36,⚪ İZLEME,,,,31,Standart Katalistsiz: 36×0.85=31,
+2026-03-19,LILAK,Kağıt ve Kağıt Ürünleri,19.5,1704.0,231.0,2613.0,10.98,15.78,30.4,1.15,1.33,13.5,36,⚪ İZLEME,,,,31,Standart Katalistsiz: 36×0.85=31,
+2026-03-19,LOGO,Bilişim ve Yazılım,12.8,1500.0,71.0,2010.0,8.58,21.48,60.1,3.45,4.69,26.4,35,⚪ İZLEME,,,,30,Standart Katalistsiz: 35×0.85=30,
+2026-03-19,ULKER,Gıda ve İçecek,41.5,4874.0,80.0,18416.0,8.5,9.32,8.8,0.96,2.05,53.2,35,⚪ İZLEME,,,,30,Standart Katalistsiz: 35×0.85=30,
+2026-03-19,OYYAT,Aracı Kurum,19.3,2268.0,2058.0,7645.0,8.37,12.47,32.9,1.56,2.94,46.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29,
+2026-03-19,ARASE,Enerji Üretim ve Dağıtım,25.6,2239.0,585.0,7896.0,11.4,14.25,20.0,1.28,2.06,37.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29,
+2026-03-19,IZENR,Enerji Üretim ve Dağıtım,23.4,695.0,406.0,2018.0,33.5,40.74,17.8,1.37,2.63,47.9,34,🔴 ELEN,,,,29,Standart Katalistsiz: 34×0.85=29,
+2026-03-19,CWENE,Enerji Teknolojileri,31.1,2215.0,589.0,3173.0,14.13,37.71,62.5,2.24,6.24,64.1,33,🔴 ELEN,,,,28,Standart Katalistsiz: 33×0.85=28,
+2026-03-19,SISE,"Cam, Seramik, Porselen",135.6,9877.0,3884.0,18831.0,13.59,15.03,9.6,0.55,0.99,44.4,33,🔴 ELEN,,,,28,Standart Katalistsiz: 33×0.85=28,
+2026-03-19,NTGAZ,Enerji Üretim ve Dağıtım,9.0,900.0,343.0,1701.0,9.87,11.06,10.8,1.76,1.84,4.3,28,🔴 ELEN,T2,1,ÇAYKUR satın alma ihalesi,28,Standart+Katalist ✅,
+2026-03-19,EUHOL,Holding,1.9,1113.0,1054.0,1698.0,1.79,50.88,96.5,0.44,2.45,82.0,85,🔴 ELEN,,,,26,Holding Katalistsiz: 85×0.30=26,"NAV hesaplanamaz: iştirakleri(EgeSigorta,EuroFinans) borsada değil"
+2026-03-19,BULGS,Girişim Sermayesi Yat. Ort.,11.9,1635.0,697.0,552.0,6.93,10.74,35.5,1.52,1.75,13.1,31,🔴 ELEN,,,,26,Standart Katalistsiz: 31×0.85=26,
+2026-03-19,EUREN,Enerji Üretim ve Dağıtım,10.2,835.0,-470.0,1004.0,12.09,13.6,11.1,0.99,2.88,65.6,30,🔴 ELEN,,,,26,Standart Katalistsiz: 30×0.85=26,
+2026-03-19,EGPRO,Kimya ve Plastik,15.8,1124.0,337.0,2826.0,14.16,16.72,15.3,1.79,2.87,37.6,29,🔴 ELEN,,,,25,Standart Katalistsiz: 29×0.85=25,
+2026-03-19,GLRMK,İnşaat,54.9,4279.0,333.0,6099.0,12.66,13.33,5.0,3.05,4.04,24.5,25,🔴 ELEN,T1,3,Polonya Varşova Metrosu + C1 Tymbark demiryolu ihalesi,25,Standart+Katalist ✅,
+2026-03-19,EGEGY,Gayrimenkul,5.8,811.0,404.0,747.0,7.2,16.94,57.5,3.41,7.68,55.6,43,🔴 ELEN,,,,24,GYO ÇiftUcuz Katalistsiz: 43×0.55=24,
+2026-03-19,OZSUB,"Tarım, Hayvancılık, Balıkçılık",2.7,294.0,80.0,546.0,10.05,25.73,60.9,2.87,3.74,23.3,28,🔴 ELEN,,,,24,Standart Katalistsiz: 28×0.85=24,
+2026-03-19,MEGMT,Ana Metal,18.7,1469.0,311.0,1175.0,12.64,18.12,30.2,4.68,2.79,-67.7,24,🔴 ELEN,T2,2,2 yeni iş ilişkisi,24,Standart+Katalist ✅,
+2026-03-19,KRGYO,Gayrimenkul,2.7,142.0,5.0,97.0,19.21,22.19,13.4,1.13,4.62,75.5,40,🔴 ELEN,,,,22,GYO ÇiftUcuz Katalistsiz: 40×0.55=22,
+2026-03-19,CMENT,"Taş, Toprak, Çimento",29.5,1200.0,446.0,2718.0,24.6,27.89,11.8,1.87,4.16,55.0,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21,
+2026-03-19,ALVES,İmalat,4.8,102.0,34.0,2047.0,46.8,50.27,6.9,1.77,29.47,94.0,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21,
+2026-03-19,GENTS,Mobilya ve Dekorasyon,6.3,259.0,185.0,783.0,23.4,24.61,4.9,1.76,4.66,62.2,25,🔴 ELEN,,,,21,Standart Katalistsiz: 25×0.85=21,
+2026-03-19,GEDIK,Aracı Kurum,10.7,1507.0,248.0,1329.0,7.12,13.79,48.4,2.11,2.92,27.7,24,🔴 ELEN,,,,20,Standart Katalistsiz: 24×0.85=20,
+2026-03-19,TOASO,Otomotiv,155.1,8353.0,5295.0,9997.0,18.46,22.14,16.6,2.57,3.95,34.9,22,🔴 ELEN,,,,19,Standart Katalistsiz: 22×0.85=19,
+2026-03-19,TCKRC,İmalat,16.0,1222.0,578.0,1222.0,13.19,16.78,21.4,3.13,2.23,-40.4,19,🔴 ELEN,T2,2,Aydınlatma direği üretim sözleşmesi + Karayolları ihale,19,Standart+Katalist ✅,
+2026-03-19,SANEL,İnşaat,0.7,115.0,26.0,68.0,5.64,8.98,37.2,4.62,29.33,84.2,21,🔴 ELEN,,,,18,Standart Katalistsiz: 21×0.85=18,
+2026-03-19,TERA,Aracı Kurum,224.2,37334.0,1409.0,38316.0,5.96,12.97,54.0,7.35,4.98,-47.6,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17,
+2026-03-19,GENKM,Kimya ve Plastik,8.3,249.0,88.0,725.0,32.33,36.57,11.6,1.53,1.73,11.6,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17,
+2026-03-19,ENKAI,İnşaat,557.7,36183.0,9905.0,33943.0,15.95,16.24,1.8,1.55,1.18,-31.4,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17,
+2026-03-19,AKHAN,Gıda ve İçecek,6.9,156.0,109.0,612.0,45.09,45.61,1.1,1.89,1.91,1.0,20,🔴 ELEN,,,,17,Standart Katalistsiz: 20×0.85=17,
+2026-03-19,TEHOL,Holding,33.1,2788.0,-78.0,1706.0,12.24,17.27,29.1,4.22,6.91,38.9,19,🔴 ELEN,,,,17,Holding: ham50→düz15 +İştArtırma(+2) =17,NAV primli: borsadaki iştirak(MANAS 2B)<<PD33B
+2026-03-19,GRTHO,Gıda ve İçecek,30.2,1796.0,857.0,786.0,16.84,31.92,47.2,3.35,4.98,32.7,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16,
+2026-03-19,PKART,Bilişim ve Yazılım,1.7,68.0,73.0,189.0,24.77,40.88,39.4,3.54,6.47,45.3,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16,
+2026-03-19,PKENT,Turizm,3.8,178.0,-3.0,116.0,21.69,30.71,29.4,2.16,9.02,76.1,19,🔴 ELEN,,,,16,Standart Katalistsiz: 19×0.85=16,
+2026-03-19,KBORU,Ana Metal,10.7,643.0,0.0,816.0,16.81,18.34,8.3,2.43,3.09,21.4,16,🔴 ELEN,T2,1,Yeni iş sözleşmesi (Mar 2026),16,Standart+Katalist ✅,
+2026-03-19,KRONT,Haberleşme,3.6,146.0,89.0,215.0,26.04,38.01,31.5,5.17,6.66,22.4,16,🔴 ELEN,,,,14,Standart Katalistsiz: 16×0.85=14,
+2026-03-19,MACKO,Destek ve Hizmet,3.2,321.0,30.0,602.0,9.98,12.31,18.9,4.64,7.08,34.5,14,🔴 ELEN,,,,12,Standart Katalistsiz: 14×0.85=12,
+2026-03-19,PSDTC,Toptan ve Perakende Ticaret,1.0,54.0,13.0,5.0,16.39,19.77,17.1,4.03,6.15,34.5,14,🔴 ELEN,,,,12,Standart Katalistsiz: 14×0.85=12,
+2026-03-19,CLEBI,Ulaştırma,44.4,3637.0,1391.0,5488.0,11.95,15.82,24.5,5.18,6.67,22.3,11,🔴 ELEN,,,,9,Standart Katalistsiz: 11×0.85=9,
+2026-03-19,BEYAZ,Destek ve Hizmet,2.8,132.0,0.0,430.0,21.47,22.81,5.9,2.13,3.6,40.8,11,🔴 ELEN,,,,9,Standart Katalistsiz: 11×0.85=9,
+2026-03-19,LYDYE,Enerji Üretim ve Dağıtım,34.9,2055.0,1514.0,15.0,15.99,18.5,13.6,9.26,465.55,98.0,10,🔴 ELEN,,,,8,Standart Katalistsiz: 10×0.85=8,
+2026-03-19,RALYH,Holding,46.5,2317.0,1055.0,1795.0,19.66,23.93,17.8,7.32,9.64,24.1,21,🔴 ELEN,,,,6,Holding Katalistsiz: 21×0.30=6,NAV hesaplanamaz: iştirakleri özel. PayGeriAlım sona erdi(Eki2025)
+2026-03-19,GRSEL,Servis Taşımacılığı ve Araç Kiralama,33.0,2889.0,962.0,3745.0,11.72,12.72,7.9,3.23,3.47,6.9,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4,
+2026-03-19,DOFRB,İmalat,15.2,244.0,208.0,354.0,63.85,68.03,6.1,7.57,7.36,-2.9,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4,
+2026-03-19,ATATR,Turizm,8.6,377.0,104.0,933.0,22.73,23.8,4.5,3.27,3.42,4.4,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4,
+2026-03-19,MEYSU,Gıda ve İçecek,11.5,494.0,206.0,918.0,23.01,23.11,0.4,3.45,3.46,0.3,5,🔴 ELEN,,,,4,Standart Katalistsiz: 5×0.85=4,
