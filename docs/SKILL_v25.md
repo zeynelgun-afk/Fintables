@@ -64,12 +64,50 @@ AND ft.hisse_senedi_kodu = ANY(ARRAY['{YENİ_KODLAR}'])
 - GYO/Holding çift filtre bonus (10p)
 - Sektör çarpanları uygulanır (Teknoloji 1.875x, Enerji 0.75x, vb.)
 
-### Adım 4: KAP Katalist Kontrolü
+### Adım 4a: KAP ODA Haberleri
 ```
 dokumanlarda_ara: filter='iliskili_semboller = "{KOD}" AND kap_bildirim_konu = "Yeni İş İlişkisi"'
 dokumanlarda_ara: filter='iliskili_semboller = "{KOD}" AND kap_bildirim_konu = "İhale Süreci / Sonucu"'
 ```
 T1 → +15p (+5 stacking), T2 → +8p (+5 stacking)
+
+### Adım 4b: Faaliyet Raporu + Dipnot Taraması
+KAP ODA haberlerinde görünmeyen ama raporlarda saklı katalistleri yakalar.
+
+**Faaliyet Raporu** — yönetimin kendi ağzından gelecek beklentileri:
+```
+dokumanlarda_ara:
+  filter='dokuman_tipi = "faaliyet_raporu" AND iliskili_semboller = "{KOD}" AND yil = {YIL} AND ay = {AY}'
+  query='yatırım kapasite hedef beklenti büyüme strateji ihracat sipariş'
+```
+Aranan bilgiler: Yeni yatırım planları, kapasite artışı hedefleri, ihracat stratejisi, gelecek guidance, kapasite kullanım oranları.
+İlgili chunk bulunursa → `dokuman_chunk_yukle` ile tam oku → T1/T2 katalist olarak sınıflandır.
+
+**Dipnotlar (Finansal Rapor)** — bilanço sonrası olaylar (en kritik):
+```
+dokumanlarda_ara:
+  filter='dokuman_tipi = "finansal_rapor" AND iliskili_semboller = "{KOD}" AND yil = {YIL} AND ay = {AY}'
+  query='bilanço sonrası olaylar raporlama'
+```
+→ Not numarasını ve sayfa aralığını bul (örn: "NOT-37 BİLANÇO TARİHİNDEN SONRAKİ OLAYLAR sayfa 67-69")
+→ `dokumanlarda_ara: filter='dokuman_id = "{ID}" AND sayfa_no >= 67 AND sayfa_no <= 69'`
+→ `dokuman_chunk_yukle` ile o sayfaları oku
+Aranan bilgiler: Bilanço kapanışından sonra gerçekleşen büyük sözleşmeler, satın almalar, yatırım kararları, dava sonuçları.
+
+Ayrıca dipnotlarda kontrol edilecek diğer kritik bilgiler:
+- **Koşullu yükümlülükler/davalar** → Büyük dava riski varsa -5 ceza
+- **İlişkili taraf işlemleri** → Anormal büyüklükte transfer → ⚠️ uyarı
+- **Teminat/rehin** → Yüksek teminat yükü → kaldıraç riski notu
+
+**Tam Taramada (93 hisse):** Toplu konu bazlı arama:
+```
+dokumanlarda_ara:
+  filter='dokuman_tipi = "faaliyet_raporu" AND yil = {YIL} AND ay = {AY}'
+  query='yatırım kapasite artışı hedef büyüme ihracat sipariş sözleşme'
+  sayfa_basi=50
+```
+→ Dönen sonuçlardaki `iliskili_semboller` ile 93 hisse listesi eşleştir
+→ Eşleşen hisseler için chunk detay yükle
 
 ### Adım 5: Yapısal İskonto Düzeltmesi
 | Tip | Koşul | Katsayı |
@@ -103,7 +141,9 @@ Değerlenen her hisse için:
 📌 KOD — [Sektör]
 💰 NK TTM: XM | FAVÖK: YM | F/K: A.Ax (3Y ort: B.Bx, isk %C)
 📊 PD/DD: D.Dx | Skor: E → Düzeltilmiş: F | Sinyal: {emoji}
-📰 Katalist: {varsa özet / yoksa "katalist yok"}
+📰 KAP ODA: {sözleşme/ihale haberleri özet / "haber yok"}
+📋 Faaliyet Raporu: {yatırım planı/kapasite hedefi/gelecek beklentisi / "özel bilgi yok"}
+📎 Dipnot: {bilanço sonrası olay / koşullu yükümlülük / "önemli not yok"}
 ```
 
 ---
@@ -196,9 +236,10 @@ Faiz indirimi trendi → gerçekleşme %50-70
 2. Kapsamlı CTE Sorgu × 6 batch (OFFSET 0/100/200/300/400/500) → 574 hisse verisi
 3. SQL filtreleme (NK>0, FAVÖK>0, F/K iskontolu) → ~93 hisse
 4. Python skorlama → ham skor
-5. KAP toplu katalist taraması (konu bazlı):
-   - "Yeni İş İlişkisi" (son 6 ay)
-   - "İhale Süreci / Sonucu" (son 6 ay)
+5. KAP katalist taraması (3 kaynak):
+   a. ODA haberleri: "Yeni İş İlişkisi" + "İhale Süreci/Sonucu" (son 6 ay)
+   b. Faaliyet raporları: toplu arama "yatırım kapasite büyüme ihracat" → eşleştir
+   c. Dipnotlar: toplu arama "bilanço sonrası olaylar" → eşleştir
    - 93 hisseyle eşleştir → T1/T2 bonus
 6. Yapısal iskonto düzeltmesi → düzeltilmiş skor
 7. Holding 3 Modül (varsa)
@@ -207,10 +248,11 @@ Faiz indirimi trendi → gerçekleşme %50-70
 ### Tekil Bilanço Değerleme ("son bilançoları değerle")
 1. Yeni açıklanan bilançoları tespit et
 2. Kapsamlı CTE Sorgu (sadece o hisseler)
-3. Skorlama + KAP katalist kontrolü
-4. Yapısal iskonto düzeltmesi
-5. Mevcut 2025_4Q.csv'ye satır ekle (append)
-6. GitHub push
+3. Skorlama
+4. KAP katalist kontrolü (3 kaynak): ODA haberleri + faaliyet raporu + dipnotlar
+5. Yapısal iskonto düzeltmesi
+6. Mevcut 2025_4Q.csv'ye satır ekle (append)
+7. GitHub push
 
 ---
 
