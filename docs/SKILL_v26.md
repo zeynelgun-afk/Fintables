@@ -383,6 +383,72 @@ TTKOM vakası: Q4 NK / TTM NK = 719M / 23B = %3.1
   Doğru: TTM F/K = 9.01x
 ```
 
+### Gelecek Sözleşme Değerleme Bonusu (v2.6b — Rule 17, CATES Vakasından)
+```
+★ Rule 12/14 geçmiş çeyreğin kâr kalitesini cezalandırır — DOĞRU.
+  AMA: Gelecek gelir görünürlüğü sağlayan büyük sözleşmeler varsa,
+  geçmiş operasyonel zayıflık gelecekte düzelebilir.
+  Bu kural Faz 3'te KAP haberi taranırken uygulanır.
+
+KOŞUL: KAP'ta veya web'de tespit edilen GARANTİLİ GELİR SÖZLEŞMESİ varsa:
+  (alım garantisi, off-take, uzun vadeli satış anlaşması, EÜAŞ sözleşme vb.)
+
+SÖZLEŞME BÜYÜKLÜK PUANI (max 20p):
+  Yıllık Garanti Gelir / Ciro oranına göre:
+    > %50 → +20p (TRANSFORMATÖR — cironun yarısından fazlası garanti)
+    %30-50 → +15p
+    %10-30 → +10p
+    < %10 → +5p
+
+SÜRE ÇARPANI:
+  > 3 yıl → puan × 1.5 (uzun vadeli görünürlük)
+  1-3 yıl → puan × 1.0
+  < 1 yıl → puan × 0.7 (kısa vadeli, sınırlı etki)
+
+DÖVİZ BONUSU:
+  USD/EUR bazlı sözleşme → +5p ek (kur koruması + TL zayıflamasında upside)
+  TL bazlı → +0p
+
+UPSIDE BONUSU:
+  Taban fiyat + piyasa fiyatı üstü açık → +3p (PTF yükselirse ekstra kâr)
+  Sabit fiyat (upside yok) → +0p
+
+RULE 12/14 CEZA HAFİFLETME:
+  ★ Garantili sözleşme tespit edildiyse VE sözleşme bonusu ≥ 15p ise:
+    Rule 12 cezası ×0.5 → ×0.7'ye hafiflet (gelecek kâr kalitesi farklı olabilir)
+    Rule 14 cezası ×0.7 → ×0.85'e hafiflet (tek seferlik gelir + gelecek garanti)
+  Gerekçe: Geçmiş çeyrek operasyonel zayıflık gösterse bile, garantili gelecek
+  sözleşme hisse değerini korur. Piyasa bunu fiyatlıyor (CATES +45% kanıt).
+
+CATES EÜAŞ vakası (29 Ekim 2025):
+  Sözleşme: 4 yıl, yıllık 1.65M MWh, min 75 USD/MWh
+  Yıllık garanti gelir: ~4.46B TL = ciro %69 → +20p (TRANSFORMATÖR)
+  Süre: 4 yıl → × 1.5 = 30p
+  Döviz: USD bazlı → +5p
+  Upside: PTF > 75 USD ise piyasa fiyatı → +3p
+  TOPLAM SÖZLEŞME BONUSU: 38p
+  
+  Rule 12 hafifletme: ×0.5 → ×0.7 (sözleşme bonusu 38p ≥ 15p)
+  
+  Düzeltilmiş skor:
+    ESKİ: ~50p × 0.5 (R12) × 0.7 (R14) = ~18p → ELEN
+    YENİ: ~50p × 0.7 (R12 hafif) × 0.85 (R14 hafif) + 38p bonus
+         = ~30p + 38p = ~68p → 🟡 FWD
+    Piyasa: CATES sözleşme sonrası +45% → framework artık piyasayla uyumlu
+
+GOKNR Kazakistan vakası (Ekim 2025):
+  Sözleşme: Fabrika kurulumu + off-take (alım garantisi), 18M USD
+  Garanti gelir: ~650M TL/yıl, ciro %9 → +5p
+  Süre: ~3 yıl → × 1.0 = 5p
+  Döviz: USD → +5p
+  TOPLAM: 10p (sözleşme bonusu < 15p → Rule 12 hafifletme YOK)
+
+★ DİKKAT: Sözleşme bonusu sadece GARANTİLİ gelir için geçerli.
+  "Görüşmelere başlandı" veya "MoU imzalandı" → bonus verilmez (henüz garanti değil)
+  "Sözleşme imzalandı" + tutarı belli → bonus verilir
+  "İhale kazanıldı" + resmi onay → bonus verilir
+```
+
 ---
 
 ## KATMAN 1C — PEG Ratio + Kâr Momentum
