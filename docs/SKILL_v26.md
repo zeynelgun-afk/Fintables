@@ -695,14 +695,28 @@ GÜVENLİK MARJI (downside koruması):
   Ayrıca: Hedef fiyat en az = defter değeri (taban fiyat)
 ```
 
-### SİNYAL SİSTEMİ (Potansiyel Bazlı)
+### SİNYAL SİSTEMİ (FAİZ BAZLI — Dinamik Eşikler)
 ```
-🏆 ALTIN FIRSAT  → Potansiyel > %50 + T1/T2 Katalist
-🟢 GÜÇLÜ AL      → Potansiyel > %50 (katalistsiz) veya > %30 + T1 Katalist
-🟡 AL            → Potansiyel %20-%50
-🟠 TUT           → Potansiyel %0-%20
-⚪ İZLE          → Potansiyel -%10-%0 (hafif negatif, bekle)
-🔴 SAT           → Potansiyel < -%10 (makro risk veya aşırı değerli)
+★ Sinyal eşikleri TCMB faizine bağlıdır. Mevduattan iyi performans gösteremeyen hisseye AL DENMEZ.
+
+Minimum AL Eşiği = Risksiz Getiri + Hisse Risk Primi
+Risksiz Getiri = TCMB Politika Faizi (mevduat yaklaşık bu kadar verir)
+Hisse Risk Primi = +%15 (BIST tarihsel risk primi)
+
+Örnek: TCMB %37 → Min AL = %37 + %15 = %52
+        TCMB %25 → Min AL = %25 + %15 = %40
+        TCMB %15 → Min AL = %15 + %15 = %30
+
+🏆 ALTIN FIRSAT  → Potansiyel > Min AL×1.5 + T1/T2 Katalist (~%80 @%37 faiz)
+🟢 GÜÇLÜ AL      → Potansiyel > Min AL + Katalist VEYA > Min AL×1.5 (~%80 katalistsiz)
+🟡 AL            → Potansiyel > Min AL (~%52 @%37 faiz — mevduattan iyi)
+🟠 TUT           → Potansiyel %30 - Min AL (mevduata yakın ama potansiyel var)
+⚪ İZLE          → Potansiyel %0-%30 (mevduat daha iyi — hisse almaya değmez)
+🔴 SAT           → Potansiyel < %0
+
+Neden: %37 faizle mevduat yılda ~%40 veriyor. %20 potansiyelli hisseye AL demek
+       yatırımcıya zarar verir — risksiz alternatif daha iyi. Faiz düştükçe eşik düşer,
+       daha çok hisse AL sinyali alır. Bu otomatik çalışır.
 ```
 
 ---
@@ -957,14 +971,15 @@ GÜVENLİK MARJI (downside koruması):
 ═══════════════════════════════════════════════════════════════
 ```
 
-### SİNYAL SİSTEMİ (Potansiyel Bazlı — Skor DEĞİL)
+### SİNYAL SİSTEMİ (FAİZ BAZLI — Yukarıdaki ile aynı)
 ```
-🏆 ALTIN FIRSAT  → Potansiyel > %50 + T1/T2 Katalist
-🟢 GÜÇLÜ AL      → Potansiyel > %50 (katalistsiz) veya > %30 + T1 Katalist
-🟡 AL            → Potansiyel %20-%50
-🟠 TUT           → Potansiyel %0-%20
-⚪ İZLE          → Potansiyel -%10-%0
-🔴 SAT           → Potansiyel < -%10
+Min AL = TCMB Faizi + %15 Risk Primi
+🏆 ALTIN FIRSAT  → Pot > Min AL×1.5 + T1/T2 Katalist
+🟢 GÜÇLÜ AL      → Pot > Min AL + Katalist VEYA > Min AL×1.5
+🟡 AL            → Pot > Min AL (mevduattan iyi)
+🟠 TUT           → Pot %30 - Min AL
+⚪ İZLE          → Pot %0-%30 (mevduat daha iyi)
+🔴 SAT           → Pot < %0
 ```
 
 ### BATCH OPTİMİZASYONU
