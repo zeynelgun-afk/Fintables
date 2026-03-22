@@ -126,6 +126,8 @@ GYO (10 hisse):
 9. **3Y F/K ort yanıltıcı olabilir (v2.6)** — Kronik zarardaki şirketlerde kârlı az günde yapay yüksek F/K → GSDDE vakası
 10. **Yatırım geliri tek seferlik (v2.6)** — Gemi/varlık satışı Faal.Kâr/NK'yı bozmaz ama sürdürülebilir değil → GSDDE vakası
 11. **Sektör F/K tavanı zorunlu (v2.6)** — 3Y kendi ortalaması sektör ortalamasından çok yüksekse sektör tavanı referans olur
+12. **Sektör Adil tavan çift cezalandırma (v2.6b)** — Rule 15'te "Adil × 1.5" kullanma, bu Forward F/K yönteminde zaten var. Yüksek faiz ortamında neredeyse tüm piyasayı cezalandırır.
+13. **Q4 kâr yoğunlaşması (v2.6b)** — Son Q NK / TTM NK > %70 veya < %10 ise Forward F/K güvenilmez, TTM F/K kullan. ESCOM (%99), OYYAT (%91), TTKOM (%3) vakaları.
 
 ---
 
@@ -165,8 +167,9 @@ düşük kârla yüksek F/K oluştu (ör: F/K 50-80x). Bu ortalamayla hesaplanan
 
 v2.6 Düzeltme (Rule 13 + Rule 15):
   Rule 13: fk_veri_sayisi %38 < %50 → Y2 skoru × 0.5
-  Rule 15: Referans = min(31.76, 16.96×1.5, 3.24×1.5) = min(31.76, 25.44, 4.86) = 4.86x
-           → 7.79 / 4.86 = sektör adilinin ÜSTÜNDE → iskonto YOK → Y2 = 0p
+  Rule 15: Referans = min(31.76, 16.96×1.5) = min(31.76, 25.44) = 25.44x
+           → (1 - 7.79/25.44) = %69.4 iskonto → Y2 ham 15p
+           AMA Rule 13 cezası: 15 × 0.5 = 7.5p
 ```
 
 ### Sorun 2: Yatırım Geliri Tek Seferlik
@@ -196,9 +199,9 @@ v2.6 Düzeltme (Rule 14):
 ```
 ESKI (v2.5): 83p → 🟢 ALTIN FIRSAT
 YENİ (v2.6):
-  Y2 (F/K İskonto): 15p → 0p (Rule 15: sektör adilinin üstünde)
+  Y2 (F/K İskonto): 15p → 7.5p (Rule 15: sektör tavanı 25.44x, Rule 13: × 0.5)
   Yatırım geliri cezası: × 0.5 (Rule 14: %52)
-  Ham skor: 83 - 15 = 68 → × 0.5 = 34p
+  Ham skor: 83 - 7.5 = 75.5 → × 0.5 = ~38p
   → 🟠 TAVSİYE (ALTIN'dan 3 kademe düşüş)
 
 GSDDE'nin gerçek hikayesi: Varlık iskontosu (PD ≈ Nakit), operasyonel nakit
@@ -213,4 +216,73 @@ gelirlerle yapay şişirilmiş. Potansiyel sınırlı (~%10-13).
 - Cash yield %27 → Operasyonel para makinesi
 - 2 yeni gemi siparişi (2028, 2029) → Filo genişleme Tier 2 katalist
 - BDI yükselişte (Hürmüz etkisi) → Kısa vadeli pozitif
+```
+
+---
+
+## Rule 15 Düzeltmesi — Sektör Adil × 1.5 Kaldırıldı (v2.6b)
+
+### Sorun
+Rule 15'in orijinal formülü `min(3Y ort, sektör ort × 1.5, sektör adil × 1.5)` idi.
+%37 faiz ortamında "Sektör Adil × 1.5" çok düşük tavan oluşturuyor:
+```
+Aracı Kurum: Adil 2.91 × 1.5 = 4.37x ama sektör gerçekte 7.60x'de!
+Sigorta:     Adil 2.91 × 1.5 = 4.37x ama sektör gerçekte 6.29x'de!
+Haberleşme:  Adil 3.40 × 1.5 = 5.10x ama sektör gerçekte 15.68x'de!
+```
+TOP 10'daki 6/10 hisse gereksiz yere "primli" çıkıyordu.
+
+### Düzeltme
+```
+ESKİ: Referans = min(3Y Kendi Ort, Sektör Ort × 1.5, Sektör Adil × 1.5)
+YENİ: Referans = min(3Y Kendi Ort, Sektör Ort × 1.5)
+```
+"Sektör Adil" karşılaştırması zaten Forward F/K yönteminde (25p ayrı skor) yapılıyor.
+Rule 15'te tekrar koymak çift cezalandırma.
+
+---
+
+## Rule 16 — Çeyreklik Kâr Yoğunlaşma Bulguları (v2.6b)
+
+### ESCOM Vakası — Proje Bazlı Kâr Yoğunlaşması
+```
+Q1 Ciro:  506K   | NK:  5.3M     Q4/TTM = %99.3
+Q2 Ciro:  512K   | NK:  2.3M     3 çeyrek boyunca neredeyse SIFIR ciro
+Q3 Ciro:  446K   | NK: -75K
+Q4 Ciro:  1.67B  | NK:  1.14B    ← TÜM GELİR VE KÂR TEK ÇEYREKTE
+
+Son Q × 4 = 4.58B → Forward F/K = 0.84x (sahte ucuzluk!)
+TTM F/K = 3.32x → Bu da ucuz ama 0.84x kadar abartılı değil.
+
+Sorun: "Bilişim ve Yazılım" sektörü DÜŞÜK mevsimsellik kategorisinde
+ama ESCOM proje bazlı çalışıyor → mevsimsellik kuralı yetersiz.
+Rule 16: Q4/TTM = %99 > %70 → Forward güvenilmez, TTM kullan.
+```
+
+### OYYAT Vakası — Finansman Etkisi Q4 Kâr Patlaması
+```
+Q1-Q4 Ciro: 4.8B → 7.4B → 8.9B → 9.6B (düzgün artış ✅)
+Q1-Q4 Faal.K: 1.5B → 1.6B → 1.5B → 3.0B (Q4 yüksek ama makul)
+Q1-Q4 NK: -191M → 254M → 147M → 2,058M (Q4 = %91!)
+
+NK Q4 patlaması Faal.Kâr'dan değil, Faal.Kâr altındaki kalemlerden.
+Faal.Kâr TTM 7.68B / NK TTM 2.27B → Finansman giderleri 5.4B yiyor.
+Q4'te finansman giderleri azaldığında NK patladı.
+
+Rule 16: Q4/TTM = %91 > %70 → Forward güvenilmez, TTM kullan.
+```
+
+### TTKOM Vakası — Q4 NK Çöküşü
+```
+Q1-Q4 Ciro: 54B → 57B → 62B → 69B (düzgün ✅)
+Q1-Q4 Faal.K: 8.8B → 11.5B → 15.8B → 12.6B (düzgün ✅)
+Q1-Q4 NK: 6.1B → 5.5B → 10.7B → 719M (Q4 = %3.1!)
+
+Q3→Q4 NK düşüşü -%93. Faal.Kâr düzgün, sorun altında:
+Muhtemelen enflasyon muhasebesi (IAS 29) veya finansman gideri patlaması.
+
+Son Q × 4 = 2.88B → Forward F/K = 72x (sahte pahalılık!)
+TTM F/K = 9.01x → Gerçek durum bu.
+
+Rule 16: Q4/TTM = %3.1 < %10 → Forward güvenilmez, TTM kullan.
 ```

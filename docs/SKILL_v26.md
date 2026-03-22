@@ -199,8 +199,12 @@ Sigorta: 0.75x | Maden/Metal: 0.75x
     Sorgu 14'te yatirim_geliri zaten çekiliyor (CATES için eklenmişti).
 
 15. SEKTÖR ORT. F/K TAVANI (3Y Kendi Ortalaması Sınırlaması)
-    Referans F/K = min(3Y Kendi Ort F/K, Sektör Güncel Ort F/K × 1.5, Sektör Adil F/K × 1.5)
-    Üç değerden en küçüğü referans olur.
+    Referans F/K = min(3Y Kendi Ort F/K, Sektör Güncel Ort F/K × 1.5)
+    İki değerden küçük olanı referans olur.
+    
+    ★ "Sektör Adil F/K × 1.5" KULLANILMAZ — faiz tavanı zaten Forward F/K yönteminde
+      (25 puanlık ayrı skor) uygulanıyor. Burada tekrar koymak çift cezalandırma yaratır.
+      %37 faiz ortamında Adil × 1.5 ≈ 4-6x → neredeyse tüm piyasa "primli" çıkar.
     
     Neden: Kronik zararda olan şirketlerin 3Y F/K ortalaması yapay yüksek olabilir
     (kârlı az sayıda günde düşük kârla yüksek F/K). Bu, sektördeki emsallerle
@@ -211,10 +215,10 @@ Sigorta: 0.75x | Maden/Metal: 0.75x
     
     GSDDE vakası:
       3Y Kendi Ort: 31.76x
-      Sektör Güncel Ort × 1.5: 16.96 × 1.5 = 25.44x
-      Sektör Adil × 1.5: 3.24 × 1.5 = 4.86x  ← TAVAN
-      → Referans = min(31.76, 25.44, 4.86) = 4.86x
-      → İskonto = (1 - 7.79/4.86) = NEGATİF → sektör adiline göre PRİMLİ → Y2 = 0p
+      Sektör Güncel Ort × 1.5: 16.96 × 1.5 = 25.44x  ← TAVAN
+      → Referans = min(31.76, 25.44) = 25.44x
+      → İskonto = (1 - 7.79/25.44) = %69.4 → DERİN
+      AMA: Rule 13 (fk_veri %38) → Y2 × 0.5 cezası uygulanır
     
     Sorgu 14'e sektor_ort_fk kolonu EKLENMELİ.
 ```
@@ -240,7 +244,7 @@ Filtreleme mantığı (SQL veya Python):
   yatirim_geliri / ciro_ttm > 0.5 → skor × 0.5 ceza (Rule 14)
   yatirim_geliri / ciro_ttm > 0.3 → skor × 0.7 ceza (Rule 14)
   fk_veri_sayisi / 750 < 0.5 → Y2 skoru × 0.5 (Rule 13)
-  referans_fk = min(ort_fk, sektor_ort_fk × 1.5, sektor_adil_fk × 1.5) (Rule 15)
+  referans_fk = min(ort_fk, sektor_ort_fk × 1.5) (Rule 15 — Adil F/K burada KULLANILMAZ)
 ```
 
 ### Piyasa Fazı (5 dönem doğrulanmış)
@@ -298,11 +302,11 @@ Tüm 6 yöntem Core Kâr bazında hesaplanır.
 ```
 12Q (3Y) Ort. F/K (outlier: F/K > 80 veya < 0 dışla, min 6Q veri)
 
-★ ÜÇ KATMANLI TAVAN (v2.6):
-Referans F/K = min(3Y Kendi Ort F/K, Sektör Güncel Ort F/K × 1.5, Sektör Adil F/K × 1.5)
-  - Sektör Adil F/K: TCMB faizi bazlı dinamik hesaplama × sektör çarpanı
+★ İKİ KATMANLI TAVAN (v2.6):
+Referans F/K = min(3Y Kendi Ort F/K, Sektör Güncel Ort F/K × 1.5)
   - Sektör Güncel Ort F/K: Aynı sektördeki tüm hisselerin son hafta ort F/K (0 < F/K < 40)
   - 3Y Kendi Ort: Şirketin kendi tarihsel ortalaması (mevcut kural)
+  - ★ "Sektör Adil × 1.5" burada KULLANILMAZ — Forward F/K yönteminde zaten var
 
 ★ VERİ GÜVENİLİRLİĞİ (v2.6):
 fk_veri_sayisi / ~750 < %50 → Y2 iskonto skoru × 0.5
@@ -331,6 +335,39 @@ DÜŞÜK (Sanayi, Banka, Telekom, Yazılım, Savunma, Gıda): Son Q × 4 ✅
 ORTA (Sigorta, Maden, İnşaat, Otomotiv): Son Q × 4 + YoY cross-check
 YÜKSEK (Turizm, Enerji, Perakende giyim, Tarım): YoY BAZLI ZORUNLU
 ÖZEL (Holding, GYO): Kâr annualize etme → NAV İskontosu kullan
+```
+
+### Çeyreklik Kâr Yoğunlaşma Kontrolü (v2.6 — Rule 16)
+```
+★ Mevsimsellik kuralları ÖNCE uygulanır, ardından bu kontrol çalışır.
+  "Son Q × 4" ancak kâr çeyreklere makul dağılmışsa güvenilirdir.
+
+Son Q NK / TTM NK > %70 → ⚠️ FORWARD GÜVENİLMEZ (Tüm kâr tek çeyrekte)
+  → Forward F/K yerine TTM F/K kullan
+  → Y6 (momentum) skoru = 0 (karşılaştırma anlamsız)
+  → Forward F/K vs Adil (25p) → TTM F/K vs Adil ile hesapla
+
+Son Q NK / TTM NK < %10 AND Son Q NK > 0 → ⚠️ FORWARD GÜVENİLMEZ (Q4 çöküş)
+  → Forward F/K yerine TTM F/K kullan
+  → Sebep araştır: enflasyon muhasebesi, finansman gideri, vergi
+
+Son Q NK ≤ 0 AND TTM NK > 0 → Zaten v2.4 Rule 6/7 ile yakalanır
+
+ESCOM vakası: Q1 5.3M + Q2 2.3M + Q3 -75K + Q4 1,144M = TTM 1,152M
+  Q4/TTM = %99.3 → FORWARD GÜVENİLMEZ
+  Q1-Q3 ciro toplamı 1.5M (!) vs Q4 ciro 1.67B → proje bazlı şirket
+  Son Q × 4 = 4.58B → Forward F/K 0.84x (sahte ucuzluk!)
+  Doğru: TTM F/K = 3.32x (bu da ucuz ama 0.84x kadar değil)
+
+OYYAT vakası: Q4 NK / TTM NK = 2.06B / 2.27B = %91
+  AMA: Faal.Kâr dağılımı düzgün (Q1-Q4: 1.5B, 1.6B, 1.5B, 3.0B)
+  NK Q4 patlaması Faal.Kâr altındaki kalemlerden → ⚠️
+  Forward F/K TTM bazlı hesaplanmalı
+
+TTKOM vakası: Q4 NK / TTM NK = 719M / 23B = %3.1
+  Q3 NK = 10.7B → Q4'te %93 düşüş (enfl. muh. veya fin. gideri)
+  Son Q × 4 = 2.88B → Forward F/K 72x (sahte pahalılık!)
+  Doğru: TTM F/K = 9.01x
 ```
 
 ---

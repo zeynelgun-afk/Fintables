@@ -370,9 +370,8 @@ Rule 14 — Yatırım Geliri / Ciro Kontrolü:
   Rule 12 yakalayamaz çünkü yatırım geliri finansman gideri ile dengelenebilir.
   GSDDE: Yat.Gel. 302M / Ciro 585M = %52 → skor × 0.5
 
-Rule 15 — Sektör Ort. F/K Tavanı:
-  sektor_adil_fk = dinamik_adil_fk * sektor_carpani  # TCMB bazlı
-  referans_fk = min(ort_fk, sektor_ort_fk * 1.5, sektor_adil_fk * 1.5)
+Rule 15 — Sektör Ort. F/K Tavanı (Adil F/K burada KULLANILMAZ):
+  referans_fk = min(ort_fk, sektor_ort_fk * 1.5)
   
   # Eğer referans kendi ortalamasından düşükse, o referansla iskonto hesapla
   if referans_fk < ort_fk:
@@ -383,7 +382,25 @@ Rule 15 — Sektör Ort. F/K Tavanı:
   # Negatif iskonto (primli) → Y2 = 0p
   if fk_iskonto < 0: y2_skor = 0
   
-  GSDDE: min(31.76, 25.44, 4.86) = 4.86x → 7.79/4.86 = primli → Y2 = 0p
+  GSDDE: min(31.76, 25.44) = 25.44x → (1-7.79/25.44) = %69.4 isk → Y2 15p
+  AMA Rule 13 (%38 veri) → 15 × 0.5 = 7.5p
+
+Rule 16 — Çeyreklik Kâr Yoğunlaşma Kontrolü:
+  if nk_ttm > 0 and nk_q4 is not None:
+      q4_yogunlasma = nk_q4 / nk_ttm
+      if q4_yogunlasma > 0.7:
+          # Tüm kâr son çeyrekte → Forward F/K güvenilmez
+          # Forward F/K yerine TTM F/K kullan, Y6 momentum = 0
+          fwd_fk = son_fk  # TTM F/K referans
+          y6_skor = 0
+      elif q4_yogunlasma < 0.1 and nk_q4 > 0:
+          # Q4 çöküş → Forward F/K güvenilmez
+          fwd_fk = son_fk  # TTM F/K referans
+          y6_skor = 0
+  
+  ESCOM: 1,144M / 1,152M = %99 → FORWARD GÜVENİLMEZ, TTM F/K (3.32x) kullan
+  OYYAT: 2,058M / 2,268M = %91 → FORWARD GÜVENİLMEZ, TTM F/K (8.52x) kullan
+  TTKOM: 719M / 22,981M = %3.1 → FORWARD GÜVENİLMEZ, TTM F/K (9.01x) kullan
 ```
 
 ---
