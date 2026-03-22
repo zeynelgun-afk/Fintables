@@ -1,77 +1,77 @@
-kod,sektor,faz12_skor,katalist_bonus,final_skor,sinyal,katalist_tier,katalist_bilgi,fk_iskonto,pddd_iskonto,faal_nk,q4_ttm,yg_ciro,uyari
-PLTUR,Servis Taşımacılığı ve Araç Kiralama,71,15,86,🏆 ALTIN,1,"Araç kiralama ihaleleri (sürekli, İBB+kamu)",20.4,54.4,339,68,0,
-ESCOM,Bilişim ve Yazılım,78,0,78,🟡 FWD,0,"Belirgin katalist yok (proje bazlı, Q4 yoğunlaşma)",56.5,51.5,144,99,0,R16H
-THYAO,Ulaştırma,58,20,78,🏆 ALTIN,1,AJet dönüşümü + kapasite artışı + yolcu rekoru,9.6,45.0,76,31,6.0,
-A1CAP,Aracı Kurum,75,0,75,🟡 FWD,0,Belirgin katalist yok,75.6,28.4,236,62,0.0,
-INFO,Aracı Kurum,59,15,74,🟡 FWD,1,Finansal duran varlık edinimi + pay devir sözleşmesi,54.3,47.4,120,1,0.0,R16L
-PGSUS,Ulaştırma,51,20,71,🟡 FWD,1,Uçuş kapasitesi artışı + talep güçlü,5.3,60.6,85,3,1.8,R16L
-ORGE,Enerji Teknolojileri,54,15,69,🟡 FWD,1,Altunizade-Bosna Metro + Bayburt Havalimanı + E-Ticaret Hub + DenizKoru,20.3,58.3,286,40,0.7,
-KATMR,Metal Eşya ve Makine,52,15,67,🟡 FWD,1,MSB savunma sözleşmesi + yeni sipariş,45.7,45.2,131,17,4.1,
-KRSTL,Gıda ve İçecek,66,0,66,🟡 FWD,0,Belirgin katalist yok,65.1,61.1,135,5,0.2,R16L
-ATATP,Bilişim ve Yazılım,50,15,65,🟡 FWD,1,European Energy Exchange + yazılım lisans sözleşmeleri,72.9,61.2,184,17,1.6,
-BNTAS,Ambalaj,62,0,62,🟡 FWD,0,Belirgin katalist yok,23.8,38.4,107,33,0.0,
-TTKOM,Haberleşme,56,5,61,🟡 FWD,0,Belirgin katalist yok,40.3,51.3,212,3,0.7,R16L
-GLRYH,Holding,60,0,60,🟡 FWD,0,"Holding, belirgin katalist yok",83.8,82.4,752,55,10.0,
-HLGYO,Gayrimenkul,58,0,58,🟠 TAVSİYE,0,"GYO, belirgin katalist yok",71.5,30.2,177,65,0,
-MTRKS,Bilişim ve Yazılım,58,0,58,🟠 TAVSİYE,0,Belirgin katalist yok,63.5,86.3,74,42,8.2,
-EUHOL,Holding,52,0,52,🟠 TAVSİYE,0,"Holding, belirgin katalist yok",91.8,82.4,154,95,1.4,R13
-AKSA,Kimya ve Plastik,47,5,52,🟠 TAVSİYE,0,Belirgin katalist yok,49.1,43.1,117,33,9.4,
-KZBGY,Gayrimenkul,51,0,51,🟠 TAVSİYE,0,"GYO, belirgin katalist yok",23.4,93.7,444,93,0.0,
-YYLGD,Gıda ve İçecek,51,0,51,🟠 TAVSİYE,0,Belirgin katalist yok,25.1,66.3,265,4,4.2,R16L
-ULKER,Gıda ve İçecek,45,5,50,🟠 TAVSİYE,0,,8.5,52.9,343,2,9.9,R16L
-BULGS,Girişim Sermayesi Yat. Ort.,48,0,48,🟠 TAVSİYE,0,Belirgin katalist yok,32.2,9.1,120,43,0,R13
-LOGO,Bilişim ve Yazılım,43,5,48,🟠 TAVSİYE,0,,60.1,26.9,82,5,15.7,R16L
-AKFGY,Gayrimenkul,47,0,47,🟠 TAVSİYE,0,,18.9,41.4,133,44,1.2,
-FONET,Bilişim ve Yazılım,47,0,47,🟠 TAVSİYE,0,,20.7,88.7,127,51,1.5,
-ASUZU,Otomotiv,46,0,46,🟠 TAVSİYE,0,,5.8,52.5,100,61,1.7,
-CGCAM,"Cam, Seramik, Porselen",46,0,46,🟠 TAVSİYE,0,,38.0,12.7,94,63,13.0,R13
-YUNSA,"Tekstil, Giyim ve Deri",46,0,46,🟠 TAVSİYE,0,,27.0,54.4,70,14,1.4,
-TUREX,Servis Taşımacılığı ve Araç Kiralama,46,0,46,🟠 TAVSİYE,0,,20.2,68.1,222,4,1.3,R16L
-SRVGY,Gayrimenkul,45,0,45,🟠 TAVSİYE,0,,10.8,65.5,189,90,3.6,
-ARASE,Enerji Üretim ve Dağıtım,44,0,44,🟠 TAVSİYE,0,,19.7,37.9,338,26,0,
-PNLSN,İnşaat,44,0,44,🟠 TAVSİYE,0,,24.5,58.8,110,66,20.4,
-LILAK,Kağıt ve Kağıt Ürünleri,39,5,44,🟠 TAVSİYE,0,,27.2,9.8,135,14,4.6,
-AKFIS,İnşaat,43,0,43,🟠 TAVSİYE,0,,23.0,-45.5,1086,74,1.5,R13+R16H
-ELITE,Gıda ve İçecek,41,0,41,🟠 TAVSİYE,0,,28.7,69.6,182,5,0.4,R16L
-AYES,İmalat,40,0,40,🟠 TAVSİYE,0,,76.6,37.5,30,112,3.6,R16H+R12w
-EGPRO,Kimya ve Plastik,39,0,39,⚪ İZLEME,0,,15.8,38.0,180,30,2.1,
-OYYAT,Aracı Kurum,39,0,39,⚪ İZLEME,0,,25.3,45.9,339,91,1.8,R16H
-OZSUB,"Tarım, Hayvancılık, Balıkçılık",37,0,37,⚪ İZLEME,0,,35.9,31.0,170,28,0.0,
-VBTYZ,Bilişim ve Yazılım,37,0,37,⚪ İZLEME,0,,40.1,49.6,182,87,0.3,R16H
-AHSGY,Gayrimenkul,35,0,35,⚪ İZLEME,0,,51.3,-30.9,99,62,9.6,R13
-GESAN,Enerji Teknolojileri,35,0,35,⚪ İZLEME,0,,10.4,72.8,409,6,0.6,R16L
-GENTS,Mobilya ve Dekorasyon,35,0,35,⚪ İZLEME,0,,1.7,61.2,300,71,1.5,R16H
-MERIT,Turizm,35,0,35,⚪ İZLEME,0,,77.8,62.2,27,43,0,R12
-YEOTK,Enerji Teknolojileri,35,0,35,⚪ İZLEME,0,,60.4,71.5,190,49,0.5,
-ENKAI,İnşaat,30,5,35,⚪ İZLEME,0,,5.1,-25.2,80,27,19.5,
-GEDIK,Aracı Kurum,34,0,34,⚪ İZLEME,0,,37.7,28.1,168,17,0.0,
-SAYAS,Enerji Teknolojileri,34,0,34,⚪ İZLEME,0,,27.9,67.0,271,6,3.0,R16L
-RGYAS,Gayrimenkul,29,5,34,⚪ İZLEME,0,,78.8,60.0,86,20,79.3,R14
-CWENE,Enerji Teknolojileri,33,0,33,⚪ İZLEME,0,,52.5,64.2,126,27,0.1,R13
-CMENT,"Taş, Toprak, Çimento",33,0,33,⚪ İZLEME,0,,11.7,54.9,141,37,7.4,
-EUREN,Enerji Üretim ve Dağıtım,33,0,33,⚪ İZLEME,0,,10.5,65.6,134,-56,3.9,
-KIMMR,Gıda Perakendeciliği,32,0,32,⚪ İZLEME,0,,40.9,33.5,18,52,1.1,R12
-SISE,"Cam, Seramik, Porselen",26,5,31,⚪ İZLEME,0,,8.6,43.4,48,39,1.7,R12w
-NTGAZ,Enerji Üretim ve Dağıtım,28,0,28,🔴 ELEN,0,,9.6,3.3,136,38,0,
-TCKRC,İmalat,27,0,27,🔴 ELEN,0,,22.0,-38.4,97,47,3.1,
-EGEGY,Gayrimenkul,25,0,25,🔴 ELEN,0,,57.5,55.8,88,50,15.2,R13
-TOASO,Otomotiv,20,5,25,🔴 ELEN,0,,5.2,34.7,43,63,0.3,R12w
-GSDDE,Ulaştırma,24,0,24,🔴 ELEN,0,,69.5,30.7,106,180,51.7,R13+R16H+R14
-MACKO,Destek ve Hizmet,24,0,24,🔴 ELEN,0,,20.4,35.5,160,9,10.8,R16L
-TERA,Aracı Kurum,24,0,24,🔴 ELEN,0,,47.4,-48.3,110,4,7.8,R16L
-PKENT,Turizm,22,0,22,🔴 ELEN,0,,29.8,76.1,119,-2,0.2,
-BESTE,Enerji Üretim ve Dağıtım,21,0,21,🔴 ELEN,0,,7.0,6.7,49,6,0,R13+R16L+R12w
-CATES,Enerji Üretim ve Dağıtım,17,3,20,🔴 ELEN,0,,64.8,0.0,21,104,42.3,R13+R16H+R12+R14w
-ARTMS,"Tekstil, Giyim ve Deri",19,0,19,🔴 ELEN,0,,30.3,33.5,17,29,1.5,R13+R12
-CLEBI,Ulaştırma,19,0,19,🔴 ELEN,0,,22.7,20.4,115,38,0.1,
-BEYAZ,Destek ve Hizmet,16,0,16,🔴 ELEN,0,,3.8,40.8,308,0,0.5,
-GRTHO,Gıda ve İçecek,16,0,16,🔴 ELEN,0,,37.9,32.6,36,48,17.3,R12w
-ATATR,Turizm,15,0,15,🔴 ELEN,0,,3.5,3.5,163,28,0.2,R13
-SANEL,İnşaat,14,0,14,🔴 ELEN,0,,36.0,84.0,47,23,0,R13+R12w
-GRSEL,Servis Taşımacılığı ve Araç Kiralama,13,0,13,🔴 ELEN,0,,10.0,9.0,122,33,2.7,
-GLRMK,İnşaat,13,0,13,🔴 ELEN,0,,3.8,23.5,121,8,1.3,R13+R16L
-MHRGY,Gayrimenkul,11,0,11,🔴 ELEN,0,,53.8,37.3,29,93,274.2,R13+R12+R14
-MEGMT,Ana Metal,11,0,11,🔴 ELEN,0,,29.6,-68.6,49,21,0.7,R12w
-RALYH,Holding,10,0,10,🔴 ELEN,0,,6.2,22.4,73,46,25.0,
-KBORU,Ana Metal,8,0,8,🔴 ELEN,0,,9.7,22.7,55,0,0.5,
-PSDTC,Toptan ve Perakende Ticaret,5,0,5,🔴 ELEN,0,,8.7,27.7,9,25,0.0,R12
+kod,sektor,faz12_skor,katalist_bonus,faz3_skor,makro_carpan,final_skor,sinyal,katalist_tier,katalist_bilgi,fk_iskonto,pddd_iskonto,uyari,makro_risk,makro_siddet
+KATMR,Metal Eşya ve Makine,52,15,67,1.2,80,🏆 ALTIN,1,MSB savunma sözleşmesi + yeni sipariş,45.7,45.2,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ESCOM,Bilişim ve Yazılım,78,0,78,1.0,78,🟡 FWD,0,"Belirgin katalist yok (proje bazlı, Q4 yoğunlaşma)",56.5,51.5,R16H,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ORGE,Enerji Teknolojileri,54,15,69,1.1,76,🏆 ALTIN,1,Altunizade-Bosna Metro + Bayburt Havalimanı + E-Ticaret Hub + DenizKoru,20.3,58.3,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+PLTUR,Servis Taşımacılığı ve Araç Kiralama,71,15,86,0.85,73,🟡 FWD,1,"Araç kiralama ihaleleri (sürekli, İBB+kamu)",20.4,54.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+A1CAP,Aracı Kurum,75,0,75,0.95,71,🟡 FWD,0,Belirgin katalist yok,75.6,28.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+INFO,Aracı Kurum,59,15,74,0.95,70,🟡 FWD,1,Finansal duran varlık edinimi + pay devir sözleşmesi,54.3,47.4,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+KRSTL,Gıda ve İçecek,66,0,66,1.0,66,🟡 FWD,0,Belirgin katalist yok,65.1,61.1,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ATATP,Bilişim ve Yazılım,50,15,65,1.0,65,🟡 FWD,1,European Energy Exchange + yazılım lisans sözleşmeleri,72.9,61.2,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+BNTAS,Ambalaj,62,0,62,1.0,62,🟡 FWD,0,Belirgin katalist yok,23.8,38.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+TTKOM,Haberleşme,56,5,61,1.0,61,🟡 FWD,0,Belirgin katalist yok,40.3,51.3,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+MTRKS,Bilişim ve Yazılım,58,0,58,1.0,58,🟠 TAVSİYE,0,Belirgin katalist yok,63.5,86.3,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GLRYH,Holding,60,0,60,0.95,57,🟠 TAVSİYE,0,"Holding, belirgin katalist yok",83.8,82.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+HLGYO,Gayrimenkul,58,0,58,0.95,55,🟠 TAVSİYE,0,"GYO, belirgin katalist yok",71.5,30.2,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+YYLGD,Gıda ve İçecek,51,0,51,1.0,51,🟠 TAVSİYE,0,Belirgin katalist yok,25.1,66.3,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ARASE,Enerji Üretim ve Dağıtım,44,0,44,1.15,51,🟠 TAVSİYE,0,,19.7,37.9,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ULKER,Gıda ve İçecek,45,5,50,1.0,50,🟠 TAVSİYE,0,,8.5,52.9,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+EUHOL,Holding,52,0,52,0.95,49,🟠 TAVSİYE,0,"Holding, belirgin katalist yok",91.8,82.4,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+KZBGY,Gayrimenkul,51,0,51,0.95,48,🟠 TAVSİYE,0,"GYO, belirgin katalist yok",23.4,93.7,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+LOGO,Bilişim ve Yazılım,43,5,48,1.0,48,🟠 TAVSİYE,0,,60.1,26.9,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+AKSA,Kimya ve Plastik,47,5,52,0.9,47,🟠 TAVSİYE,0,Belirgin katalist yok,49.1,43.1,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+FONET,Bilişim ve Yazılım,47,0,47,1.0,47,🟠 TAVSİYE,0,,20.7,88.7,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+BULGS,Girişim Sermayesi Yat. Ort.,48,0,48,0.95,46,🟠 TAVSİYE,0,Belirgin katalist yok,32.2,9.1,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+AKFGY,Gayrimenkul,47,0,47,0.95,45,🟠 TAVSİYE,0,,18.9,41.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+YUNSA,"Tekstil, Giyim ve Deri",46,0,46,0.95,44,🟠 TAVSİYE,0,,27.0,54.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+THYAO,Ulaştırma,58,20,78,0.55,43,🟠 TAVSİYE,1,AJet dönüşümü + kapasite artışı + yolcu rekoru,9.6,45.0,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+SRVGY,Gayrimenkul,45,0,45,0.95,43,🟠 TAVSİYE,0,,10.8,65.5,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+PNLSN,İnşaat,44,0,44,0.95,42,🟠 TAVSİYE,0,,24.5,58.8,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+LILAK,Kağıt ve Kağıt Ürünleri,39,5,44,0.95,42,🟠 TAVSİYE,0,,27.2,9.8,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ASUZU,Otomotiv,46,0,46,0.9,41,🟠 TAVSİYE,0,,5.8,52.5,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+CGCAM,"Cam, Seramik, Porselen",46,0,46,0.9,41,🟠 TAVSİYE,0,,38.0,12.7,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+AKFIS,İnşaat,43,0,43,0.95,41,🟠 TAVSİYE,0,,23.0,-45.5,R13+R16H,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ELITE,Gıda ve İçecek,41,0,41,1.0,41,🟠 TAVSİYE,0,,28.7,69.6,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+PGSUS,Ulaştırma,51,20,71,0.55,39,⚪ İZLEME,1,Uçuş kapasitesi artışı + talep güçlü,5.3,60.6,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+TUREX,Servis Taşımacılığı ve Araç Kiralama,46,0,46,0.85,39,⚪ İZLEME,0,,20.2,68.1,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+AYES,İmalat,40,0,40,0.95,38,⚪ İZLEME,0,,76.6,37.5,R16H+R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GESAN,Enerji Teknolojileri,35,0,35,1.1,38,⚪ İZLEME,0,,10.4,72.8,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+YEOTK,Enerji Teknolojileri,35,0,35,1.1,38,⚪ İZLEME,0,,60.4,71.5,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+EUREN,Enerji Üretim ve Dağıtım,33,0,33,1.15,38,⚪ İZLEME,0,,10.5,65.6,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+OYYAT,Aracı Kurum,39,0,39,0.95,37,⚪ İZLEME,0,,25.3,45.9,R16H,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+OZSUB,"Tarım, Hayvancılık, Balıkçılık",37,0,37,1.0,37,⚪ İZLEME,0,,35.9,31.0,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+VBTYZ,Bilişim ve Yazılım,37,0,37,1.0,37,⚪ İZLEME,0,,40.1,49.6,R16H,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+SAYAS,Enerji Teknolojileri,34,0,34,1.1,37,⚪ İZLEME,0,,27.9,67.0,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+CWENE,Enerji Teknolojileri,33,0,33,1.1,36,⚪ İZLEME,0,,52.5,64.2,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+EGPRO,Kimya ve Plastik,39,0,39,0.9,35,⚪ İZLEME,0,,15.8,38.0,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+AHSGY,Gayrimenkul,35,0,35,0.95,33,⚪ İZLEME,0,,51.3,-30.9,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GENTS,Mobilya ve Dekorasyon,35,0,35,0.95,33,⚪ İZLEME,0,,1.7,61.2,R16H,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ENKAI,İnşaat,30,5,35,0.95,33,⚪ İZLEME,0,,5.1,-25.2,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GEDIK,Aracı Kurum,34,0,34,0.95,32,⚪ İZLEME,0,,37.7,28.1,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+RGYAS,Gayrimenkul,29,5,34,0.95,32,⚪ İZLEME,0,,78.8,60.0,R14,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+KIMMR,Gıda Perakendeciliği,32,0,32,1.0,32,⚪ İZLEME,0,,40.9,33.5,R12,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+NTGAZ,Enerji Üretim ve Dağıtım,28,0,28,1.15,32,⚪ İZLEME,0,,9.6,3.3,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+CMENT,"Taş, Toprak, Çimento",33,0,33,0.9,30,⚪ İZLEME,0,,11.7,54.9,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+SISE,"Cam, Seramik, Porselen",26,5,31,0.9,28,🔴 ELEN,0,,8.6,43.4,R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+TCKRC,İmalat,27,0,27,0.95,26,🔴 ELEN,0,,22.0,-38.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+MERIT,Turizm,35,0,35,0.7,24,🔴 ELEN,0,,77.8,62.2,R12,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+EGEGY,Gayrimenkul,25,0,25,0.95,24,🔴 ELEN,0,,57.5,55.8,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+MACKO,Destek ve Hizmet,24,0,24,1.0,24,🔴 ELEN,0,,20.4,35.5,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+BESTE,Enerji Üretim ve Dağıtım,21,0,21,1.15,24,🔴 ELEN,0,,7.0,6.7,R13+R16L+R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+TERA,Aracı Kurum,24,0,24,0.95,23,🔴 ELEN,0,,47.4,-48.3,R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+CATES,Enerji Üretim ve Dağıtım,17,3,20,1.15,23,🔴 ELEN,0,,64.8,0.0,R13+R16H+R12+R14w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+TOASO,Otomotiv,20,5,25,0.9,22,🔴 ELEN,0,,5.2,34.7,R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ARTMS,"Tekstil, Giyim ve Deri",19,0,19,0.95,18,🔴 ELEN,0,,30.3,33.5,R13+R12,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+BEYAZ,Destek ve Hizmet,16,0,16,1.0,16,🔴 ELEN,0,,3.8,40.8,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GRTHO,Gıda ve İçecek,16,0,16,1.0,16,🔴 ELEN,0,,37.9,32.6,R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+PKENT,Turizm,22,0,22,0.7,15,🔴 ELEN,0,,29.8,76.1,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GSDDE,Ulaştırma,24,0,24,0.55,13,🔴 ELEN,0,,69.5,30.7,R13+R16H+R14,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+SANEL,İnşaat,14,0,14,0.95,13,🔴 ELEN,0,,36.0,84.0,R13+R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GLRMK,İnşaat,13,0,13,0.95,12,🔴 ELEN,0,,3.8,23.5,R13+R16L,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+GRSEL,Servis Taşımacılığı ve Araç Kiralama,13,0,13,0.85,11,🔴 ELEN,0,,10.0,9.0,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+CLEBI,Ulaştırma,19,0,19,0.55,10,🔴 ELEN,0,,22.7,20.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+ATATR,Turizm,15,0,15,0.7,10,🔴 ELEN,0,,3.5,3.5,R13,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+MHRGY,Gayrimenkul,11,0,11,0.95,10,🔴 ELEN,0,,53.8,37.3,R13+R12+R14,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+MEGMT,Ana Metal,11,0,11,0.9,10,🔴 ELEN,0,,29.6,-68.6,R12w,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+RALYH,Holding,10,0,10,0.95,10,🔴 ELEN,0,,6.2,22.4,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+KBORU,Ana Metal,8,0,8,0.9,7,🔴 ELEN,0,,9.7,22.7,,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
+PSDTC,Toptan ve Perakende Ticaret,5,0,5,0.95,5,🔴 ELEN,0,,8.7,27.7,R12,Savaş/Jeopolitik + Petrol/Enerji Krizi,Yüksek
