@@ -1,76 +1,44 @@
 # BIST Sistematik Değerleme Tarayıcısı v2.6b
 
-**3 Dönem Backtest Doğrulanmış** — Katalistli hisseler ortalama **+65.5% alfa**, katalistsiz **+5.5%**. Fark: **+59.9pt**.
+**3 Dönem Backtest Doğrulanmış** — Katalistli hisseler ortalama **+65.5% alfa**, katalistsiz **+5.5%**
 
-## Son Tarama: Q4 2025 (22 Mart 2026)
+## Son Tarama: Q4 2025 (22 Mart 2026) — 5 Yöntem Hedef Fiyat
 
-> ⚠️ **MAKRO RİSK AKTİF:** İran Savaşı (23. gün) + Petrol Krizi (%50+ artış) | Şiddet: YÜKSEK
-> Havacılık ×0.55, Turizm ×0.70, Savunma ×1.20, Enerji üretici ×1.15
+> ⚠️ **MAKRO RİSK:** İran Savaşı (23. gün) + Petrol Krizi | Havacılık ×0.55, Savunma ×1.20
 
-| # | Kod | Sektör | Faz3 | Makro | Final | Sinyal | Katalist |
-|---|-----|--------|------|-------|-------|--------|----------|
-| 1 | **KATMR** | Metal Makine | 67 | ×1.20 | **80** | 🏆 ALTIN | T1 MSB savunma sözleşmesi |
-| 2 | ESCOM | Bilişim | 78 | ×1.0 | 78 | 🟡 FWD | - (proje bazlı R16) |
-| 3 | **ORGE** | Enerji Tek. | 69 | ×1.10 | **76** | 🏆 ALTIN | T1 4 metro/havalimanı sözleşmesi |
-| 4 | PLTUR | Araç Kiralama | 86 | ×0.85 | 73 | 🟡 FWD | T1 İBB+kamu ihaleleri |
-| 5 | A1CAP | Aracı Kurum | 75 | ×0.95 | 71 | 🟡 FWD | - |
-| 6 | **INFO** | Aracı Kurum | 74 | ×0.95 | 70 | 🟡 FWD | T1 Varlık edinimi |
-| 7 | KRSTL | Gıda | 66 | ×1.0 | 66 | 🟡 FWD | - |
-| 8 | **ATATP** | Bilişim | 65 | ×1.0 | 65 | 🟡 FWD | T1 EEX+yazılım lisans |
-| 9 | BNTAS | Ambalaj | 62 | ×1.0 | 62 | 🟡 FWD | - |
-| 10 | TTKOM | Haberleşme | 61 | ×1.0 | 61 | 🟡 FWD | - |
-| ⚠️ 25 | ~~THYAO~~ | ~~Ulaştırma~~ | ~~78~~ | ~~×0.55~~ | **43** | 🟠 TAVSİYE | ~~T1~~ savaş riski |
-| ⚠️ 32 | ~~PGSUS~~ | ~~Ulaştırma~~ | ~~71~~ | ~~×0.55~~ | **39** | ⚪ İZLEME | ~~T1~~ savaş riski |
+| # | Kod | Sektör | Son₺ | Hedef₺ | **POT%** | Sinyal | Katalist |
+|---|-----|--------|------|--------|---------|--------|----------|
+| 1 | GLRYH | Holding | 4.33 | 27.43 | **+534%** | 🟡 FWD | - |
+| 2 | HLGYO | Gayrimenkul | 5.20 | 16.62 | **+220%** | 🟠 TAVSİYE | - |
+| 3 | MTRKS | Bilişim | 21.70 | 65.21 | **+200%** | 🟠 TAVSİYE | - |
+| 4 | A1CAP | Aracı Kurum | 15.73 | 40.96 | **+160%** | 🟡 FWD | - |
+| 5 | **ESCOM** | Bilişim | 5.43 | 12.81 | **+136%** | 🟡 FWD | R16 |
+| 6 | **ATATP** | Bilişim | 146.80 | 331.29 | **+126%** | 🟡 FWD | T1 EEX |
+| 7 | **CATES** | Enerji | 48.78 | 94.08 | **+93%** | 🟡 FWD | T1 EÜAŞ R17 |
+| 8 | KRSTL | Gıda | 8.74 | 15.35 | **+76%** | 🟡 FWD | - |
+| 9 | **ORGE** | Enerji Tek. | 67.50 | 92.69 | **+37%** | 🏆 ALTIN | T1 Metro |
+| 10 | **KATMR** | Metal Makine | 2.98 | 4.08 | **+37%** | 🏆 ALTIN | T1 MSB |
 
-**Dağılım:** 2 Altın, 8 Forward, 22 Tavsiye, 20 İzleme, 24 Elen (76 hisse)
+### 5 Yöntem Açıklama
+- **Y1 Mean Reversion:** 3Y Ort F/K × TTM NK / Hisse Adedi (Rule 13/15 düzeltmeli)
+- **Y2 Forward:** Sektör Adil F/K × Forward NK / Hisse Adedi (Rule 16 mevsimsellik)
+- **Y3 PD/DD:** 3Y Ort PD/DD × Özkaynak / Hisse Adedi
+- **Y4 Broker:** Analist konsensüs hedef fiyat (varsa, ağırlık yüksek)
+- **Y5 Core:** Faal.Kâr × Sektör Adil F/K / Hisse Adedi
 
-### Faz 3.5 Makro Etki — İran Savaşı
-- THYAO: 78p → **43p** (🏆 ALTIN → 🟠 TAVSİYE) — yakıt+sigorta+rota maliyeti
-- PGSUS: 71p → **39p** (🟡 FWD → ⚪ İZLEME) — aynı etkiler
-- KATMR: 67p → **80p** (🟡 FWD → 🏆 ALTIN) — savunma harcamaları artışı
-- ORGE: 69p → **76p** (🟡 FWD → 🏆 ALTIN) — altyapı yatırımı devam
+### ⚠️ Makro Risk Etkisi
+- THYAO: Hedef 407₺ × 0.55 = 224₺ → **-23%** (savaş riski)
+- PGSUS: Hedef 238₺ × 0.55 = 131₺ → **-26%** (savaş riski)
+- KATMR: Hedef 3.40₺ × 1.20 = 4.08₺ → **+37%** (savunma talebi)
 
-## Framework Özeti
-
-- **TCMB %37** (indirim trendi) → Adil F/K 3.88x
-- **5 Faz Pipeline:** Finansal → Kâr Kalitesi → KAP Katalist → Makro Risk → Final
-- **Kurallar:** Rule 9-16 (kâr kalitesi, iştirak tuzağı, yatırım geliri, F/K veri güvenilirliği, sektör tavanı, Q4 yoğunlaşma)
-- **Faz 3 ZORUNLU:** Katalist 3/3 dönemde +59.9pt fark
-- **Faz 3.5 DİNAMİK:** Sabit anahtar kelime yok — her taramada güncel risk taranır
-
-## 3 Dönem Backtest (Doğrulanmış)
-
-| Dönem | Piyasa | XU100 | Katalistli α | Katalistsiz α | Fark |
-|-------|--------|-------|-------------|--------------|------|
-| Q1 2023 | Süper Boğa | +70.9% | +68.4% | +17.6% | +50.8pt |
-| Q1 2025 | Boğa | +13.9% | +88.4% | +5.8% | +82.6pt |
-| Q2 2025 | Ayı | -2.8% | +39.6% | -6.8% | +46.4pt |
-| **Ortalama** | | | **+65.5%** | **+5.5%** | **+59.9pt** |
-
-Katalistli isabet: **21/22 = %95** (3 dönem toplamı)
-
-## Dosya Yapısı
-
-```
-├── README.md
-├── data/
-│   ├── son_tarama.csv          # Q4 2025 (Faz 3.5 makro risk dahil)
-│   └── arsiv/
-│       └── 2025_Q4.csv         # Arşiv
-├── docs/
-│   ├── SKILL_v26.md            # Framework v2.6b (876 satır)
-│   ├── sql-sorgulari_v26.md    # SQL şablonları
-│   ├── backtest-bulgular_v26.md # 3 dönem backtest + vakalar
-│   ├── haber-katalist-avcisi.md
-│   ├── prompt-kullanim.md
-│   └── sektor-detay.md
-└── scripts/
-    └── pipeline_v24.py
-```
+## Arşiv
+| Dönem | Dosya | Hisse | TOP 3 |
+|-------|-------|-------|-------|
+| Q4 2025 | `data/arsiv/2025_Q4.csv` | 18 hedef fiyatlı | GLRYH, HLGYO, MTRKS |
+| Q3 2025 | `data/arsiv/2025_Q3.csv` | 99→69 geçen | THYAO, GOKNR, PGSUS |
 
 ## Veri Kaynağı
-
 Tüm veriler [Fintables MCP](https://evo.fintables.com/mcp) üzerinden gerçek zamanlı çekilir. Demo data kullanılmaz.
 
 ---
-*Son güncelleme: 22 Mart 2026 — Faz 3.5 Makro Risk Overlay (İran Savaşı+Petrol Krizi) uygulandı*
+*Son güncelleme: 22 Mart 2026 — 5 yöntem hedef fiyat + Faz 3.5 Makro Risk + Rule 17 Sözleşme Bonusu*
