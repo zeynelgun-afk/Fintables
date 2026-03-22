@@ -390,3 +390,47 @@ FARK: +82.6pt alfa → BOĞA'da katalist farkı daha da büyük
   3. Faz 1-2 tek başına → BOĞA'da çalışıyor, AYI'da çalışmıyor
   4. FAZ 3 KRİTİK → Katalist 64.5pt fark yaratıyor (2 dönem ortalaması)
 ```
+
+---
+
+## Q1 2023 Backtest — v2.6b (Düşük Faiz / Süper Boğa)
+
+### Parametreler
+```
+Dönem: 15 Mayıs → 15 Ağustos 2023 (seçim sonrası rally)
+TCMB: %8.5 (artırım trendi — Haziran'da %15'e) | Adil F/K: 8.22x
+XU100: +70.9% (SÜPER BOĞA)
+Evren: Sadece 13 hisse — düşük faiz ortamında çoğu hisse primli
+```
+
+### Sonuçlar
+```
+TÜM 13: Ort getiri +108.0% | Ort alfa +37.1% | Pozitif: 9/13 (%69)
+TOP 5 (final skor): THYAO, KLMSN, EREGL, ARENA, LUKSK
+
+Katalistli (5):    Ort +139.3% | Alfa +68.4%
+Katalistsiz (8):   Ort  +88.5% | Alfa +17.6%
+FARK:              +50.8pt
+
+Yıldızlar: BRSAN +193.3% (α+122.4%, T1 sipariş)
+           MRGYO +169.6% (α+98.7%, GYO derin iskonto)
+           ALFAS +161.3% (α+90.4%, T1 enerji/savunma)
+```
+
+### 3 Dönem Birleşik Sonuçlar (Q1 2023 + Q1 2025 + Q2 2025)
+```
+                          Q1 2023         Q1 2025         Q2 2025         ORT
+  Piyasa Fazı              SÜPER BOĞA      BOĞA            AYI             —
+  XU100                    +70.9%          +13.9%          -2.8%           +27.3%
+  Geçen Hisse Ort Alfa     +37.1%          +8.3%           -1.9%           +14.5%
+  Katalistli Alfa          +68.4%          +88.4%          +39.6%          +65.5%
+  Katalistsiz Alfa         +17.6%          +5.8%           -6.8%           +5.5%
+  FARK (Kat - KatYok)      +50.8pt         +82.6pt         +46.4pt         +59.9pt
+
+  ★★★ 3 DÖNEM DOĞRULAMA:
+  1. Katalist 3/3 dönemde belirleyici fark (+59.9pt ort)
+  2. BOĞA: Faz 1-2 yeterli (+37.1% ve +8.3% alfa) — katalist bonus ekstra
+  3. AYI: Faz 1-2 TEK BAŞINA çalışmıyor (-1.9% alfa) — Faz 3 ZORUNLU
+  4. Düşük faiz = dar evren (13 hisse), yüksek faiz = geniş evren (70-100)
+  5. Katalistli isabet: 21/25 pozitif alfa (%84) — 3 dönem toplamı
+```
