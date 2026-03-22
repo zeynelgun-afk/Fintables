@@ -1,100 +1,100 @@
-kod,sektor,skor,sinyal,fk_iskonto,pddd_iskonto,faal_nk,q_ttm,yg_ciro,uyari,donem,tcmb_faiz,adil_fk
-KRSTL,Gıda ve İçecek,73,🟡 FWD,67.9,54.9,126,38,0.3,,Q3_2025,39.5,3.68
-TUKAS,Gıda ve İçecek,65,🟡 FWD,11.6,69.3,153,57,4.6,,Q3_2025,39.5,3.68
-GOKNR,Gıda ve İçecek,64,🟡 FWD,35.2,59.8,223,7,2.3,R16L,Q3_2025,39.5,3.68
-TTKOM,Haberleşme,64,🟡 FWD,34.3,55.3,234,53,1.1,,Q3_2025,39.5,3.68
-THYAO,Ulaştırma,63,🟡 FWD,7.9,46.3,78,53,5.7,,Q3_2025,39.5,3.68
-GLRYH,Holding,60,🟡 FWD,59.8,80.7,1341,23,4.3,,Q3_2025,39.5,3.68
-A1CAP,Aracı Kurum,58,🟠 TAVSİYE,64.4,21.6,336,25,0.0,,Q3_2025,39.5,3.68
-PGSUS,Ulaştırma,57,🟠 TAVSİYE,20.2,57.3,103,71,2.0,R16H,Q3_2025,39.5,3.68
-EKGYO,Gayrimenkul,56,🟠 TAVSİYE,57.4,43.6,114,1,0.0,,Q3_2025,39.5,3.68
-SRVGY,Gayrimenkul,56,🟠 TAVSİYE,36.0,67.9,312,1,0,,Q3_2025,39.5,3.68
-ATATP,Bilişim ve Yazılım,55,🟠 TAVSİYE,61.3,50.7,175,27,1.9,,Q3_2025,39.5,3.68
-KLSYN,Mobilya ve Dekorasyon,54,🟠 TAVSİYE,34.1,61.5,100,11,4.8,,Q3_2025,39.5,3.68
-KUTPO,"Cam, Seramik, Porselen",54,🟠 TAVSİYE,31.9,62.2,137,15,4.9,,Q3_2025,39.5,3.68
-ARASE,Enerji Üretim ve Dağıtım,51,🟠 TAVSİYE,25.9,67.1,481,36,0,,Q3_2025,39.5,3.68
-ULKER,Gıda ve İçecek,51,🟠 TAVSİYE,43.6,53.9,221,13,10.7,,Q3_2025,39.5,3.68
-YUNSA,"Tekstil, Giyim ve Deri",51,🟠 TAVSİYE,8.7,63.3,91,47,3.0,,Q3_2025,39.5,3.68
-INFO,Aracı Kurum,49,🟠 TAVSİYE,45.1,36.4,170,80,0.0,R16H,Q3_2025,39.5,3.68
-KFEIN,Bilişim ve Yazılım,49,🟠 TAVSİYE,29.8,47.1,79,8,1.3,R16L,Q3_2025,39.5,3.68
-BVSAN,İmalat,48,🟠 TAVSİYE,55.3,52.3,120,2,0.7,R16L,Q3_2025,39.5,3.68
-MEGAP,Kimya ve Plastik,48,🟠 TAVSİYE,66.0,75.2,114,-12,0.0,,Q3_2025,39.5,3.68
-KATMR,Metal Eşya ve Makine,47,🟠 TAVSİYE,29.9,39.9,91,8,7.5,R16L,Q3_2025,39.5,3.68
-ISDMR,Ana Metal,47,🟠 TAVSİYE,27.8,41.1,110,15,0.2,,Q3_2025,39.5,3.68
-BASGZ,Enerji Üretim ve Dağıtım,46,🟠 TAVSİYE,37.8,68.6,63,5,4.4,R16L,Q3_2025,39.5,3.68
-SEGMN,Gıda ve İçecek,46,🟠 TAVSİYE,42.2,32.6,145,10,12.8,R13,Q3_2025,39.5,3.68
-TUREX,Servis Taşımacılığı ve Araç Kiralama,46,🟠 TAVSİYE,29.9,64.9,173,43,1.8,,Q3_2025,39.5,3.68
-SNGYO,Gayrimenkul,46,🟠 TAVSİYE,27.5,22.4,175,1,0.1,,Q3_2025,39.5,3.68
-PENTA,Teknolojik Ürün Ticareti,46,🟠 TAVSİYE,16.2,63.9,435,13,0.1,,Q3_2025,39.5,3.68
-GWIND,Enerji Üretim ve Dağıtım,45,🟠 TAVSİYE,10.4,70.5,161,30,0,,Q3_2025,39.5,3.68
-TUCLK,Ana Metal,45,🟠 TAVSİYE,8.3,74.3,380,62,2.7,,Q3_2025,39.5,3.68
-HLGYO,Gayrimenkul,44,🟠 TAVSİYE,30.2,42.6,277,0,0,,Q3_2025,39.5,3.68
-MTRKS,Bilişim ve Yazılım,44,🟠 TAVSİYE,40.1,83.2,97,32,7.6,,Q3_2025,39.5,3.68
-YYLGD,Gıda ve İçecek,44,🟠 TAVSİYE,37.2,70.1,133,-12,7.0,,Q3_2025,39.5,3.68
-LRSHO,Holding,43,🟠 TAVSİYE,51.1,48.4,58,-7,15.7,,Q3_2025,39.5,3.68
-TATGD,Gıda ve İçecek,43,🟠 TAVSİYE,14.5,77.2,148,29,-0.2,,Q3_2025,39.5,3.68
-INVEO,Holding,42,🟠 TAVSİYE,43.5,47.4,101,-120,0,,Q3_2025,39.5,3.68
-BEGYO,Gayrimenkul,42,🟠 TAVSİYE,37.4,44.0,148,-6,0,,Q3_2025,39.5,3.68
-AKSA,Kimya ve Plastik,42,🟠 TAVSİYE,16.5,45.7,144,93,5.9,R16H,Q3_2025,39.5,3.68
-MAKTK,Metal Eşya ve Makine,42,🟠 TAVSİYE,36.7,35.8,90,3,22.4,R16L,Q3_2025,39.5,3.68
-EUREN,Enerji Üretim ve Dağıtım,41,🟠 TAVSİYE,41.7,53.8,66,19,3.4,,Q3_2025,39.5,3.68
-FONET,Bilişim ve Yazılım,41,🟠 TAVSİYE,30.3,92.2,66,39,5.8,,Q3_2025,39.5,3.68
-GESAN,Enerji Teknolojileri,41,🟠 TAVSİYE,19.0,76.9,270,27,1.0,,Q3_2025,39.5,3.68
-ORGE,Enerji Teknolojileri,41,🟠 TAVSİYE,27.1,54.7,307,21,0.1,,Q3_2025,39.5,3.68
-TERA,Aracı Kurum,40,🟠 TAVSİYE,52.8,-27.8,67,41,14.5,,Q3_2025,39.5,3.68
-ANELE,İnşaat,39,⚪ İZLEME,27.2,23.6,131,32,0.3,,Q3_2025,39.5,3.68
-ENKAI,İnşaat,39,⚪ İZLEME,19.7,-3.3,83,32,19.1,,Q3_2025,39.5,3.68
-YIGIT,Otomotiv Yan Sanayi,37,⚪ İZLEME,32.5,34.7,109,-2,5.5,,Q3_2025,39.5,3.68
-OFSYM,Gıda ve İçecek,37,⚪ İZLEME,31.6,46.1,379,9,1.4,R16L,Q3_2025,39.5,3.68
-BRLSM,Enerji Teknolojileri,36,⚪ İZLEME,41.1,62.3,247,-1,2.1,,Q3_2025,39.5,3.68
-KARSN,Otomotiv,36,⚪ İZLEME,26.2,55.6,310,-65,2.1,,Q3_2025,39.5,3.68
-BULGS,Girişim Sermayesi Yat. Ort.,36,⚪ İZLEME,5.0,-9.7,140,49,0,R13,Q3_2025,39.5,3.68
-SANEL,İnşaat,36,⚪ İZLEME,26.1,79.4,116,52,0,R13,Q3_2025,39.5,3.68
-ELITE,Gıda ve İçecek,35,⚪ İZLEME,4.2,65.6,166,16,0.2,,Q3_2025,39.5,3.68
-MPARK,İlaç ve Sağlık,35,⚪ İZLEME,2.7,68.9,187,31,0.8,,Q3_2025,39.5,3.68
-CCOLA,Gıda ve İçecek,34,⚪ İZLEME,1.2,31.3,153,53,0.1,,Q3_2025,39.5,3.68
-EGPRO,Kimya ve Plastik,33,⚪ İZLEME,7.5,39.6,157,38,2.0,,Q3_2025,39.5,3.68
-LILAK,Kağıt ve Kağıt Ürünleri,33,⚪ İZLEME,9.0,19.5,142,26,4.3,,Q3_2025,39.5,3.68
-OYAKC,"Taş, Toprak, Çimento",33,⚪ İZLEME,5.4,55.5,127,37,2.7,,Q3_2025,39.5,3.68
-MERCN,Kimya ve Plastik,33,⚪ İZLEME,4.1,40.0,206,15,3.1,,Q3_2025,39.5,3.68
-BEYAZ,Destek ve Hizmet,32,⚪ İZLEME,22.8,45.9,188,34,0.6,,Q3_2025,39.5,3.68
-KLKIM,Kimya ve Plastik,32,⚪ İZLEME,19.5,51.0,142,21,0.3,,Q3_2025,39.5,3.68
-ARDYZ,Bilişim ve Yazılım,32,⚪ İZLEME,19.4,57.9,108,8,0.1,R16L,Q3_2025,39.5,3.68
-LOGO,Bilişim ve Yazılım,32,⚪ İZLEME,46.0,8.6,89,17,16.0,,Q3_2025,39.5,3.68
-MERIT,Turizm,32,⚪ İZLEME,44.4,49.4,28,56,0,R12,Q3_2025,39.5,3.68
-ARMGD,Gıda ve İçecek,31,⚪ İZLEME,24.7,26.5,108,23,0.0,R13,Q3_2025,39.5,3.68
-CWENE,Enerji Teknolojileri,31,⚪ İZLEME,15.5,67.3,189,73,0.1,R13+R16H,Q3_2025,39.5,3.68
-YEOTK,Enerji Teknolojileri,31,⚪ İZLEME,38.7,74.0,214,83,1.8,R16H,Q3_2025,39.5,3.68
-NTGAZ,Enerji Üretim ve Dağıtım,30,⚪ İZLEME,12.3,14.6,165,9,0,R16L,Q3_2025,39.5,3.68
-GIPTA,İmalat,29,🔴 ELEN,48.9,27.1,57,33,21.3,,Q3_2025,39.5,3.68
-ASTOR,Enerji Teknolojileri,29,🔴 ELEN,36.4,64.0,113,43,15.5,,Q3_2025,39.5,3.68
-OZSUB,"Tarım, Hayvancılık, Balıkçılık",29,🔴 ELEN,26.9,28.9,262,144,0.0,R16H,Q3_2025,39.5,3.68
-GLYHO,Holding,28,🔴 ELEN,12.0,-13.3,138,14,3.4,,Q3_2025,39.5,3.68
-TCKRC,İmalat,28,🔴 ELEN,9.5,14.8,93,30,3.5,,Q3_2025,39.5,3.68
-GEDIK,Aracı Kurum,27,🔴 ELEN,18.7,2.3,113,9,0.0,R16L,Q3_2025,39.5,3.68
-RGYAS,Gayrimenkul,27,🔴 ELEN,42.7,58.4,140,150,63.6,R14,Q3_2025,39.5,3.68
-ARTMS,"Tekstil, Giyim ve Deri",26,🔴 ELEN,44.8,30.9,39,5,0.1,R13+R16L+R12w,Q3_2025,39.5,3.68
-MOPAS,Gıda Perakendeciliği,25,🔴 ELEN,9.5,23.0,62,29,0.4,R13,Q3_2025,39.5,3.68
-LMKDC,"Taş, Toprak, Çimento",24,🔴 ELEN,12.5,39.3,141,31,0,,Q3_2025,39.5,3.68
-TABGD,Gıda ve İçecek,24,🔴 ELEN,5.8,42.8,118,33,5.2,,Q3_2025,39.5,3.68
-GUBRF,Kimya ve Plastik,23,🔴 ELEN,36.5,55.8,122,22,0.7,R13,Q3_2025,39.5,3.68
-MEGMT,Ana Metal,23,🔴 ELEN,51.2,14.0,38,23,0.3,R12w,Q3_2025,39.5,3.68
-TBORG,Gıda ve İçecek,23,🔴 ELEN,6.8,18.3,159,30,9.0,,Q3_2025,39.5,3.68
-HUNER,Enerji Üretim ve Dağıtım,22,🔴 ELEN,60.6,54.2,68,-41,76.1,R14,Q3_2025,39.5,3.68
-SUNTK,"Tekstil, Giyim ve Deri",21,🔴 ELEN,0.5,28.5,139,26,6.2,,Q3_2025,39.5,3.68
-TATEN,Enerji Üretim ve Dağıtım,20,🔴 ELEN,11.0,73.0,166,35,8.3,,Q3_2025,39.5,3.68
-CLEBI,Ulaştırma,19,🔴 ELEN,18.7,20.3,103,43,-1.2,,Q3_2025,39.5,3.68
-MACKO,Destek ve Hizmet,19,🔴 ELEN,17.3,8.9,132,19,11.5,,Q3_2025,39.5,3.68
-CONSE,Enerji Üretim ve Dağıtım,16,🔴 ELEN,62.0,41.9,13,13,35.3,R12+R14w,Q3_2025,39.5,3.68
-KBORU,Ana Metal,16,🔴 ELEN,47.8,35.3,21,2,0.7,R16L+R12,Q3_2025,39.5,3.68
-DZGYO,Gayrimenkul,15,🔴 ELEN,25.9,37.8,47,11,233.7,R12w+R14,Q3_2025,39.5,3.68
-MARKA,Holding,15,🔴 ELEN,51.9,75.8,58,1,67.4,R14,Q3_2025,39.5,3.68
-GLRMK,İnşaat,13,🔴 ELEN,11.5,16.3,102,28,1.2,R13,Q3_2025,39.5,3.68
-FORTE,Bilişim ve Yazılım,12,🔴 ELEN,7.2,60.4,11,100,93.6,R13+R16H+R12+R14,Q3_2025,39.5,3.68
-IHGZT,Kağıt ve Kağıt Ürünleri,12,🔴 ELEN,6.8,25.4,1,-1,28.4,R12,Q3_2025,39.5,3.68
-CVKMD,Madencilik ve Taş Ocakçılığı,11,🔴 ELEN,29.7,49.5,38,-12,21.1,R12w,Q3_2025,39.5,3.68
-DMRGD,Gıda ve İçecek,9,🔴 ELEN,3.2,-5.1,28,14,1.0,R12,Q3_2025,39.5,3.68
-MIATK,Bilişim ve Yazılım,8,🔴 ELEN,34.7,63.9,68,-63,55.0,R14,Q3_2025,39.5,3.68
-EGEGY,Gayrimenkul,4,🔴 ELEN,9.0,45.8,12,19,39.7,R13+R12+R14w,Q3_2025,39.5,3.68
-TEHOL,Holding,2,🔴 ELEN,12.4,-36.5,9,56,249.6,R12+R14,Q3_2025,39.5,3.68
-ALCAR,Dayanıklı Tüketim Ürünleri,1,🔴 ELEN,13.9,36.3,10,-15,15.0,R12,Q3_2025,39.5,3.68
+kod,sektor,faz12_skor,katalist_bonus,final_skor,sinyal,katalist_tier,katalist_bilgi,fk_iskonto,pddd_iskonto,uyari,donem,tcmb_faiz,adil_fk
+THYAO,Ulaştırma,63,20,83,🏆 ALTIN,1,AJet dönüşümü + kapasite artışı + yolcu rekoru,7.9,46.3,,Q3_2025,39.5,3.68
+GOKNR,Gıda ve İçecek,64,15,79,🏆 ALTIN,1,"Kazakistan meyve konsantre fabrikası + off-take garantisi, 18M USD",35.2,59.8,R16L,Q3_2025,39.5,3.68
+PGSUS,Ulaştırma,57,20,77,🏆 ALTIN,1,Uçuş kapasitesi artışı + güçlü talep,20.2,57.3,R16H,Q3_2025,39.5,3.68
+EKGYO,Gayrimenkul,56,18,74,🟡 FWD,1,"Çoklu inşaat proje sözleşmeleri (DMLKT, gelir paylaşımı)",57.4,43.6,,Q3_2025,39.5,3.68
+KRSTL,Gıda ve İçecek,73,0,73,🟡 FWD,0,,67.9,54.9,,Q3_2025,39.5,3.68
+ATATP,Bilişim ve Yazılım,55,15,70,🟡 FWD,1,Finansal duran varlık edinimi + ATP GSYO yatırım kararı + yeni sözleşme,61.3,50.7,,Q3_2025,39.5,3.68
+TTKOM,Haberleşme,64,5,69,🟡 FWD,0,,34.3,55.3,,Q3_2025,39.5,3.68
+TUKAS,Gıda ve İçecek,65,0,65,🟡 FWD,0,,11.6,69.3,,Q3_2025,39.5,3.68
+ULKER,Gıda ve İçecek,51,13,64,🟡 FWD,2,IFC ile yeni finansman sözleşmesi,43.6,53.9,,Q3_2025,39.5,3.68
+KLSYN,Mobilya ve Dekorasyon,54,8,62,🟡 FWD,2,Uzun vadeli çerçeve sözleşme imzalanması,34.1,61.5,,Q3_2025,39.5,3.68
+KATMR,Metal Eşya ve Makine,47,15,62,🟡 FWD,1,MSB yeni sipariş alınması,29.9,39.9,R16L,Q3_2025,39.5,3.68
+GLRYH,Holding,60,0,60,🟡 FWD,0,,59.8,80.7,,Q3_2025,39.5,3.68
+A1CAP,Aracı Kurum,58,0,58,🟠 TAVSİYE,0,,64.4,21.6,,Q3_2025,39.5,3.68
+SRVGY,Gayrimenkul,56,0,56,🟠 TAVSİYE,0,,36.0,67.9,,Q3_2025,39.5,3.68
+ORGE,Enerji Teknolojileri,41,15,56,🟠 TAVSİYE,1,Mandarin Etiler + MRO Hangar + Abdiibrahim ULMP + Antalya hastaneleri,27.1,54.7,,Q3_2025,39.5,3.68
+TERA,Aracı Kurum,40,15,55,🟠 TAVSİYE,1,Holding devralma + portföy genişleme,52.8,-27.8,,Q3_2025,39.5,3.68
+KUTPO,"Cam, Seramik, Porselen",54,0,54,🟠 TAVSİYE,0,,31.9,62.2,,Q3_2025,39.5,3.68
+ARASE,Enerji Üretim ve Dağıtım,51,0,51,🟠 TAVSİYE,0,,25.9,67.1,,Q3_2025,39.5,3.68
+YUNSA,"Tekstil, Giyim ve Deri",51,0,51,🟠 TAVSİYE,0,,8.7,63.3,,Q3_2025,39.5,3.68
+GWIND,Enerji Üretim ve Dağıtım,45,5,50,🟠 TAVSİYE,0,,10.4,70.5,,Q3_2025,39.5,3.68
+INFO,Aracı Kurum,49,0,49,🟠 TAVSİYE,0,,45.1,36.4,R16H,Q3_2025,39.5,3.68
+KFEIN,Bilişim ve Yazılım,49,0,49,🟠 TAVSİYE,0,,29.8,47.1,R16L,Q3_2025,39.5,3.68
+BVSAN,İmalat,48,0,48,🟠 TAVSİYE,0,,55.3,52.3,R16L,Q3_2025,39.5,3.68
+MEGAP,Kimya ve Plastik,48,0,48,🟠 TAVSİYE,0,,66.0,75.2,,Q3_2025,39.5,3.68
+ISDMR,Ana Metal,47,0,47,🟠 TAVSİYE,0,,27.8,41.1,,Q3_2025,39.5,3.68
+AKSA,Kimya ve Plastik,42,5,47,🟠 TAVSİYE,0,,16.5,45.7,R16H,Q3_2025,39.5,3.68
+BASGZ,Enerji Üretim ve Dağıtım,46,0,46,🟠 TAVSİYE,0,,37.8,68.6,R16L,Q3_2025,39.5,3.68
+SEGMN,Gıda ve İçecek,46,0,46,🟠 TAVSİYE,0,,42.2,32.6,R13,Q3_2025,39.5,3.68
+TUREX,Servis Taşımacılığı ve Araç Kiralama,46,0,46,🟠 TAVSİYE,0,,29.9,64.9,,Q3_2025,39.5,3.68
+SNGYO,Gayrimenkul,46,0,46,🟠 TAVSİYE,0,,27.5,22.4,,Q3_2025,39.5,3.68
+PENTA,Teknolojik Ürün Ticareti,46,0,46,🟠 TAVSİYE,0,,16.2,63.9,,Q3_2025,39.5,3.68
+TUCLK,Ana Metal,45,0,45,🟠 TAVSİYE,0,,8.3,74.3,,Q3_2025,39.5,3.68
+HLGYO,Gayrimenkul,44,0,44,🟠 TAVSİYE,0,,30.2,42.6,,Q3_2025,39.5,3.68
+MTRKS,Bilişim ve Yazılım,44,0,44,🟠 TAVSİYE,0,,40.1,83.2,,Q3_2025,39.5,3.68
+YYLGD,Gıda ve İçecek,44,0,44,🟠 TAVSİYE,0,,37.2,70.1,,Q3_2025,39.5,3.68
+ENKAI,İnşaat,39,5,44,🟠 TAVSİYE,0,,19.7,-3.3,,Q3_2025,39.5,3.68
+LRSHO,Holding,43,0,43,🟠 TAVSİYE,0,,51.1,48.4,,Q3_2025,39.5,3.68
+TATGD,Gıda ve İçecek,43,0,43,🟠 TAVSİYE,0,,14.5,77.2,,Q3_2025,39.5,3.68
+INVEO,Holding,42,0,42,🟠 TAVSİYE,0,,43.5,47.4,,Q3_2025,39.5,3.68
+BEGYO,Gayrimenkul,42,0,42,🟠 TAVSİYE,0,,37.4,44.0,,Q3_2025,39.5,3.68
+MAKTK,Metal Eşya ve Makine,42,0,42,🟠 TAVSİYE,0,,36.7,35.8,R16L,Q3_2025,39.5,3.68
+EUREN,Enerji Üretim ve Dağıtım,41,0,41,🟠 TAVSİYE,0,,41.7,53.8,,Q3_2025,39.5,3.68
+FONET,Bilişim ve Yazılım,41,0,41,🟠 TAVSİYE,0,,30.3,92.2,,Q3_2025,39.5,3.68
+GESAN,Enerji Teknolojileri,41,0,41,🟠 TAVSİYE,0,,19.0,76.9,,Q3_2025,39.5,3.68
+OFSYM,Gıda ve İçecek,37,3,40,🟠 TAVSİYE,0,,31.6,46.1,R16L,Q3_2025,39.5,3.68
+MPARK,İlaç ve Sağlık,35,5,40,🟠 TAVSİYE,0,,2.7,68.9,,Q3_2025,39.5,3.68
+ANELE,İnşaat,39,0,39,⚪ İZLEME,0,,27.2,23.6,,Q3_2025,39.5,3.68
+CCOLA,Gıda ve İçecek,34,5,39,⚪ İZLEME,0,,1.2,31.3,,Q3_2025,39.5,3.68
+LILAK,Kağıt ve Kağıt Ürünleri,33,5,38,⚪ İZLEME,0,,9.0,19.5,,Q3_2025,39.5,3.68
+YIGIT,Otomotiv Yan Sanayi,37,0,37,⚪ İZLEME,0,,32.5,34.7,,Q3_2025,39.5,3.68
+KLKIM,Kimya ve Plastik,32,5,37,⚪ İZLEME,0,,19.5,51.0,,Q3_2025,39.5,3.68
+LOGO,Bilişim ve Yazılım,32,5,37,⚪ İZLEME,0,,46.0,8.6,,Q3_2025,39.5,3.68
+BRLSM,Enerji Teknolojileri,36,0,36,⚪ İZLEME,0,,41.1,62.3,,Q3_2025,39.5,3.68
+KARSN,Otomotiv,36,0,36,⚪ İZLEME,0,,26.2,55.6,,Q3_2025,39.5,3.68
+BULGS,Girişim Sermayesi Yat. Ort.,36,0,36,⚪ İZLEME,0,,5.0,-9.7,R13,Q3_2025,39.5,3.68
+SANEL,İnşaat,36,0,36,⚪ İZLEME,0,,26.1,79.4,R13,Q3_2025,39.5,3.68
+OYAKC,"Taş, Toprak, Çimento",33,3,36,⚪ İZLEME,0,,5.4,55.5,,Q3_2025,39.5,3.68
+ELITE,Gıda ve İçecek,35,0,35,⚪ İZLEME,0,,4.2,65.6,,Q3_2025,39.5,3.68
+ARMGD,Gıda ve İçecek,31,3,34,⚪ İZLEME,0,,24.7,26.5,R13,Q3_2025,39.5,3.68
+ASTOR,Enerji Teknolojileri,29,5,34,⚪ İZLEME,0,,36.4,64.0,,Q3_2025,39.5,3.68
+EGPRO,Kimya ve Plastik,33,0,33,⚪ İZLEME,0,,7.5,39.6,,Q3_2025,39.5,3.68
+MERCN,Kimya ve Plastik,33,0,33,⚪ İZLEME,0,,4.1,40.0,,Q3_2025,39.5,3.68
+BEYAZ,Destek ve Hizmet,32,0,32,⚪ İZLEME,0,,22.8,45.9,,Q3_2025,39.5,3.68
+ARDYZ,Bilişim ve Yazılım,32,0,32,⚪ İZLEME,0,,19.4,57.9,R16L,Q3_2025,39.5,3.68
+MERIT,Turizm,32,0,32,⚪ İZLEME,0,,44.4,49.4,R12,Q3_2025,39.5,3.68
+RGYAS,Gayrimenkul,27,5,32,⚪ İZLEME,0,,42.7,58.4,R14,Q3_2025,39.5,3.68
+CWENE,Enerji Teknolojileri,31,0,31,⚪ İZLEME,0,,15.5,67.3,R13+R16H,Q3_2025,39.5,3.68
+YEOTK,Enerji Teknolojileri,31,0,31,⚪ İZLEME,0,,38.7,74.0,R16H,Q3_2025,39.5,3.68
+NTGAZ,Enerji Üretim ve Dağıtım,30,0,30,⚪ İZLEME,0,,12.3,14.6,R16L,Q3_2025,39.5,3.68
+GIPTA,İmalat,29,0,29,🔴 ELEN,0,,48.9,27.1,,Q3_2025,39.5,3.68
+OZSUB,"Tarım, Hayvancılık, Balıkçılık",29,0,29,🔴 ELEN,0,,26.9,28.9,R16H,Q3_2025,39.5,3.68
+TABGD,Gıda ve İçecek,24,5,29,🔴 ELEN,0,,5.8,42.8,,Q3_2025,39.5,3.68
+GLYHO,Holding,28,0,28,🔴 ELEN,0,,12.0,-13.3,,Q3_2025,39.5,3.68
+TCKRC,İmalat,28,0,28,🔴 ELEN,0,,9.5,14.8,,Q3_2025,39.5,3.68
+GEDIK,Aracı Kurum,27,0,27,🔴 ELEN,0,,18.7,2.3,R16L,Q3_2025,39.5,3.68
+ARTMS,"Tekstil, Giyim ve Deri",26,0,26,🔴 ELEN,0,,44.8,30.9,R13+R16L+R12w,Q3_2025,39.5,3.68
+CVKMD,Madencilik ve Taş Ocakçılığı,11,15,26,🔴 ELEN,1,Sarıalan Altın Madeni 1.04B TRY sözleşme + yeni satın alma,29.7,49.5,R12w,Q3_2025,39.5,3.68
+MOPAS,Gıda Perakendeciliği,25,0,25,🔴 ELEN,0,,9.5,23.0,R13,Q3_2025,39.5,3.68
+LMKDC,"Taş, Toprak, Çimento",24,0,24,🔴 ELEN,0,,12.5,39.3,,Q3_2025,39.5,3.68
+GUBRF,Kimya ve Plastik,23,0,23,🔴 ELEN,0,,36.5,55.8,R13,Q3_2025,39.5,3.68
+MEGMT,Ana Metal,23,0,23,🔴 ELEN,0,,51.2,14.0,R12w,Q3_2025,39.5,3.68
+TBORG,Gıda ve İçecek,23,0,23,🔴 ELEN,0,,6.8,18.3,,Q3_2025,39.5,3.68
+TATEN,Enerji Üretim ve Dağıtım,20,3,23,🔴 ELEN,0,,11.0,73.0,,Q3_2025,39.5,3.68
+HUNER,Enerji Üretim ve Dağıtım,22,0,22,🔴 ELEN,0,,60.6,54.2,R14,Q3_2025,39.5,3.68
+SUNTK,"Tekstil, Giyim ve Deri",21,0,21,🔴 ELEN,0,,0.5,28.5,,Q3_2025,39.5,3.68
+CLEBI,Ulaştırma,19,0,19,🔴 ELEN,0,,18.7,20.3,,Q3_2025,39.5,3.68
+MACKO,Destek ve Hizmet,19,0,19,🔴 ELEN,0,,17.3,8.9,,Q3_2025,39.5,3.68
+CONSE,Enerji Üretim ve Dağıtım,16,0,16,🔴 ELEN,0,,62.0,41.9,R12+R14w,Q3_2025,39.5,3.68
+KBORU,Ana Metal,16,0,16,🔴 ELEN,0,,47.8,35.3,R16L+R12,Q3_2025,39.5,3.68
+DZGYO,Gayrimenkul,15,0,15,🔴 ELEN,0,,25.9,37.8,R12w+R14,Q3_2025,39.5,3.68
+MARKA,Holding,15,0,15,🔴 ELEN,0,,51.9,75.8,R14,Q3_2025,39.5,3.68
+GLRMK,İnşaat,13,0,13,🔴 ELEN,0,,11.5,16.3,R13,Q3_2025,39.5,3.68
+FORTE,Bilişim ve Yazılım,12,0,12,🔴 ELEN,0,,7.2,60.4,R13+R16H+R12+R14,Q3_2025,39.5,3.68
+IHGZT,Kağıt ve Kağıt Ürünleri,12,0,12,🔴 ELEN,0,,6.8,25.4,R12,Q3_2025,39.5,3.68
+DMRGD,Gıda ve İçecek,9,0,9,🔴 ELEN,0,,3.2,-5.1,R12,Q3_2025,39.5,3.68
+MIATK,Bilişim ve Yazılım,8,0,8,🔴 ELEN,0,,34.7,63.9,R14,Q3_2025,39.5,3.68
+EGEGY,Gayrimenkul,4,0,4,🔴 ELEN,0,,9.0,45.8,R13+R12+R14w,Q3_2025,39.5,3.68
+TEHOL,Holding,2,0,2,🔴 ELEN,0,,12.4,-36.5,R12+R14,Q3_2025,39.5,3.68
+ALCAR,Dayanıklı Tüketim Ürünleri,1,0,1,🔴 ELEN,0,,13.9,36.3,R12,Q3_2025,39.5,3.68
