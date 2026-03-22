@@ -286,3 +286,50 @@ TTM F/K = 9.01x → Gerçek durum bu.
 
 Rule 16: Q4/TTM = %3.1 < %10 → Forward güvenilmez, TTM kullan.
 ```
+
+---
+
+## Q2 2025 Backtest — v2.6b Kuralları ile Geriye Dönük Test
+
+### Parametreler
+```
+Dönem: 15 Ağustos → 14 Kasım 2025 (3 ay, Q3 bilançosuna kadar)
+TCMB: %43 (indirim trendi) | Adil F/K: 3.42x
+XU100: -2.8% (hafif AYI)
+Taranan: 597 hisse → 267 (NK+FAVÖK>0) → 71 (F/K iskontolu) → 42 geçen
+```
+
+### Faz 1-2 Sonuçları (Sadece Finansal)
+```
+Tüm hisseler (ELEN hariç 42): Ort alfa -1.9% ❌
+TOP 5:  Ort alfa -1.5% ❌
+TOP 10: Ort alfa -1.6% ❌
+```
+
+### Faz 3 Katalist Etkisi (KAP + Broker)
+```
+🟢 KATALİSTLİ (10 hisse):
+   Ort getiri: +36.8% | Ort alfa: +39.6% | Pozitif: 9/10 (%90)
+   TERA     T1 +122.2% (holding devralma)
+   LIDER    T2  +69.2% (filo genişleme)
+   BLCYT    T2  +46.6% (maddi varlık alımı)
+   CVKMD    T1  +39.9% (Sarıalan Altın Madeni)
+   ATATP    T1  +38.0% (EEX + yazılım lisans)
+   GLYHO    T1  +25.8% (pay alım teklifi)
+   ARTMS    T2  +20.0% (Hall Halı sözleşmesi)
+   ISGSY    T1  +16.4% (Tatilbudur satın alma)
+   KATMR    T1  +13.0% (MSB savunma sözleşmesi)
+   PLTUR    T1  -23.2% (tek başarısız katalistli)
+
+🔴 KATALİSTSİZ (28 hisse):
+   Ort getiri: -9.6% | Ort alfa: -6.8% | Pozitif: 9/28 (%32)
+
+FARK: +46.4pt alfa → Katalist olmadan ucuzluk yetmiyor (DOĞRULANDI)
+```
+
+### Rule 12 Kararı
+```
+KARAR: DEĞİŞMEDİ — Rule 12 (Faal/NK < %30 → ×0.5) OLDUĞU GİBİ KALACAK.
+Gerekçe: TERA ve LIDER'in yükselmesi kâr kalitesiyle değil katalistle ilgili.
+Rule 12 + Faz 3 birlikte doğru sonuç veriyor. Muhafazakâr olmak doğru.
+```
