@@ -1,56 +1,59 @@
-# Fintables — BIST Değerleme Tarayıcısı
+# BIST Sistematik Değerleme Tarayıcısı v2.6b
 
-## Son Tarama: Q4 2025 (22 Mart 2026 — v2.6 düzeltmeli)
+**3 Dönem Backtest Doğrulanmış** — Katalistli hisseler ortalama **+65.5% alfa**, katalistsiz **+5.5%**. Fark: **+59.9pt**.
 
-| Parametre | Değer |
-|-----------|-------|
-| TCMB Faizi | %37 (sabit, önceki 5 toplantı indirim) |
-| Adil F/K | 3.88x |
-| Taranan | 574 hisse |
-| Geçen | 61 hisse (v2.5 kâr kalitesi sonrası) |
-| Pipeline | v2.6 |
+## Son Tarama: Q4 2025 (22 Mart 2026)
 
-### Sinyal Dağılımı
+| # | Kod | Sektör | Skor | Sinyal | Katalist |
+|---|-----|--------|------|--------|----------|
+| 1 | PLTUR | Araç Kiralama | 86p | 🏆 ALTIN | T1 İBB+kamu ihaleleri |
+| 2 | ESCOM | Bilişim | 78p | 🟡 FWD | - (proje bazlı R16) |
+| 3 | THYAO | Ulaştırma | 78p | 🏆 ALTIN | T1 AJet+kapasite+yolcu rekoru |
+| 4 | A1CAP | Aracı Kurum | 75p | 🟡 FWD | - |
+| 5 | INFO | Aracı Kurum | 74p | 🟡 FWD | T1 Varlık edinimi+pay devir |
+| 6 | PGSUS | Ulaştırma | 71p | 🟡 FWD | T1 Uçuş kapasitesi artışı |
+| 7 | ORGE | Enerji Tek. | 69p | 🟡 FWD | T1 4 metro/havalimanı sözleşmesi |
+| 8 | KATMR | Metal Makine | 67p | 🟡 FWD | T1 MSB savunma sözleşmesi |
+| 9 | KRSTL | Gıda | 66p | 🟡 FWD | - |
+| 10 | ATATP | Bilişim | 65p | 🟡 FWD | T1 EEX+yazılım lisans |
 
-| Sinyal | Sayı |
-|--------|------|
-| 🏆 ALTIN KATALİSTLİ | 1 |
-| 🟢 DERİN İSKONTO | 3 |
-| 🟡 FORWARD UCUZ | 7 |
-| 🟠 TAVSİYE | 21 |
-| ⚪ İZLEME | 29 |
+**Dağılım:** 2 Altın, 11 Forward, 22 Tavsiye, 18 İzleme, 23 Elen (76 hisse tarandı)
 
-### TOP 10
+## Framework Özeti
 
-| # | Kod | Sektör | Skor | F/K İsk | Sinyal | Not |
-|---|-----|--------|------|---------|--------|-----|
-| 1 | PLTUR | Araç Kiralama | 96p | %21.3 | 🏆 ALTIN | İBB sözleşme katalist |
-| 2 | THYAO | Ulaştırma | 89p | %9.4 | 🟢 DERİN | Boeing 50 uçak katalist |
-| 3 | A1CAP | Aracı Kurum | 84p | %78.6 | 🟢 DERİN | |
-| 4 | ESCOM | Bilişim | 84p | %57.5 | 🟢 DERİN | |
-| 5 | OYYAT | Aracı Kurum | 69p | %32.9 | 🟡 FWD | |
-| 6 | ALBRK | Bankacılık | 68p | %50.5 | 🟡 FWD | |
-| 7 | AKGRT | Sigorta | 66p | %38.3 | 🟡 FWD | |
-| 8 | BNTAS | Ambalaj | 66p | %23.4 | 🟡 FWD | |
-| 9 | RAYSG | Sigorta | 65p | %69.4 | 🟠 TAVSİYE | |
-| 10 | TTKOM | Haberleşme | 59p | %40.3 | 🟡 FWD | |
+- **TCMB %37** (indirim trendi) → Adil F/K 3.88x
+- **4 Faz Pipeline:** Finansal Tarama → Kâr Kalitesi → KAP Katalist → Final Skor
+- **Kurallar:** Rule 9-16 (kâr kalitesi, iştirak tuzağı, yatırım geliri, F/K veri güvenilirliği, sektör tavanı, Q4 yoğunlaşma)
+- **Faz 3 ZORUNLU:** AYI piyasasında Faz 1-2 tek başına çalışmıyor (α=-1.9%)
 
-### v2.6 Düzeltme Notları (22 Mart 2026)
+## 3 Dönem Backtest
 
-GSDDE vakası analizi sonrası 3 yeni kural eklendi:
+| Dönem | Piyasa | XU100 | Katalistli α | Katalistsiz α | Fark |
+|-------|--------|-------|-------------|--------------|------|
+| Q1 2023 | Süper Boğa | +70.9% | +68.4% | +17.6% | +50.8pt |
+| Q1 2025 | Boğa | +13.9% | +88.4% | +5.8% | +82.6pt |
+| Q2 2025 | Ayı | -2.8% | +39.6% | -6.8% | +46.4pt |
+| **Ortalama** | | | **+65.5%** | **+5.5%** | **+59.9pt** |
 
-| Kural | Açıklama | Etkilenen |
-|-------|----------|-----------|
-| **Rule 13** | F/K veri sayısı < %50 → Y2 × 0.5 | GSDDE (38%), BULGS (26%), CGCAM (35%) |
-| **Rule 14** | Yatırım Geliri/Ciro > %50 → skor × 0.5 | GSDDE (52% — gemi satışı) |
-| **Rule 15** | Referans F/K = min(3Y ort, sektör ort×1.5, adil×1.5) | GSDDE, CGCAM |
+## Dosya Yapısı
 
-Önceki v2.5 düzeltmeleri (19 Mart): RTALB, CATES, IHGZT elendi. AYES, MERIT, KIMMR skor düştü.
+```
+├── README.md
+├── data/
+│   ├── son_tarama.csv          # En güncel tarama sonuçları
+│   └── arsiv/
+│       └── 2025_Q4.csv         # Q4 2025 arşiv
+├── docs/
+│   ├── SKILL_v26.md            # Framework v2.6b (799 satır)
+│   ├── sql-sorgulari_v26.md    # SQL şablonları
+│   ├── backtest-bulgular_v26.md # Backtest sonuçları (3 dönem + vakalar)
+│   ├── haber-katalist-avcisi.md # Katalist Avcısı metodolojisi
+│   ├── prompt-kullanim.md       # Kullanım örnekleri
+│   └── sektor-detay.md          # Sektör çarpanları
+└── scripts/
+    └── pipeline_v24.py          # Python pipeline
+```
 
-### Dosyalar
-- `data/son_tarama.csv` — Son tarama (v2.6 düzeltmeli)
-- `data/arsiv/2025_Q4.csv` — Q4 2025 arşiv (v2.5 orijinal)
-- `docs/SKILL_v26.md` — Framework v2.6
-- `docs/sql-sorgulari_v26.md` — SQL şablonları v2.6
-- `docs/backtest-bulgular_v26.md` — Backtest bulguları + GSDDE vakası
-- `scripts/pipeline_v24.py` — Pipeline scripti
+## Veri Kaynağı
+
+Tüm veriler [Fintables MCP](https://evo.fintables.com/mcp) üzerinden gerçek zamanlı çekilir. Demo data kullanılmaz.
