@@ -337,8 +337,10 @@ TURNAROUND BONUSU:
   GY Q4 zarar + Bu yıl Q4 kâr → ger +%5
 
 GÜVENLİK MARJI:
-  PD/DD < 1.0 → ger +%5 + taban fiyat = defter değeri
-  (Düşse bile defter değerinin altına inmez)
+  PD/DD < 1.0 → ger +%5 (downside koruması var)
+  ★ GYO'da EK: PD/DD < 1.0 → Y3 ağırlık %30→%50 + taban = defter değeri
+    (GYO'nun işi gayrimenkul tutmak — NAV bağımsız değerleme, muhasebe değil)
+  ★ Standart/Holding'de taban YOK — defter değeri muhasebe rakamı, kâr gücü belirleyici
 
 MAX POTANSİYEL SINIRI (gerçekçilik):
   Standart: max %200 | GYO: max %150 | Holding: max %100
@@ -355,7 +357,8 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
 4. if Upside ≥ 0: Final Hedef = Son Fiyat + Upside × Gerçekleşme
    if Upside < 0: Final Hedef = Makro Hedef (gerçekleşme UYGULANMAZ)
    ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
-5. Taban: PD/DD < 1 ise hedef en az = defter değeri
+5. Taban: SADECE GYO'da PD/DD < 1 ise hedef en az = defter değeri
+   (GYO NAV = bağımsız değerleme. Standart/Holding'de taban YOK.)
 6. Max: Standart %200, GYO %150, Holding %100
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
