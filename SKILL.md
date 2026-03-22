@@ -272,6 +272,17 @@ Katalist sınıflandırma:
 T1 bulundu → baz gerçekleşme %85 (backtest: 21/22 isabet)
 T2 bulundu → baz gerçekleşme %70
 Hiçbiri    → baz gerçekleşme %40 (çoğu zaman mevduat daha iyi)
+
+★ T1 katalist + SAT sinyali = NORMAL (paradoks değil):
+  Piyasa katalistı ZATEN fiyatlamışsa hedef fiyat < mevcut fiyat.
+  Gerçekleşme yüksek ama negatif upside'a UYGULANMAZ (ADIM 9).
+  Örnek: FONET T1 5 ihale ama F/K 19.6x > Adil 6.08x → pahalı.
+
+★ BİLİNEN SINIR: Katalist Forward NK'yı DEĞİŞTİRMEZ.
+  Framework A (bilanço) geçmiş veriye bakar.
+  Framework B (katalist) gelecek beklentisine bakar.
+  v7'de katalist SADECE gerçekleşme oranına girer.
+  İleride: T1 → Forward NK × 1.20 entegrasyonu düşünülebilir.
 ```
 
 ---
@@ -341,7 +352,9 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
 1. Ham Hedef = Σ(Yöntem × Ağırlık) / Σ(Ağırlıklar)
 2. Makro Hedef = Ham Hedef × Makro Çarpanı
 3. Upside = Makro Hedef - Son Fiyat
-4. Final Hedef = Son Fiyat + Upside × Gerçekleşme
+4. if Upside ≥ 0: Final Hedef = Son Fiyat + Upside × Gerçekleşme
+   if Upside < 0: Final Hedef = Makro Hedef (gerçekleşme UYGULANMAZ)
+   ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
 5. Taban: PD/DD < 1 ise hedef en az = defter değeri
 6. Max: Standart %200, GYO %150, Holding %100
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
