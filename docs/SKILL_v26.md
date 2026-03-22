@@ -14,8 +14,13 @@ description: >
   BIST ucuzluk, değerleme, fırsat taraması veya katalist analizinde tetikle.
 ---
 
-# BIST Sistematik Tarama Sistemi v2.6
+# BIST Sistematik Tarama Sistemi v2.6b
 ## (A) Bilanço Sonrası Ucuzlama Tarayıcısı + (B) Haber Bazlı Katalist Avcısı
+
+> **3 DÖNEM BACKTEST DOĞRULAMASI (Q1 2023 + Q1 2025 + Q2 2025)**
+> Katalistli hisseler 3 farklı piyasa fazında (Süper Boğa, Boğa, Ayı) ortalama
+> **+65.5% alfa** üretirken, katalistsiz hisseler **+5.5% alfa** kaldı.
+> **Fark: +59.9pt** — Faz 3 (KAP + broker) ZORUNLU, atlanamaz.
 
 ---
 
@@ -24,9 +29,10 @@ description: >
 Bu skill iki paralel framework içerir. İkisi de Fintables MCP'den gerçek veri çeker
 (demo data kesinlikle YASAK).
 
-### (A) Bilanço Sonrası Ucuzlama Tarayıcısı
+### (A) Bilanço Sonrası Ucuzlama Tarayıcısı (Faz 1-2)
 3+1 katman + 6 değerleme yöntemi + TCMB dinamik çarpanı ile bilanço sonrası ucuzlayan
 hisseleri sistematik tarar. Pipeline deterministik: aynı TSV girdisi → aynı Excel çıktısı.
+**Backtest:** Faz 1-2 tek başına BOĞA'da çalışıyor (α+16.4%), AYI'da çalışmıyor (α-1.9%).
 
 **Katmanlar:**
 - **1A** — Tarihsel Ortalamaya İskonto (3Y F/K + FD/FAVÖK Mean-Reversion)
@@ -37,10 +43,12 @@ hisseleri sistematik tarar. Pipeline deterministik: aynı TSV girdisi → aynı 
 - **6 Yöntem** — Y1-Y6 değerleme + faiz bazlı ağırlık
 - **Yapısal İskonto** — Gerçekleşme oranı + Katalist kontrolü
 
-### (B) Haber Bazlı Katalist Avcısı
+### (B) Haber Bazlı Katalist Avcısı (Faz 3) — ★ ZORUNLU
 KAP haberleri + web'den sipariş/kapasite/yatırım gelişmelerini tarıyarak forward F/K
 ile fiyatlanmamışlığı test eder. Turnaround dahil etme kriteri: EBITDA-pozitif + Tier 1
 katalist. 3 senaryo forward F/K hesaplaması.
+**Backtest:** Katalist 3/3 dönemde belirleyici fark yaratıyor (+59.9pt ort).
+**Faz 3 ASLA atlanamaz** — atlanırsa AYI'da negatif alfa, BOĞA'da düşük alfa.
 
 **→ Detaylı haber avcısı metodolojisi: `references/haber-katalist-avcisi.md` oku.**
 
@@ -150,6 +158,11 @@ Sigorta: 0.75x | Maden/Metal: 0.75x
     - Faal.Kâr(+) + NK(-) → Kabul edilebilir (finansman gideri, vergi)
 
 12. Faal.Kâr / NK < %30 (ikisi de pozitif) → ⚠️ DÜŞÜK KALİTE KÂR
+    ★ 3 DÖNEM BACKTEST KARARI: Rule 12 OLDUĞU GİBİ KALACAK (değişiklik yok).
+      TERA (+122%) ve LIDER (+69%) Rule 12 ile elendi ama yükselişleri kâr kalitesiyle
+      değil KATALİST ile ilgiydi. Rule 12 + Faz 3 birlikte doğru çalışıyor.
+      Muhafazakâr kalmak doğru: CATES/RTALB gibi gerçek tuzakları yakalıyor.
+    
     NK'nın %70+'si faaliyet dışı kalemlerden (yatırım/finansal/iştirak geliri).
     < %30 → Core NK = Faal.Kâr bazında değerle, skor × 0.5 ceza
     %30-50 → ⚠️ Core NK = Faal.Kâr bazında değerle, skor × 0.7 ceza
@@ -476,6 +489,18 @@ ORDER BY pddd_iskonto DESC NULLS LAST
 
 ## YAPISAL İSKONTO DÜZELTMESİ
 
+### 3 Dönem Backtest Kanıtı (★ DOĞRULANMIŞ)
+```
+                          Q1 2023         Q1 2025         Q2 2025         ORT
+  Piyasa Fazı              SÜPER BOĞA      BOĞA            AYI             —
+  XU100                    +70.9%          +13.9%          -2.8%           +27.3%
+  Katalistli Alfa          +68.4%          +88.4%          +39.6%          +65.5%
+  Katalistsiz Alfa         +17.6%          +5.8%           -6.8%           +5.5%
+  FARK (Kat - KatYok)      +50.8pt         +82.6pt         +46.4pt         +59.9pt
+  Katalistli İsabet        5/5 (%100)      7/7 (%100)      9/10 (%90)     21/22 (%95)
+```
+
+### Gerçekleşme Oranları (Backtest ile doğrulanmış)
 ```
 Düzeltilmiş Potansiyel = Ham Potansiyel × Gerçekleşme Oranı
 
@@ -578,7 +603,9 @@ CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -
 ```
 → Çıktı: ~60 hisse (ön skorlu, henüz katalistsiz)
 
-### FAZ 3: KATALİST + FORWARD F/K (Adım 10-15) ★ YENİ
+### FAZ 3: KATALİST + FORWARD F/K (Adım 10-15) — ★★★ ZORUNLU, ASLA ATLANMAZ
+> **3 Dönem Backtest Kanıtı:** Faz 3 olmadan AYI'da α=-1.9%, Faz 3 ile α=+39.6%.
+> Katalist farkı 3 dönem ortalaması +59.9pt. Faz 3 atlanırsa tarama GEÇERSİZ sayılır.
 > Bu faz sadece skor ≥ 30 olan hisseler için çalışır.
 > Amacı: "Bu hisse gerçekten ucuz mu, yoksa haklı mı ucuz?" sorusunu cevaplamak.
 
@@ -714,7 +741,7 @@ Bu skill'in detaylı alt dokümanları:
 | Dosya | İçerik | Ne Zaman Oku |
 |-------|--------|--------------|
 | `references/sql-sorgulari.md` | 13+ SQL şablonu (1-13 + 11b/11c) | Veri çekmeden önce |
-| `references/backtest-bulgular.md` | 11 dönem + GYO/Holding 6Q backtest | Sonuçları yorumlarken |
+| `references/backtest-bulgular.md` | 3 dönem backtest + GYO/Holding 6Q + vakalar | Sonuçları yorumlarken |
 | `references/sektor-detay.md` | Sektör çarpanları, mevsimsellik | Sektör bazlı hesaplama |
 | `references/haber-katalist-avcisi.md` | Katalist Avcısı v2 tam metodoloji | Haber taraması yaparken |
 | `references/prompt-kullanim.md` | Kullanım örnekleri, opsiyonel modlar | Kullanıcı talimatlarında |
@@ -745,3 +772,28 @@ Faz 4: Python → final skor + CSV → GitHub push
 6. Forward F/K 3 senaryo hesapla
 7. Katalist bonus + yapısal düzeltme → final skor
 8. CSV + GitHub push
+
+---
+
+## PİYASA FAZI BAZLI STRATEJİ (3 Dönem Doğrulanmış)
+
+```
+SÜPER BOĞA (XU100 > +30%):
+  Faz 1-2 tek başına güçlü (α+37.1%)
+  Faz 3 katalist ekstra bonus verir (α+68.4%)
+  Evren dar olabilir (düşük faiz → çoğu hisse primli)
+  Strateji: Geniş tutarak Faz 1-2 yeterli
+
+BOĞA (XU100 +5% → +30%):
+  Faz 1-2 orta düzey (TOP15 α+21.6%)
+  Faz 3 kritik fark yaratır (katalistli α+88.4%)
+  Strateji: Faz 3 ile katalistli hisselere odaklan
+
+AYI (XU100 < +5%):
+  Faz 1-2 TEK BAŞINA ÇALIŞMIYOR (α-1.9%) ❌
+  Faz 3 ZORUNLU (katalistli α+39.6%, katalistsiz α-6.8%)
+  Strateji: SADECE katalistli hisseler alınır, katalistsiz→izle
+
+★ FAZ 3 HER ZAMAN YAPILIR — piyasa fazı ne olursa olsun.
+  AYI'da Faz 3 olmadan tarama geçersizdir.
+```
