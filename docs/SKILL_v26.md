@@ -14,7 +14,7 @@ description: >
   BIST ucuzluk, değerleme, fırsat taraması veya katalist analizinde tetikle.
 ---
 
-# BIST Sistematik Tarama Sistemi v2.5
+# BIST Sistematik Tarama Sistemi v2.6
 ## (A) Bilanço Sonrası Ucuzlama Tarayıcısı + (B) Haber Bazlı Katalist Avcısı
 
 ---
@@ -685,7 +685,7 @@ Bu skill'in detaylı alt dokümanları:
 
 ---
 
-## DETERMİNİSTİK PİPELİNE (v2.5 Entegre)
+## DETERMİNİSTİK PİPELİNE (v2.6 Entegre)
 
 ```
 Faz 1: MCP SQL → finansal ham data (6 batch)
