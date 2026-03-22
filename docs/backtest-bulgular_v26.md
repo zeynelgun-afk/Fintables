@@ -333,3 +333,60 @@ KARAR: DEĞİŞMEDİ — Rule 12 (Faal/NK < %30 → ×0.5) OLDUĞU GİBİ KALACA
 Gerekçe: TERA ve LIDER'in yükselmesi kâr kalitesiyle değil katalistle ilgili.
 Rule 12 + Faz 3 birlikte doğru sonuç veriyor. Muhafazakâr olmak doğru.
 ```
+
+---
+
+## Q1 2025 Backtest — v2.6b Kuralları ile Geriye Dönük Test
+
+### Parametreler
+```
+Dönem: 15 Mayıs → 15 Ağustos 2025 (3 ay, Q2 bilançosuna kadar)
+TCMB: %42.5 (sabit) | Adil F/K: 2.88x
+XU100: +13.9% (BOĞA)
+Taranan: ~560 hisse → 100 geçen (F/K iskontolu + NK>0 + FAVÖK>0 + Faal.Kâr>0)
+```
+
+### Faz 1-2 Sonuçları
+```
+TOP 5:  Ort +31.2% | Alfa +17.3%
+TOP 10: Ort +30.3% | Alfa +16.4% ✅
+TOP 15: Ort +35.5% | Alfa +21.6% ✅✅
+Tüm (ELEN hariç 64): Ort +22.2% | Alfa +8.3%
+
+Sinyal dağılımı: 0 DERİN, 9 FWD, 35 TAVSİYE, 20 İZLEME, 36 ELEN
+```
+
+### Faz 3 Katalist Etkisi
+```
+🟢 KATALİSTLİ (7 hisse):
+   Ort getiri: +102.3% | Ort alfa: +88.4% | Pozitif: 7/7 (%100)
+   TERA     T1 +229.5% α+215.6% (holding devralma)
+   ISGSY    T1 +112.9% α+99.0%  (Tatilbudur satın alma)
+   KATMR    T1  +82.7% α+68.8%  (MSB savunma sözleşmesi)
+   ODINE    T1  +80.7% α+66.8%  (çoklu yeni iş ilişkisi, TCELL dahil)
+   LRSHO    T2  +76.7% α+62.8%  (A1CAP halka arz ilişkisi)
+   MRGYO    T2  +69.4% α+55.5%  (fon alımları + insider)
+   MEGAP    T1  +63.9% α+50.0%  (Little Big sipariş anlaşması)
+
+🔴 KATALİSTSİZ (geçen 45 hisse):
+   Ort getiri: +19.7% | Ort alfa: +5.8% | Pozitif: 24/45 (%53)
+
+FARK: +82.6pt alfa → BOĞA'da katalist farkı daha da büyük
+```
+
+### Q1 + Q2 Birleşik Sonuçlar (2 Dönem)
+```
+                        Q1 2025 (BOĞA)    Q2 2025 (AYI)    ORT
+  XU100                    +13.9%            -2.8%          +5.6%
+  TOP 10 Faz12             α+16.4%           α-1.6%         α+7.4%
+  TOP 15 Faz12             α+21.6%           α-2.3%         α+9.7%
+  Katalistli               α+88.4%           α+39.6%        α+64.0%
+  Katalistsiz (geçen)      α+5.8%            α-6.8%         α-0.5%
+  FARK (Kat - KatYok)      +82.6pt           +46.4pt        +64.5pt
+
+  ★★★ 2 DÖNEM DOĞRULAMASI:
+  1. Katalist VAR → her iki piyasa fazında da güçlü alfa (+64.0% ort)
+  2. Katalist YOK → BOĞA'da marjinal, AYI'da negatif alfa (-0.5% ort)
+  3. Faz 1-2 tek başına → BOĞA'da çalışıyor, AYI'da çalışmıyor
+  4. FAZ 3 KRİTİK → Katalist 64.5pt fark yaratıyor (2 dönem ortalaması)
+```
