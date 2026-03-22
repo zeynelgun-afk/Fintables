@@ -606,22 +606,35 @@ GEÇER: Yukarıdakilerin hiçbirine takılmayan → Hedef Fiyat hesapla
 ### 5 YÖNTEM
 
 ```
+★ FORWARD NK SEÇİMİ (Rule 18 — Tüm yöntemlerin temeli):
+  Son 4 çeyrekte ciro ve NK trendini tespit et:
+    ARTIŞ:  Son 3Q'da son/ilk > 1.15           → Forward NK = Son Q × 4
+    SABİT:  Son 3Q'da belirgin yön yok          → Forward NK = TTM NK
+    DÜŞÜŞ:  Son 3Q'da son/ilk < 0.75            → Forward NK = Son 2Q Ort × 4
+    SPIKE:  Bir Q diğerlerinin 2.5x'i (medyan)  → Forward NK = Spike Hariç Medyan × 4
+  
+  ATATP vakası: Q2=1089, Q3=503, Q4=341 → SPIKE → medyan(121,503,341)=341 → 341×4=1364M
+  (TTM 2054M yerine — %33 düşüş!)
+  
+  TREND ÇARPANI = ort(ciro_trend_çarpanı, nk_trend_çarpanı)
+    Artış → ×1.10 | Sabit → ×1.00 | Düşüş → ×0.70 | Spike → ×0.75
+    Y5 (Core Earning Power)'da Faaliyet Kârına uygulanır.
+
 Y1: MEAN REVERSION F/K (Ağırlık: %25 veya R13'te %10)
-    Hedef PD = Referans F/K × TTM NK
+    Hedef PD = Referans F/K × Forward NK (TTM değil!)
     Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5) — Rule 15
     R13 (fk_cnt/750 < %50) → ağırlık %25 → %10'a düşür
     Hedef Fiyat = Hedef PD / Hisse Adedi
 
 Y2: FORWARD F/K (Ağırlık: %25)
-    Hedef PD = Sektör Adil F/K × Forward NK
-    Forward NK = Son Q × 4 (mevsimsellik kuralı uygula)
-    R16 (Q4/TTM > %70 veya < %10) → TTM NK kullan
+    Hedef PD = Sektör Adil F/K × Forward NK (trend bazlı seçilmiş!)
     Broker konsensüs NK varsa (≥2 analist) → onu tercih et
     Hedef Fiyat = Hedef PD / Hisse Adedi
 
-Y3: PD/DD REVERSION (Ağırlık: %20)
+Y3: PD/DD REVERSION (Ağırlık: %20 — trend bağımsız)
     Hedef PD = 3Y Ort PD/DD × Ana Ortaklık Özkaynağı
     GYO/Holding'de ağırlık %30'a çık (NAV birincil)
+    ★ Bu yöntem trende bağlı değil — varlık bazlı değerleme
     Hedef Fiyat = Hedef PD / Hisse Adedi
 
 Y4: BROKER HEDEF FİYAT (Ağırlık: %30 varsa, %0 yoksa)
@@ -631,9 +644,10 @@ Y4: BROKER HEDEF FİYAT (Ağırlık: %30 varsa, %0 yoksa)
     0 analist → bu yöntem atlanır, diğerleri yeniden ağırlıklanır
 
 Y5: CORE EARNING POWER (Ağırlık: %15)
-    Hedef PD = Faaliyet Kârı (TTM) × Sektör Adil F/K
-    ★ Bu yöntem kâr kalitesini yansıtır — yatırım/finansal gelir dahil değil
-    Rule 17 sözleşme bonusu varsa: Hedef PD += Sözleşme Bonusu × PD / 100
+    Hedef PD = (Faaliyet Kârı TTM × Trend Çarpanı) × Sektör Adil F/K
+    ★ Yatırım/finansal gelir dahil değil — saf operasyonel güç
+    ★ Trend çarpanı burada uygulanır (artış → kâr artacak, düşüş → azalacak)
+    Rule 17 sözleşme bonusu varsa: ×2.5 çarpan
     Hedef Fiyat = Hedef PD / Hisse Adedi
 ```
 
@@ -655,21 +669,30 @@ R13 aktif (düşük F/K verisi) → Y1 ağırlık %10'a düşür, Y5'e aktar
 ```
 Ham Hedef Fiyat = Σ(Yöntem Hedef × Ağırlık) / Σ(Ağırlıklar)
 Makro Düzeltilmiş Hedef = Ham Hedef × Makro Çarpan (Faz 3.5)
-Gerçekleşme Düzeltilmiş = Makro Hedef × Gerçekleşme Oranı
+Upside = Makro Hedef - Son Fiyat
+Final Hedef = Son Fiyat + Upside × Gerçekleşme Oranı
 
-Potansiyel % = (Gerçekleşme Düzeltilmiş / Son Fiyat - 1) × 100
+Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
 
-### GERÇEKLEŞME ORANLARI (Backtest doğrulanmış)
+### GERÇEKLEŞME ORANLARI (Backtest doğrulanmış + Momentum düzeltmeli)
 ```
-Standart + T1 Katalist: %85 (3 dönem ort)
-Standart + T2 Katalist: %70
-Standart + Broker (katalist yok): %60
-Standart + Katalist yok + Broker yok: %40
-GYO Çift Ucuz + Katalist: %55
-GYO Çift Ucuz (katalistsiz): %35
-Holding (katalist var): %35
-Holding (katalist yok): %20
+BAZ ORANLAR:
+  Standart + T1 Katalist: %85
+  Standart + T2 Katalist: %70
+  Standart + Broker (katalist yok): %60
+  Standart + Katalist yok + Broker yok: %40
+  GYO Çift Ucuz + Katalist: %55 | Katalistsiz: %35
+  Holding (katalist var): %35 | Katalist yok: %20
+
+MOMENTUM DÜZELTMESİ (4 çeyrek NK trendi):
+  4Q ardışık NK artışı → gerçekleşme +%10 (büyüyen şirket hedefe ulaşır)
+  3Q ardışık NK düşüşü → gerçekleşme -%10 (küçülen şirket hedefe ulaşamaz)
+  Aksi → değişiklik yok
+
+GÜVENLİK MARJI (downside koruması):
+  PD/DD < 1.0 → gerçekleşme +%5 (varlık desteği var, düşüş sınırlı)
+  Ayrıca: Hedef fiyat en az = defter değeri (taban fiyat)
 ```
 
 ### SİNYAL SİSTEMİ (Potansiyel Bazlı)
