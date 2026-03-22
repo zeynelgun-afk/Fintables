@@ -481,20 +481,24 @@ Forward F/K Daralma: > %50 → +3 | %25-50 → 🟢
 
 ---
 
-## 6 DEĞERLEME YÖNTEMİ (hepsi faize bağlı dinamik çarpanla)
+## 5 DEĞERLEME YÖNTEMİ — HEDEF FİYAT (hepsi faize bağlı dinamik çarpanla)
 
-**Y1 FD/FAVÖK:** Önceki dönem vs mevcut → potansiyel
-**Y2 Ort. F/K (ANA):** 12Q ort. F/K (faiz tavanlı) / Forward F/K → potansiyel
-**Y3 Net Kâr Kapitalizasyonu:** TTM Core Kâr × Sektör Adil F/K + Özsermaye/2 = Hedef PD
-**Y4 PD/DD (Banka/Sigorta birincil):** ROE × Dinamik PBV Çarpan = Adil PD/DD
-**Y5 Özkaynak Karlılık:** TTM Faaliyet Kârı / Ödenmiş Sermaye × Dinamik Çarpan
-**Y6 Likiditasyon:** Kazanç Gücü + Tasfiye Değeri → Downside koruması
+> ★ Aşağıdaki yöntemler artık PUAN değil, HEDEF FİYAT üretir.
+> Her yöntem = "Bu hissenin olması gereken fiyatı şu kadardır" der.
+> Ağırlıklı ortalaması alınarak tek bir hedef fiyat oluşturulur.
 
-### Faiz Bazlı Ağırlık
+**Y1 Mean Reversion F/K:** Referans F/K × TTM NK / Hisse Adedi → Hedef Fiyat₺
+**Y2 Forward F/K:** Sektör Adil F/K × Forward NK / Hisse Adedi → Hedef Fiyat₺
+**Y3 PD/DD Reversion:** 3Y Ort PD/DD × Özkaynak / Hisse Adedi → Hedef Fiyat₺
+**Y4 Broker Hedef:** Analist konsensüs ortalaması → Hedef Fiyat₺ (varsa)
+**Y5 Core Earning Power:** Faal.Kâr × Sektör Adil F/K / Hisse Adedi → Hedef Fiyat₺
+
+### Faiz Bazlı Çarpan Etkisi
 ```
-TCMB ≥ %40: Y2=1.5x, Y6=1.5x, diğerleri=0.7x (çarpan bazlılar güvenilmez)
-TCMB %20-40: Tümü eşit 1.0x
-TCMB ≤ %20: Y1/Y3/Y5=1.3x, Y6=0.8x, Y2=1.0x
+TCMB yüksek (≥%35): Sektör Adil F/K düşük → Y2/Y5 düşük hedef verir → ağırlık azalt
+TCMB orta (%20-35): Dengeli
+TCMB düşük (<%20): Sektör Adil F/K yüksek → Y2/Y5 yüksek hedef verir → güvenilir
+→ Faiz düşerken tüm hedef fiyatlar otomatik yükselir (çarpan genişlemesi)
 ```
 
 ---
@@ -584,59 +588,136 @@ BANKA:    Faiz indirimi trendi → %50-70 | Sabit → %20-30 | ROE>%20 → +%10
 
 ---
 
-## SKORLAMA (100 + max 31 bonus - ceza)
+## HEDEF FİYAT HESAPLAMA (5 Yöntem Ağırlıklı)
 
-| Faktör | Ağırlık | Puanlama |
-|--------|---------|----------|
-| Forward F/K vs Sektör Adil | %25 | <Adil×0.5=25, <Adil=20, <×1.5=15, <×2=8, >×2=0 |
-| F/K İskontosu vs 12Q Ort (Y2) | %15 | >%50=15, %30-50=11, %15-30=6, <%15=0 |
-| PEG Ratio (1C) | %10 | <0.5=10, 0.5-1.0=7, 1.0-2.0=3, >2.0=0 |
-| FD/FAVÖK İskontosu (Y1) | %10 | >%50=10, %30-50=7, %15-30=4, <%15=0 |
-| Kâr Sürprizi (YoY+QoQ) | %15 | Çift pozitif=15, Tek=10, Flat=3, Negatif=0 |
-| Sektöre Göre Ucuzluk | %10 | <Med.×0.6=10, <Med.=7, ≈Med.=4, >Med.=0 |
-| Hedef Fiyat (Y3) | %5 | >%50=5, %25-50=3, %10-25=2, <%10=0 |
-| Güvenlik Marjı (Y6) | %5 | Kitap altı=5, Güçlü taban=3, Düşük=0 |
-| Turnaround | %5 | Zardan kâra=5, Kâr×2=3, Normal=1 |
+> ★ Puanlama sistemi SADECE eleme içindir (Faz 1-2'de geç/geçme kararı).
+> Yatırım kararı = HEDEF FİYAT + % POTANSİYEL ile verilir.
+> Her geçen hisse için 5 farklı yöntemle "olması gereken fiyat" hesaplanır.
 
-### Bonus/Ceza
+### ELEME KRİTERLERİ (Skor sadece bunun için kullanılır)
 ```
-VALUE:  PD/DD<1.0 +3 | 1-1.5 +2 | Faal.Marjı>%15 +2 | Çift isk. +3
-        Üçlü ucuzluk +3 | Faiz indirimi +3 | Kitap altı+sürpriz +3
-GROWTH: PEG<0.5 +3 | 4Q momentum +5 | 3Q +3 | F/K daralma>%50 +3
-        Hiper büyüme +3 | Turnaround+ucuz +2
-CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -5
+ELEN: NK < 0 veya FAVÖK < 0 veya Faal.Kâr < 0 (standart)
+ELEN: Rule 9 (Faal.Kâr(-) + NK(+))
+ELEN: Rule 10 (İştirak/NK > %80)
+ELEN: F/K primli (mevcut > referans) — yükselme potansiyeli yok
+GEÇER: Yukarıdakilerin hiçbirine takılmayan → Hedef Fiyat hesapla
+```
+
+### 5 YÖNTEM
+
+```
+Y1: MEAN REVERSION F/K (Ağırlık: %25 veya R13'te %10)
+    Hedef PD = Referans F/K × TTM NK
+    Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5) — Rule 15
+    R13 (fk_cnt/750 < %50) → ağırlık %25 → %10'a düşür
+    Hedef Fiyat = Hedef PD / Hisse Adedi
+
+Y2: FORWARD F/K (Ağırlık: %25)
+    Hedef PD = Sektör Adil F/K × Forward NK
+    Forward NK = Son Q × 4 (mevsimsellik kuralı uygula)
+    R16 (Q4/TTM > %70 veya < %10) → TTM NK kullan
+    Broker konsensüs NK varsa (≥2 analist) → onu tercih et
+    Hedef Fiyat = Hedef PD / Hisse Adedi
+
+Y3: PD/DD REVERSION (Ağırlık: %20)
+    Hedef PD = 3Y Ort PD/DD × Ana Ortaklık Özkaynağı
+    GYO/Holding'de ağırlık %30'a çık (NAV birincil)
+    Hedef Fiyat = Hedef PD / Hisse Adedi
+
+Y4: BROKER HEDEF FİYAT (Ağırlık: %30 varsa, %0 yoksa)
+    Son 6 ay aracı kurum hedef fiyatların ortalaması
+    ≥ 3 analist → ağırlık %30 (güvenilir konsensüs)
+    1-2 analist → ağırlık %15
+    0 analist → bu yöntem atlanır, diğerleri yeniden ağırlıklanır
+
+Y5: CORE EARNING POWER (Ağırlık: %15)
+    Hedef PD = Faaliyet Kârı (TTM) × Sektör Adil F/K
+    ★ Bu yöntem kâr kalitesini yansıtır — yatırım/finansal gelir dahil değil
+    Rule 17 sözleşme bonusu varsa: Hedef PD += Sözleşme Bonusu × PD / 100
+    Hedef Fiyat = Hedef PD / Hisse Adedi
+```
+
+### AĞIRLIK TABLOSU
+```
+                    Broker VAR (≥3)    Broker AZ (1-2)    Broker YOK
+Y1 Mean Rev.            %20               %25              %25
+Y2 Forward              %20               %25              %25
+Y3 PD/DD                %15               %20              %20
+Y4 Broker               %30               %15               -
+Y5 Core                 %15               %15              %15
+Ek: GYO/Holding         -                  -                -
+    → Y3 ağırlık +%10, Y1/Y2 ağırlık -%5 (NAV birincil)
+
+R13 aktif (düşük F/K verisi) → Y1 ağırlık %10'a düşür, Y5'e aktar
+```
+
+### HEDEF FİYAT → POTANSİYEL
+```
+Ham Hedef Fiyat = Σ(Yöntem Hedef × Ağırlık) / Σ(Ağırlıklar)
+Makro Düzeltilmiş Hedef = Ham Hedef × Makro Çarpan (Faz 3.5)
+Gerçekleşme Düzeltilmiş = Makro Hedef × Gerçekleşme Oranı
+
+Potansiyel % = (Gerçekleşme Düzeltilmiş / Son Fiyat - 1) × 100
+```
+
+### GERÇEKLEŞME ORANLARI (Backtest doğrulanmış)
+```
+Standart + T1 Katalist: %85 (3 dönem ort)
+Standart + T2 Katalist: %70
+Standart + Broker (katalist yok): %60
+Standart + Katalist yok + Broker yok: %40
+GYO Çift Ucuz + Katalist: %55
+GYO Çift Ucuz (katalistsiz): %35
+Holding (katalist var): %35
+Holding (katalist yok): %20
+```
+
+### SİNYAL SİSTEMİ (Potansiyel Bazlı)
+```
+🏆 ALTIN FIRSAT  → Potansiyel > %50 + T1/T2 Katalist
+🟢 GÜÇLÜ AL      → Potansiyel > %50 (katalistsiz) veya > %30 + T1 Katalist
+🟡 AL            → Potansiyel %20-%50
+🟠 TUT           → Potansiyel %0-%20
+⚪ İZLE          → Potansiyel -%10-%0 (hafif negatif, bekle)
+🔴 SAT           → Potansiyel < -%10 (makro risk veya aşırı değerli)
 ```
 
 ---
 
-## ÇIKTI FORMATLARI
+## ÇIKTI FORMATI
 
-### Standart Şirket
+### Her Hisse İçin (Tek Format — Standart + GYO/Holding/Banka)
 ```
-═══════════════════════════════════════
+═══════════════════════════════════════════════════════════════
 📌 {KOD} — {ŞİRKET}  [{Sektör}]
-{🏆 ALTIN} {🟢 DERİN İSK.} {🚀 HİPER} {🔄 TURNAROUND}
-═══════════════════════════════════════
-🔍 Tek Seferlik {✅/⚠️/🔴} | PD/DD: X.XX | Marj: %X
-📊 Son Q: Ciro|Faal.K|NK | QoQ +%A | YoY +%B
-💰 TTM F/K: Ax → Fwd: Bx → Daralma %C
-   PEG: D.DD | Y1-Y6 Ham: %X → Düzeltilmiş: %Y
-   Katalist: {✅/❌} | 1Y Alfa: %W
-⭐ SKOR: XX/100 {+bonus/-ceza}
-═══════════════════════════════════════
+{🏆 ALTIN FIRSAT / 🟢 GÜÇLÜ AL / 🟡 AL / 🟠 TUT / ⚪ İZLE / 🔴 SAT}
+═══════════════════════════════════════════════════════════════
+💰 Son Fiyat: ₺X.XX → Hedef Fiyat: ₺Y.YY → POTANSİYEL: +%ZZ
+
+📊 5 YÖNTEM DETAY:
+   Y1 Mean Rev (3Y F/K):    ₺A.AA  [ağırlık %W1]
+   Y2 Forward (Sektör Adil): ₺B.BB  [ağırlık %W2]
+   Y3 PD/DD Reversion:       ₺C.CC  [ağırlık %W3]
+   Y4 Broker Konsensüs:      ₺D.DD  [ağırlık %W4] — N analist
+   Y5 Core Earning Power:    ₺E.EE  [ağırlık %W5]
+   Ham Hedef: ₺F.FF × Makro ×G.G × Gerçekleşme %H = ₺Y.YY
+
+🔍 KALİTE:
+   Kâr Kalitesi: {✅ Temiz / ⚠️ Düşük / 🔴 Tuzak}
+   Faal.Kâr/NK: %X | PD/DD: Y.Yx | R12/R14/R16/R17: {varsa}
+
+📰 KATALİST: {T1 Sipariş / T2 Kapasite / R17 Sözleşme / Yok}
+   {Haber özeti} | Gerçekleşme: %H
+
+⚠️ MAKRO: {Risk Tipi} → Sektör çarpanı ×G.G
+═══════════════════════════════════════════════════════════════
 ```
 
-### GYO/Holding/Banka
+### Özet Tablo (Tüm Hisseler)
 ```
-═══════════════════════════════════════
-📌 {KOD} [{GYO/Holding/Banka}]
-{🟢🟢 ÇİFT UCUZ} {⚠️ F/K PRİMLİ}
-═══════════════════════════════════════
-🏢 PD/DD: X.XX | 3Y: Y.YY | İsk: %Z
-💰 F/K: Ax | 3Y: Bx | İsk: %C
-📊 Birleşik Pot: %D | Gerçekleşme: %E
-⭐ SKOR: XX/100
-═══════════════════════════════════════
+# Kod      Son₺    Hedef₺    POT%   Y1     Y2     Y3     Y4     Y5    Makro  Sinyal
+─────────────────────────────────────────────────────────────────────────────────────
+1 XXXXX    XX.XX   YY.YY    +ZZ%   AA.AA  BB.BB  CC.CC  DD.DD  EE.EE  ×G.G  🏆 ALTIN
 ```
 
 ---
@@ -657,17 +738,17 @@ CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -
 ```
 → Çıktı: ~90-100 hisse ham listesi (NK>0, FAVÖK>0, F/K iskontolu)
 
-### FAZ 2: KÂR KALİTESİ + SKORLAMA (Adım 6-9)
+### FAZ 2: KÂR KALİTESİ + ELEME (Adım 6-9)
 ```
 6. Kâr kalitesi kuralları uygula (Rule 9/10/11/12):
    - Faal.Kâr(-) + NK(+) → ELEN (standart)
-   - İştirak/NK > %80 → ELEN | > %50 → skor × 0.6
-   - Faal.Kâr/NK < %30 → skor × 0.5 | < %50 → skor × 0.7
-7. 6 Yöntem skorlama (Y1-Y6 + faiz ağırlık)
-8. GYO/Holding/Banka → KATMAN NAV çift filtre
-9. Ön sıralama (skor ≥ 30 geçer)
+   - İştirak/NK > %80 → ELEN | > %50 → ⚠️ işaretle
+   - Faal.Kâr/NK < %30 → ⚠️ işaretle (Faz 4'te hedef fiyatta yansır)
+7. Rule 13/14/15/16 kontrolleri → ⚠️ işaretle (Faz 4'te ağırlıklarda yansır)
+8. GYO/Holding/Banka → KATMAN NAV çift filtre (tek ucuz ELEN)
+9. F/K primli (mevcut > referans) → ELEN
 ```
-→ Çıktı: ~60 hisse (ön skorlu, henüz katalistsiz)
+→ Çıktı: ~60 hisse (elemeyi geçen, henüz hedef fiyatsız)
 
 ### FAZ 3: KATALİST + FORWARD F/K (Adım 10-15) — ★★★ ZORUNLU, ASLA ATLANMAZ
 > **3 Dönem Backtest Kanıtı:** Faz 3 olmadan AYI'da α=-1.9%, Faz 3 ile α=+39.6%.
@@ -817,45 +898,50 @@ CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -
     Makro düzeltilmiş skor = Faz 3 final skoru × Sektörel etki çarpanı
 ```
 
-### FAZ 4: FİNAL ÇIKTI (Adım 18-20)
+### FAZ 4: HEDEF FİYAT HESAPLAMA (Adım 18-22) — ★ ASIL ÇIKTI
 ```
-18. Final Skor = Faz 3.5 Makro Düzeltilmiş Skor
-    → skor × yapısal düzeltme katsayısı
-19. Sırala, sinyal ata, CSV oluştur → GitHub push
-20. Rapor: Her hisse için finansal + katalist + makro risk birlikte
+18. Her geçen hisse için 5 YÖNTEM hedef fiyat hesapla:
+    - Y1: Referans F/K × TTM NK / Hisse Adedi
+    - Y2: Sektör Adil F/K × Forward NK / Hisse Adedi
+    - Y3: 3Y Ort PD/DD × Özkaynak / Hisse Adedi
+    - Y4: Broker hedef fiyat ortalaması (varsa)
+    - Y5: Faal.Kâr × Sektör Adil F/K / Hisse Adedi
+    
+19. Ağırlıklı Hedef Fiyat = Σ(Yöntem × Ağırlık) / Σ(Ağırlıklar)
+    - R13 aktif → Y1 ağırlığı %25 → %10'a düşür
+    - Broker ≥3 → Y4 ağırlığı %30 (güvenilir)
+    - GYO/Holding → Y3 ağırlığı +%10 (NAV birincil)
+    - R17 sözleşme → Y5'e bonus ekle
+    
+20. Makro Düzeltme = Ağırlıklı Hedef × Faz 3.5 Makro Çarpanı
+21. Gerçekleşme Düzeltme = Makro Hedef × Gerçekleşme Oranı
+    (katalist durumuna göre: T1 %85, T2 %70, yok %40)
+22. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
+    → Sırala, sinyal ata, CSV + GitHub push
 ```
 
-### HER HİSSE ÇIKTI FORMATI (Entegre)
+### HER HİSSE ÇIKTI FORMATI (Hedef Fiyat Bazlı)
 ```
 ═══════════════════════════════════════════════════════════════
 📌 {KOD} — {ŞİRKET}  [{Sektör}]
-{🏆 ALTIN} {🟢 DERİN İSK.} {🚀 KATALİSTLİ}
+{🏆 ALTIN FIRSAT / 🟢 GÜÇLÜ AL / 🟡 AL / 🟠 TUT}
 ═══════════════════════════════════════════════════════════════
-🔍 Kâr Kalitesi: {✅ Temiz / ⚠️ Düşük / 🔴 Tuzak}
-   Faal.Kâr/NK: %X | İştirak Payı: %Y
-📊 TTM: Ciro|Faal.K|NK | QoQ +%A | YoY +%B
-💰 DEĞERLEME:
-   TTM F/K: Ax → Core Fwd F/K: Bx → Sektör Adil: Cx
-   PD/DD: Dx vs 3Y: Ex (isk %F)
-📰 KATALİST: {T1 Sipariş / T2 Kapasite / Yok}
-   {Haber özeti, tarih} | Etki: ~%G ciro büyüme
-   Broker: N analist, ort hedef ₺H → potansiyel %I
-   Fiyatlanmamışlık: alfa %J (son 6 ay)
-⭐ FİNANSAL SKOR: XX/100
-   + KATALİST BONUS: +YY (Tier/Broker/Forward/Fiyatlanmamışlık)
-   × MAKRO RİSK: ×Z.Z ({Risk Tipi} → {Sektör Etkisi})
-   = FİNAL SKOR: ZZ | Gerçekleşme: %W
+💰 Son Fiyat: ₺X → HEDEF: ₺Y → POTANSİYEL: +%Z
+   Y1 Mean Rev: ₺A | Y2 Forward: ₺B | Y3 PD/DD: ₺C
+   Y4 Broker: ₺D (N analist) | Y5 Core: ₺E
+🔍 Kalite: {✅/⚠️} | Makro: ×M.M | Gerçekleşme: %G
+📰 Katalist: {T1/T2/R17/Yok}
 ═══════════════════════════════════════════════════════════════
 ```
 
-### SİNYAL SİSTEMİ (Entegre)
+### SİNYAL SİSTEMİ (Potansiyel Bazlı — Skor DEĞİL)
 ```
-🏆 ALTIN KATALİSTLİ → Fin ≥ 60 + Katalist T1/T2 + Fwd < Adil
-🟢 DERİN İSKONTO    → Fin ≥ 70, katalist bağımsız
-🟡 FORWARD UCUZ      → Fin ≥ 50 + (Broker veya Katalist T1/T2)
-🟠 TAVSİYE          → Fin ≥ 40 veya (Fin ≥ 30 + Katalist T1)
-⚪ İZLEME           → Fin ≥ 30, katalist yok
-🔴 ELEN             → Fin < 30 veya kâr kalitesi başarısız
+🏆 ALTIN FIRSAT  → Potansiyel > %50 + T1/T2 Katalist
+🟢 GÜÇLÜ AL      → Potansiyel > %50 (katalistsiz) veya > %30 + T1 Katalist
+🟡 AL            → Potansiyel %20-%50
+🟠 TUT           → Potansiyel %0-%20
+⚪ İZLE          → Potansiyel -%10-%0
+🔴 SAT           → Potansiyel < -%10
 ```
 
 ### BATCH OPTİMİZASYONU
@@ -869,7 +955,7 @@ Faz 3:
 Faz 3.5:
   - 2-3 web_search (güncel makro risk tespiti)
   - Hesaplama: sektörel etki çarpanı uygula
-Faz 4: Hesaplama + CSV + GitHub push
+Faz 4: 5 Yöntem Hedef Fiyat + Potansiyel % → CSV + GitHub push
 Toplam: ~30-35 MCP/tool çağrısı
 ```
 
@@ -890,13 +976,14 @@ Bu skill'in detaylı alt dokümanları:
 
 ---
 
-## DETERMİNİSTİK PİPELİNE (v2.6 Entegre)
+## DETERMİNİSTİK PİPELİNE (v2.6 Entegre — Hedef Fiyat Bazlı)
 
 ```
 Faz 1: MCP SQL → finansal ham data (6 batch)
-Faz 2: Python → kâr kalitesi + skorlama (~60 hisse)
-Faz 3: MCP → broker tahmin + KAP haber + forward F/K (~25 çağrı)
-Faz 4: Python → final skor + CSV → GitHub push
+Faz 2: Python → kâr kalitesi eleme (~60 hisse geçer)
+Faz 3: MCP → broker tahmin + KAP haber + katalist (~25 çağrı)
+Faz 3.5: web_search → makro risk tespiti + sektörel çarpan
+Faz 4: Python → 5 yöntem hedef fiyat + potansiyel % + CSV → GitHub push
 ```
 
 ### "Son bilançoları değerle" akışı (İncremental):
@@ -907,14 +994,14 @@ Faz 4: Python → final skor + CSV → GitHub push
 ### Tam tarama akışı:
 1. Sorgu 14 CTE (6 batch) → ~574 hisse
 2. Ön filtre (NK>0, FAVÖK>0, F/K iskontolu) → ~93 hisse
-3. Kâr kalitesi (Rule 9/10/12) → ~61 hisse
-4. Broker tahminleri (toplu SQL) → forward NK
-5. KAP haberleri (top 20-30 hisse) → katalist sınıflandırma
-6. Forward F/K 3 senaryo hesapla
-7. Katalist bonus + yapısal düzeltme → katalist skoru
-8. Makro risk taraması (web_search) → güncel risk tespiti
-9. Sektörel etki çarpanı uygula → makro düzeltilmiş skor
-10. CSV + GitHub push
+3. Kâr kalitesi eleme (Rule 9/10) → ~60 hisse
+4. Broker tahminleri (toplu SQL) → broker hedef fiyat + konsensüs NK
+5. KAP haberleri (top 20-30 hisse) → katalist sınıflandırma + R17 sözleşme
+6. Makro risk taraması (web_search) → güncel risk tespiti
+7. **5 Yöntem Hedef Fiyat Hesaplama (Y1-Y5)**
+8. Makro çarpan uygula → makro düzeltilmiş hedef
+9. Gerçekleşme oranı uygula → final hedef fiyat
+10. Potansiyel % hesapla → sırala → sinyal ata → CSV + GitHub push
 
 ---
 
