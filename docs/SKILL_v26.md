@@ -680,12 +680,83 @@ CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -
     GYO/Holding katalist kontrolü → Gerçekleşme +%20 bonus
 ```
 
-### FAZ 4: FİNAL ÇIKTI (Adım 16-18)
+### FAZ 3.5: MAKRO RİSK OVERLAY (Adım 16-17) — DİNAMİK
+> Her taramada güncel makro/jeopolitik riskleri tespit et, sektörel etkiyi skorlara yansıt.
+> Sabit anahtar kelime KULLANILMAZ — risk her çeyrekte farklı olabilir.
+
 ```
-16. Final Skor = Faz 2 Skoru + Faz 3 Katalist Bonusu (max 30p)
+16. RİSK TESPİTİ (web_search — her taramada zorunlu):
+    web_search: "BIST risk bu hafta"
+    web_search: "Türkiye ekonomi gündem"
+    
+    Amaç: Şu an piyasayı etkileyen #1 risk faktörünü TANI.
+    Örnekler (çeyreğe göre değişir):
+      2026-Q1: İran savaşı → petrol+havacılık+turizm etkisi
+      2025-Q3: Kur krizi → ihracatçı/ithalatçı etkisi
+      2024-Q2: Seçim → politik belirsizlik
+      2023-Q1: Deprem → inşaat/sigorta etkisi
+      Başka dönem: Pandemi, ticaret savaşı, faiz şoku, düzenleme...
+
+17. SEKTÖREL ETKİ ÇARPANI UYGULA:
+    Tespit edilen risk → aşağıdaki tablodan eşleşen satırı bul → çarpanı uygula.
+    Tabloda olmayan yeni bir risk tipi → mantıksal çıkarımla etki belirle.
+
+    RİSK → SEKTÖR ETKİ MATRİSİ (framework'te kalır, risk tipi dinamik):
+    ┌─────────────────────┬──────────────────────────────────────────────┐
+    │ Savaş / Jeopolitik  │ Havacılık ×0.6, Turizm ×0.7, Savunma ×1.3 │
+    │                     │ Denizcilik ±, Enerji üretici ×1.2          │
+    │                     │ İç pazar sanayi ×1.0 (nötr)                │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Petrol/Enerji Krizi │ Enerji tüketici ×0.8, Ulaştırma ×0.7      │
+    │                     │ Enerji üretici ×1.3, Defansif ×1.0         │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Kur Krizi           │ İhracatçı ×1.2, İthalatçı ×0.7            │
+    │                     │ Döviz borçlu ×0.7, TL gelirli ×0.9        │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Faiz Şoku           │ Tüm çarpanlar ×0.9, GYO ×0.7              │
+    │                     │ Banka (marj) ×1.1, Borçlu ×0.8             │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Doğal Afet          │ İnşaat ×1.2, Sigorta ×0.7                  │
+    │                     │ Yerel sanayi ×0.8, Çimento ×1.2            │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Pandemi / Salgın    │ Sağlık ×1.3, Turizm ×0.5, Perakende ×0.7  │
+    │                     │ E-ticaret/Bilişim ×1.2, Ulaştırma ×0.6     │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Seçim / Politik     │ Tüm sektör volatilite ↑, çarpan ×0.95     │
+    │                     │ Kamu ihaleci (inşaat/savunma) ×0.9         │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Küresel Resesyon    │ Döngüsel ×0.7, Defansif ×1.1               │
+    │                     │ İhracatçı ×0.8, İç talep ×0.9             │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Düzenleme Değişikl. │ Hedef sektör ×0.7 veya ×1.3 (yöne göre)   │
+    ├─────────────────────┼──────────────────────────────────────────────┤
+    │ Risk yok / Stabil   │ Tüm sektör ×1.0 (çarpan uygulanmaz)       │
+    └─────────────────────┴──────────────────────────────────────────────┘
+
+    ŞİDDET KADEMESİ (tablo çarpanlarını ölçekle):
+    Düşük (haberlerde var ama piyasa sakin) → çarpanı %50 uygula
+    Orta (piyasa etkileniyor)              → çarpanı %100 uygula
+    Yüksek (kriz/savaş aktif)              → çarpanı %150 uygula
+    
+    Örnek: İran savaşı AKTİF (yüksek) → Havacılık çarpanı ×0.6
+           Havacılık skor = 78p × 0.6 = 47p (🏆 ALTIN → 🟠 TAVSİYE)
+    
+    Örnek: Kur krizi ORTA → İhracatçı çarpanı ×1.2, İthalatçı ×0.7
+    
+    ★ Birden fazla risk aynı anda aktif olabilir → çarpanlar ÇARPILIR
+      İran savaşı + petrol krizi → Havacılık: ×0.6 × ×0.7 = ×0.42
+    
+    ★ Risk "stabil" ise Faz 3.5 atlanır, çarpan ×1.0
+
+    Makro düzeltilmiş skor = Faz 3 final skoru × Sektörel etki çarpanı
+```
+
+### FAZ 4: FİNAL ÇIKTI (Adım 18-20)
+```
+18. Final Skor = Faz 3.5 Makro Düzeltilmiş Skor
     → skor × yapısal düzeltme katsayısı
-17. Sırala, sinyal ata, CSV oluştur → GitHub push
-18. Rapor: Her hisse için finansal + katalist + forward F/K birlikte
+19. Sırala, sinyal ata, CSV oluştur → GitHub push
+20. Rapor: Her hisse için finansal + katalist + makro risk birlikte
 ```
 
 ### HER HİSSE ÇIKTI FORMATI (Entegre)
@@ -706,6 +777,7 @@ CEZA:   Tek seferlik>%20 -10 | Faal.zarar+NK+ -15 | PD/DD>4+PEG>2 -5 | Marj<%5 -
    Fiyatlanmamışlık: alfa %J (son 6 ay)
 ⭐ FİNANSAL SKOR: XX/100
    + KATALİST BONUS: +YY (Tier/Broker/Forward/Fiyatlanmamışlık)
+   × MAKRO RİSK: ×Z.Z ({Risk Tipi} → {Sektör Etkisi})
    = FİNAL SKOR: ZZ | Gerçekleşme: %W
 ═══════════════════════════════════════════════════════════════
 ```
@@ -728,8 +800,11 @@ Faz 3:
   - 2 SQL sorgusu (broker tahmin + hedef fiyat, toplu)
   - ~15-20 dokumanlarda_ara çağrısı (top 20 hisse KAP haberleri)
   - ~5-10 web_search (sektör bazlı haber taraması)
+Faz 3.5:
+  - 2-3 web_search (güncel makro risk tespiti)
+  - Hesaplama: sektörel etki çarpanı uygula
 Faz 4: Hesaplama + CSV + GitHub push
-Toplam: ~25-30 MCP/tool çağrısı
+Toplam: ~30-35 MCP/tool çağrısı
 ```
 
 ---
@@ -770,8 +845,10 @@ Faz 4: Python → final skor + CSV → GitHub push
 4. Broker tahminleri (toplu SQL) → forward NK
 5. KAP haberleri (top 20-30 hisse) → katalist sınıflandırma
 6. Forward F/K 3 senaryo hesapla
-7. Katalist bonus + yapısal düzeltme → final skor
-8. CSV + GitHub push
+7. Katalist bonus + yapısal düzeltme → katalist skoru
+8. Makro risk taraması (web_search) → güncel risk tespiti
+9. Sektörel etki çarpanı uygula → makro düzeltilmiş skor
+10. CSV + GitHub push
 
 ---
 
