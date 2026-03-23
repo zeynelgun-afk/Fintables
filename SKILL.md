@@ -83,8 +83,8 @@ HARD ELEN:
   F/K primli: mevcut F/K > referans F/K (yükselme potansiyeli yok)
 
 UYARI (elen değil, hedef fiyatta yansır):
-  Rule 12: Faal.Kâr / NK < %30 → Y5 ağırlık artır (core earning power önemli)
-  Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık düşür (3Y ort güvenilmez)
+  Rule 12: Faal.Kâr / NK < %30 → R17 yoksa Y5 ağırlık artır | R17 varsa kaydırma YOK
+  Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık düşür (fark aktarılmaz, normalize)
   Rule 14: Yatırım Geliri / Ciro > %50 → Y1/Y2'de Forward NK yerine Faal.Kâr bazlı NK kullan
            > %30 → uyarı (Y1/Y2 ağırlık -%5, Y5 ağırlık +%5)
   Rule 16: Q4 NK / TTM NK > %70 veya < %10 → TTM NK kullan, forward güvenilmez
@@ -93,6 +93,10 @@ UYARI (elen değil, hedef fiyatta yansır):
            İşletme NA / FAVÖK > 0.7 → gerçekleşme +%5 (nakit dönüşüm güçlü)
            ★ Backtest: >0.7 → +18.4% getiri, <0.3 → +2.1% getiri (neredeyse sıfır!)
            ★ ORGE vakası: Kâr yüksek ama nakit dönüşüm 0.22 → gerçek operasyonel güç yok
+  Rule 20: Garantili sözleşme > 2Y → sözleşme ömrü ort faiz ile Adil F/K hesapla
+           Y1 faiz tavanı + Y2'de Sözleşme Adil F/K kullan (bugünkü forward yerine)
+           Y3 değişmez (varlık bazlı). Y5 zaten Sektör Ort kullanıyor (etkilenmez).
+           CATES vakası: 4Y sözleşme → ort faiz %20 → Adil 5.31x → Enerji 3.98x
 ```
 
 → Çıktı: ~60-90 hisse (elemeyi geçen)
@@ -147,7 +151,6 @@ QoQ < -%30   → Forward NK × 0.97
 Çift pozitif (YoY+ ve QoQ+) → en güçlü sinyal
 ```
 
----
 ---
 
 ## ADIM 5: KATALİST + BROKER (★ ZORUNLU, ASLA ATLANMAZ)
@@ -237,7 +240,7 @@ Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5)  ← Rule 15
   Forward %30 → Sanayi max 7.70x, Teknoloji max 14.44x
   Bu tavan düşük faiz dönemindeki 30-50x çarpanların referans alınmasını engeller
 
-★ Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık %10'a düşür, fark Y5'e aktar
+★ Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık %10'a düşür (fark aktarılmaz)
 ```
 
 ### Y2: Forward F/K (Sektör Adil Bazlı)
@@ -300,13 +303,17 @@ Son 6 ay aracı kurum hedef fiyatlarının ortalaması
 ### Y5: Core Earning Power
 
 ```
-Hedef PD = (Faaliyet Kârı TTM × Trend Çarpanı) × Sektör Adil F/K
+Hedef PD = (Faaliyet Kârı TTM × Trend Çarpanı) × Sektör Ort F/K
 Hedef Fiyat = Hedef PD / Hisse Adedi
 
-★ Yatırım/finansal gelir DAHİL DEĞİL — saf operasyonel güç
-★ Trend çarpanı burada uygulanır (artış → kâr artacak, düşüş → azalacak)
-★ Rule 17 sözleşme bonusu varsa: × 2.5 çarpan (CATES EÜAŞ gibi)
-★ Rule 12 aktif → Y5 ağırlığı artar (core önemli demek)
+★ Sektör Ort F/K kullanılır (Adil F/K DEĞİL) — piyasanın gerçek çarpanı.
+  Y2 zaten Adil F/K (teorik minimum) veriyor.
+  Y5'in amacı: "Piyasa bu operasyonel güce ne değer veriyor?"
+  → Cevap sektör ortalaması — teorik Adil F/K değil.
+★ Faal.Kâr < NK → sektör ort (NK bazlı) × Faal.Kâr = doğal muhafazakârlık.
+★ Yatırım/finansal gelir DAHİL DEĞİL — saf operasyonel güç.
+★ Trend çarpanı burada uygulanır (artış → kâr artacak, düşüş → azalacak).
+★ Rule 17 sözleşme bonusu varsa: × 2.5 çarpan (CATES EÜAŞ gibi).
 ```
 
 ### Ağırlık Tablosu
@@ -326,13 +333,26 @@ Y5 Core                 %20               %25              %25
 Ek düzeltmeler:
   GYO/Holding → Y3 ağırlık +%10, Y1/Y2 -%5 (NAV birincil)
   GYO + PD/DD < 1 → Y3 ağırlık %50 (Y3 baskın — taban YOK)
-  R13 aktif   → Y1 ağırlık %10'a düşür, farkı Y5'e aktar
-  R12 aktif   → Y1 -%5, Y5 +%5 (core earning power önemli)
+  R13 aktif   → Y1 ağırlık %10'a düşür. Fark AKTARILMAZ — normalize yeterli.
+                 (Güvenilmez Y1'den çıkan ağırlığı düşük Y5'e koymak paradoks yaratır.
+                  Normalize ile Y3 ve Y5 otomatik oransal güçlenir.)
+  R12 aktif   → SADECE R17 yoksa: Y1 -%5, Y5 +%5 (core'a daha çok bak).
+                 R17 + R12 birlikte aktifse: R12 ağırlık kaydırma YAPMA.
+                 (R17 zaten Faal.Kâr'ın artacağını söylüyor — eski düşük core'a
+                  daha çok ağırlık vermek anlamsız. CATES vakası.)
 
 ★ Ağırlıklar normalize edilir: Hedef = Σ(Yöntem×Ağırlık) / Σ(Ağırlıklar)
-  Broker yoksa toplam %85 olur, otomatik %100'e normalize edilir.
+  Broker yoksa toplam düşer, otomatik %100'e normalize edilir.
+
+★ ROL DAĞILIMI (her yöntem farklı soruya cevap verir):
+  Y1: Tarihsel ortalamaya dönüş (faiz tavanlı)  → "Geçmişte neredeydi?"
+  Y2: Teorik adil değer (forward faiz bazlı)     → "Olması gereken minimum"
+  Y3: Varlık değeri (PD/DD)                      → "Tasfiye edilse ne eder?"
+  Y4: Broker konsensüsü                          → "Analistler ne diyor?"
+  Y5: Piyasa çarpanı × operasyonel güç           → "Piyasa ne diyor?"
 ```
 
+---
 
 ## ADIM 7: MAKRO RİSK OVERLAY
 
@@ -485,9 +505,11 @@ Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
 ```
 Rule 9:  Faal.Kâr(-) + NK(+) → ELEN (standart). RTALB vakası.
 Rule 10: İştirak/NK > %80 → ELEN | > %50 → uyarı. RTALB vakası.
-Rule 12: Faal.Kâr/NK < %30 → Y5 ağırlık artır | < %50 → uyarı. CATES vakası.
-         3 dönem backtest: DEĞİŞMEDİ — Rule 12 + ADIM 5 birlikte doğru çalışıyor.
-Rule 13: fk_veri_sayisi/750 < %50 → Y1 ağırlık düşür. GSDDE vakası.
+Rule 12: Faal.Kâr/NK < %30 → R17 yoksa Y5 ağırlık artır | R17 varsa kaydırma YOK.
+         R17 + R12 çakışma: sözleşme zaten core'u değiştirecek, eski Faal.Kâr'a
+         daha çok ağırlık vermek anlamsız. CATES vakası.
+Rule 13: fk_veri_sayisi/750 < %50 → Y1 ağırlık düşür. Fark aktarılmaz — normalize.
+         Güvenilmez Y1'den çıkan ağırlığı düşük Y5'e koymak paradoks yaratır. GSDDE vakası.
 Rule 14: Yat.Geliri/Ciro > %50 → hedef düşür | > %30 → uyarı. GSDDE vakası.
 Rule 15: Ref F/K = min(3Y ort, sektör ort × 1.5). GSDDE vakası.
          "Adil × 1.5" KULLANILMAZ — Forward F/K yönteminde (Y2) zaten var.
@@ -497,6 +519,9 @@ Rule 17: Garantili sözleşme → Y5'e × 2.5 çarpan. CATES EÜAŞ vakası.
 Rule 18: Trend düzeltme → Forward NK seçimi + Y5 trend çarpanı. ATATP vakası.
 Rule 19: İşletme NA/FAVÖK < 0.3 → ger -%15 | > 0.7 → ger +%5. ORGE vakası (0.22).
          Backtest: >0.7 → +18.4% getiri, <0.3 → +2.1%. Nakit dönüşüm kritik.
+Rule 20: Garantili sözleşme > 2Y → sözleşme ömrü ortalama faiz ile Adil F/K hesapla.
+         Y1 faiz tavanı + Y2'de Sözleşme Adil kullan. Y3/Y5 etkilenmez.
+         CATES: 4Y EÜAŞ → ort faiz %20 → Adil 5.31x → Enerji 3.98x (vs bugün 2.89x).
 ```
 
 ---
@@ -559,7 +584,7 @@ ADIM 3: Mevsimsellik → Trend tespiti → Forward NK seçimi (Rule 18)
 ADIM 4: Kâr sürprizi → Forward NK büyüme çarpanı
 ADIM 5: Katalist + Broker (SQL + her hisse KAP taraması)
          ★ ZORUNLU — ASLA ATLANMAZ
-         ★ Katalist Forward NK çarpanını belirler (T1=×1.20, T2=×1.10)
+         ★ Katalist Forward NK çarpanını belirler (T1=×1.50, T2=×1.10)
          ★ Hedef fiyat hesaplamasından ÖNCE yapılmalı
 ADIM 6: 5 Yöntem Hedef Fiyat (Y1-Y5 + faiz tavanı + ağırlıklar)
          ★ Katalist çarpanlı Forward NK burada kullanılır
