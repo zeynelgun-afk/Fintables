@@ -343,9 +343,10 @@ TURNAROUND BONUSU:
 
 GÜVENLİK MARJI:
   PD/DD < 1.0 → ger +%5 (downside koruması var)
-  ★ GYO'da EK: PD/DD < 1.0 → Y3 ağırlık %30→%50 + taban = defter değeri
-    (GYO'nun işi gayrimenkul tutmak — NAV bağımsız değerleme, muhasebe değil)
-  ★ Standart/Holding'de taban YOK — defter değeri muhasebe rakamı, kâr gücü belirleyici
+  ★ Taban fiyat YOKTUR — ne standart ne GYO ne Holding'de.
+    GYO'lar yapısal NAV iskontosunda işlem görür (HLGYO 3Y ort 0.53x, hiç 1.0'a ulaşmamış).
+    Defter değerine taban koymak gerçekçi değil.
+    Y3 zaten 3Y ort PD/DD referans alıyor — bu gerçekçi hedef.
 
 MAX POTANSİYEL SINIRI (gerçekçilik):
   Standart: max %200 | GYO: max %150 | Holding: max %100
@@ -362,8 +363,8 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
 4. if Upside ≥ 0: Final Hedef = Son Fiyat + Upside × Gerçekleşme
    if Upside < 0: Final Hedef = Makro Hedef (gerçekleşme UYGULANMAZ)
    ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
-5. Taban: SADECE GYO'da PD/DD < 1 ise hedef en az = defter değeri
-   (GYO NAV = bağımsız değerleme. Standart/Holding'de taban YOK.)
+5. Taban: YOK (hiçbir kategoride defter değeri taban uygulanmaz)
+   GYO yapısal iskontoda işlem görür — PD/DD 1.0'a dönme varsayımı yanlış.
 6. Max: Standart %200, GYO %150, Holding %100
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
@@ -451,6 +452,10 @@ Rule 18: Trend düzeltme → Forward NK seçimi + Y5 trend çarpanı. ATATP vaka
 
 GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
 - Y3 (PD/DD) ağırlığı %30'a çıkar (NAV birincil)
+- GYO + PD/DD < 1 → Y3 ağırlık %50 (ama taban YOK — 3Y ort referans)
+- GYO'lar yapısal NAV iskontosunda işlem görür:
+  HLGYO 3Y ort 0.53x (hiç 1.0'a ulaşmamış), AKFGY 0.58x, MHRGY 0.83x
+  PD/DD=1.0'a dönecek varsayımı YANLIŞ — 3Y ort gerçekçi hedef
 - Çift filtre kontrolü yapılır (PD/DD isk + F/K isk = çift ucuz)
 - Max potansiyel: GYO %150, Holding %100
 - Kâr annualize etme (PEG hesaplanmaz)

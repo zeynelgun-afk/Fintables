@@ -1,25 +1,26 @@
 kod,sektor,son_fiyat,hedef_final,potansiyel_pct,sinyal,gerceklesme,katalist_tier,katalist_bilgi,makro
 ESCOM,Bilişim ve Yazılım,5.43,16.29,200.0,🏆 ALTIN,0.6,2,T2 6 yazılım yat.,1.0
-AKFGY,Gayrimenkul,2.89,7.23,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95
-HLGYO,Gayrimenkul,5.2,13.0,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95
 KZBGY,Gayrimenkul,3.12,7.8,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95
-RGYAS,Gayrimenkul,160.6,401.5,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95
-SRVGY,Gayrimenkul,3.31,8.28,150.0,🏆 ALTIN,0.5,2,T2 arsa alım,0.95
 EUHOL,Holding,12.99,25.98,100.0,🏆 ALTIN,0.4,1,T1 OTTO 50M USD,0.95
 GLRYH,Holding,4.33,8.66,100.0,🟢 GÜÇLÜ AL,0.2,0,,0.95
-MHRGY,Gayrimenkul,3.47,6.62,90.7,🟢 GÜÇLÜ AL,0.4,0,,0.95
+SRVGY,Gayrimenkul,3.31,6.56,98.3,🏆 ALTIN,0.5,2,T2 arsa alım,0.95
 A1CAP,Aracı Kurum,15.73,29.92,90.2,🟢 GÜÇLÜ AL,0.4,0,,0.95
+HLGYO,Gayrimenkul,5.2,9.72,86.9,🟢 GÜÇLÜ AL,0.4,0,,0.95
 VBTYZ,Bilişim ve Yazılım,22.2,37.46,68.7,🟢 GÜÇLÜ AL,0.75,1,T1 SGK+Banka,1.0
 PLTUR,Servis Taşımacılığı ve Araç Kiralama,24.02,39.88,66.0,🟢 GÜÇLÜ AL,0.8,1,T1 Araç kiralama,0.85
+RGYAS,Gayrimenkul,160.6,217.28,35.3,🟠 TUT,0.4,0,,0.95
 ATATP,Bilişim ve Yazılım,146.8,193.42,31.8,🟠 TUT,0.75,1,T1 EEX+yazılım,1.0
 OYYAT,Aracı Kurum,64.4,81.75,26.9,⚪ İZLE,0.4,0,,0.95
+AKFGY,Gayrimenkul,2.89,3.62,25.4,⚪ İZLE,0.4,0,,0.95
 MTRKS,Bilişim ve Yazılım,21.7,27.1,24.9,⚪ İZLE,0.4,0,,1.0
 CATES,Enerji Üretim ve Dağıtım,48.78,60.23,23.5,⚪ İZLE,1.0,1,T1 EÜAŞ 4Y USD,1.15
 ORGE,Enerji Teknolojileri,67.5,79.45,17.7,⚪ İZLE,0.95,1,T1 4 metro/havalimanı,1.1
 ULKER,Gıda ve İçecek,112.5,130.48,16.0,⚪ İZLE,0.55,0,,1.0
 KIMMR,Gıda Perakendeciliği,19.2,22.24,15.8,⚪ İZLE,0.4,0,,1.0
+MHRGY,Gayrimenkul,3.47,3.98,14.8,⚪ İZLE,0.4,0,,0.95
 AKFIS,İnşaat,39.7,44.91,13.1,⚪ İZLE,0.45,0,,0.95
 BNTAS,Ambalaj,6.25,6.92,10.8,⚪ İZLE,0.35,0,,1.0
+EGEGY,Gayrimenkul,29.0,31.99,10.3,⚪ İZLE,0.35,0,,0.95
 LOGO,Bilişim ve Yazılım,135.0,146.78,8.7,⚪ İZLE,0.5,0,,1.0
 KRSTL,Gıda ve İçecek,8.74,9.39,7.4,⚪ İZLE,0.45,0,,1.0
 AHSGY,Gayrimenkul,20.48,21.89,6.9,⚪ İZLE,0.45,0,,0.95
@@ -44,7 +45,6 @@ GENTS,Mobilya ve Dekorasyon,8.38,6.28,-25.0,🔴 SAT,0.4,0,,0.95
 INFO,Aracı Kurum,3.44,2.57,-25.3,🔴 SAT,0.85,1,T1 Varlık edinimi,0.95
 AKSA,Kimya ve Plastik,11.1,8.17,-26.4,🔴 SAT,0.5,0,,0.9
 MACKO,Destek ve Hizmet,31.5,23.17,-26.4,🔴 SAT,0.5,0,,1.0
-EGEGY,Gayrimenkul,29.0,21.27,-26.7,🔴 SAT,0.35,0,,0.95
 PGSUS,Ulaştırma,177.5,123.28,-30.5,🔴 SAT,0.9,1,T1 Uçuş kapasitesi,0.55
 TUREX,Servis Taşımacılığı ve Araç Kiralama,7.49,5.19,-30.8,🔴 SAT,0.3,0,,0.85
 GLRMK,İnşaat,170.1,117.23,-31.1,🔴 SAT,0.5,0,,0.95
