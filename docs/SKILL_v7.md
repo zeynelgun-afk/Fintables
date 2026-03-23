@@ -14,7 +14,7 @@ description: >
 > **TEMEL İLKE:** Amaç para kazanmak. Puan vermek değil, "olması gereken fiyat" hesaplamak.
 > Her hisse için: Son Fiyat → 5 Yöntem Hedef Fiyat → % Potansiyel → Mevduattan iyi mi?
 >
-> **3 DÖNEM BACKTEST:** Katalistli α+65.5%, Katalistsiz α+5.5%. Fark +59.9pt. Faz 3 ZORUNLU.
+> **3 DÖNEM BACKTEST:** Katalistli α+65.5%, Katalistsiz α+5.5%. Fark +59.9pt. ADIM 5 ZORUNLU.
 
 ---
 
@@ -148,8 +148,80 @@ QoQ < -%30   → Forward NK × 0.97
 ```
 
 ---
+---
 
-## ADIM 5: 5 YÖNTEM HEDEF FİYAT
+## ADIM 5: KATALİST + BROKER (★ ZORUNLU, ASLA ATLANMAZ)
+
+> **Backtest kanıtı:** Katalist olmadan AYI'da α=-1.9%. Katalist ile α=+39.6%.
+> Katalist farkı 3 dönem ort +59.9pt. Bu adım atlanırsa tarama GEÇERSİZ.
+
+### 5a: Broker Tahminleri (Toplu SQL)
+
+```sql
+-- Konsensüs NK + hedef fiyat çek
+SELECT hisse_senedi_kodu, yil,
+  AVG(net_kar) AS kons_nk, COUNT(DISTINCT araci_kurum_kodu) AS analist
+FROM hisse_senedi_araci_kurum_tahminleri
+WHERE yil IN (2025, 2026) AND ay = 12
+GROUP BY hisse_senedi_kodu, yil
+
+-- Hedef fiyatlar
+SELECT hisse_senedi_kodu, AVG(hedef_fiyat) AS ort_hedef, COUNT(*) AS rapor
+FROM hisse_senedi_araci_kurum_hedef_fiyatlari
+WHERE yayin_tarihi_europe_istanbul >= '{6_AY_ONCE}' AND hedef_fiyat > 0
+GROUP BY hisse_senedi_kodu
+```
+
+### 5b: KAP Haberleri (Her hisse için dokumanlarda_ara)
+
+```
+Top 20-25 hisse için:
+  dokumanlarda_ara(
+    query="sözleşme sipariş yatırım kapasite ihale tesis satın alma",
+    filter='dokuman_tipi = "kap_haberi" AND kap_bildirim_tipi = "ODA"
+      AND iliskili_semboller = "{KOD}"
+      AND yayinlanma_tarihi_utc > {6_AY_ONCE_UTC}',
+    sirala="yayinlanma_tarihi_utc:desc", sayfa_basi=5
+  )
+  İlginç haber → dokuman_chunk_yukle ile detay oku
+
+Katalist sınıflandırma:
+  Tier 1: Yeni sipariş/ihale kazanma/tesis devreye/satın alma → ger %85
+  Tier 2: Kapasite artışı yatırımı/patent/lisans → ger %70
+  Tier 3: Temettü/geri alım/ESG → düşük etki
+  Stacking: 2+ farklı katalist → ek güç (FONET: 5 ihale = T1+Stack)
+```
+
+### 5c: Katalist → Forward NK Çarpanı + Gerçekleşme (ADIM 8'de kullanılır)
+
+```
+★ YENİ (v7.4): Katalist Forward NK'yı DEĞİŞTİRİR.
+  Backtest kanıtı: Katalist farkı +59.9pt ama eski sistemde sadece gerçekleşmeye giriyordu.
+  Artık katalist HEM Forward NK'yı HEM gerçekleşmeyi etkiler.
+
+FORWARD NK ÇARPANI (Y1 ve Y2'deki fwd_nk'ya uygulanır — Y5'e GİRMEZ):
+  T1 Katalist → Forward NK × 1.20 (varsayılan %20 kâr artışı beklentisi)
+  T2 Katalist → Forward NK × 1.10 (varsayılan %10)
+  Katalist yok → Forward NK × 1.00 (değişmez)
+
+  Özel durumlar (sipariş/ciro oranı biliniyorsa):
+    Sipariş/Ciro > %50 → Forward NK × 1.30 (TRANSFORMATÖR)
+    Sipariş/Ciro %20-50 → Forward NK × 1.20
+    Sipariş/Ciro %10-20 → Forward NK × 1.15
+    Sipariş/Ciro < %10  → Forward NK × 1.10
+
+  R17 (garantili sözleşme) ile ÇAKIŞMAZ:
+    R17 zaten Y5'e ×2.5 veriyor — Forward NK çarpanı Y1/Y2'ye girer, Y5'e girmez.
+
+GERÇEKLEŞMEYİ de belirler (ADIM 8'de):
+  T1 bulundu → baz gerçekleşme %85
+  T2 bulundu → baz gerçekleşme %70
+  Hiçbiri    → baz gerçekleşme %40
+```
+
+---
+
+## ADIM 6: 5 YÖNTEM HEDEF FİYAT
 
 Her yöntem bağımsız bir hedef fiyat üretir. Ağırlıklı ortalaması alınır.
 
@@ -162,7 +234,7 @@ Hedef Fiyat = Hedef PD / Hisse Adedi
 Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5)  ← Rule 15
 
 ★ FAİZ TAVANI (v6): Referans F/K = min(Referans, Sektör Adil F/K × 2.0)
-  %37 faiz → Sanayi max 7.76x, Teknoloji max 14.55x
+  Forward %30 → Sanayi max 7.70x, Teknoloji max 14.44x
   Bu tavan düşük faiz dönemindeki 30-50x çarpanların referans alınmasını engeller
 
 ★ Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık %10'a düşür, fark Y5'e aktar
@@ -186,7 +258,7 @@ Hedef PD = Referans PD/DD × Ana Ortaklık Özkaynağı
 Hedef Fiyat = Hedef PD / Hisse Adedi
 
 ★ FAİZ TAVANI (v6): Referans PD/DD = min(3Y Ort, max(Sektör Adil × 0.4, 2.0))
-  Örnek: Sanayi 3.88 × 0.4 = 1.55 → max(1.55, 2.0) = 2.0 → min(3Y Ort, 2.0)
+  Örnek: Sanayi 3.85 × 0.4 = 1.54 → max(1.54, 2.0) = 2.0 → min(3Y Ort, 2.0)
   Düşük faiz dönemindeki 5-15x PD/DD çarpanları referans alınmaz
 
 GYO/Holding'de ağırlık %30 (NAV birincil metrik)
@@ -238,78 +310,6 @@ Ek düzeltmeler:
   Broker yoksa toplam %85 olur, otomatik %100'e normalize edilir.
 ```
 
----
-
-## ADIM 6: KATALİST + BROKER (★ ZORUNLU, ASLA ATLANMAZ)
-
-> **Backtest kanıtı:** Katalist olmadan AYI'da α=-1.9%. Katalist ile α=+39.6%.
-> Katalist farkı 3 dönem ort +59.9pt. Bu adım atlanırsa tarama GEÇERSİZ.
-
-### 6a: Broker Tahminleri (Toplu SQL)
-
-```sql
--- Konsensüs NK + hedef fiyat çek
-SELECT hisse_senedi_kodu, yil,
-  AVG(net_kar) AS kons_nk, COUNT(DISTINCT araci_kurum_kodu) AS analist
-FROM hisse_senedi_araci_kurum_tahminleri
-WHERE yil IN (2025, 2026) AND ay = 12
-GROUP BY hisse_senedi_kodu, yil
-
--- Hedef fiyatlar
-SELECT hisse_senedi_kodu, AVG(hedef_fiyat) AS ort_hedef, COUNT(*) AS rapor
-FROM hisse_senedi_araci_kurum_hedef_fiyatlari
-WHERE yayin_tarihi_europe_istanbul >= '{6_AY_ONCE}' AND hedef_fiyat > 0
-GROUP BY hisse_senedi_kodu
-```
-
-### 6b: KAP Haberleri (Her hisse için dokumanlarda_ara)
-
-```
-Top 20-25 hisse için:
-  dokumanlarda_ara(
-    query="sözleşme sipariş yatırım kapasite ihale tesis satın alma",
-    filter='dokuman_tipi = "kap_haberi" AND kap_bildirim_tipi = "ODA"
-      AND iliskili_semboller = "{KOD}"
-      AND yayinlanma_tarihi_utc > {6_AY_ONCE_UTC}',
-    sirala="yayinlanma_tarihi_utc:desc", sayfa_basi=5
-  )
-  İlginç haber → dokuman_chunk_yukle ile detay oku
-
-Katalist sınıflandırma:
-  Tier 1: Yeni sipariş/ihale kazanma/tesis devreye/satın alma → ger %85
-  Tier 2: Kapasite artışı yatırımı/patent/lisans → ger %70
-  Tier 3: Temettü/geri alım/ESG → düşük etki
-  Stacking: 2+ farklı katalist → ek güç (FONET: 5 ihale = T1+Stack)
-```
-
-### 6c: Katalist → Forward NK Çarpanı + Gerçekleşme (ADIM 8'de kullanılır)
-
-```
-★ YENİ (v7.4): Katalist Forward NK'yı DEĞİŞTİRİR.
-  Backtest kanıtı: Katalist farkı +59.9pt ama eski sistemde sadece gerçekleşmeye giriyordu.
-  Artık katalist HEM Forward NK'yı HEM gerçekleşmeyi etkiler.
-
-FORWARD NK ÇARPANI (Y1 ve Y2'deki fwd_nk'ya uygulanır — Y5'e GİRMEZ):
-  T1 Katalist → Forward NK × 1.20 (varsayılan %20 kâr artışı beklentisi)
-  T2 Katalist → Forward NK × 1.10 (varsayılan %10)
-  Katalist yok → Forward NK × 1.00 (değişmez)
-
-  Özel durumlar (sipariş/ciro oranı biliniyorsa):
-    Sipariş/Ciro > %50 → Forward NK × 1.30 (TRANSFORMATÖR)
-    Sipariş/Ciro %20-50 → Forward NK × 1.20
-    Sipariş/Ciro %10-20 → Forward NK × 1.15
-    Sipariş/Ciro < %10  → Forward NK × 1.10
-
-  R17 (garantili sözleşme) ile ÇAKIŞMAZ:
-    R17 zaten Y5'e ×2.5 veriyor — Forward NK çarpanı Y1/Y2'ye girer, Y5'e girmez.
-
-GERÇEKLEŞMEYİ de belirler (ADIM 8'de):
-  T1 bulundu → baz gerçekleşme %85
-  T2 bulundu → baz gerçekleşme %70
-  Hiçbiri    → baz gerçekleşme %40
-```
-
----
 
 ## ADIM 7: MAKRO RİSK OVERLAY
 
@@ -332,7 +332,7 @@ Makro Düzeltilmiş Hedef = Ham Hedef × Makro Çarpanı
 
 ---
 
-## ADIM 8: GERÇEKLEŞME ORANI (Katalist bilgisi ADIM 6'dan gelir)
+## ADIM 8: GERÇEKLEŞME ORANI (Katalist bilgisi ADIM 5'ten gelir)
 
 Backtest'ten öğrenilen: hedef fiyata ulaşma olasılığı.
 Upside'a uygulanır (tüm değere DEĞİL).
@@ -340,7 +340,7 @@ Upside'a uygulanır (tüm değere DEĞİL).
 ```
 Final Hedef = Son Fiyat + (Makro Düz. Hedef - Son Fiyat) × Gerçekleşme
 
-BAZ ORANLAR (katalist durumuna göre — ADIM 6'da tespit edilmiş):
+BAZ ORANLAR (katalist durumuna göre — ADIM 5'te tespit edilmiş):
   T1 Katalist:    %85 (3 dönem ort — en güvenilir)
   T2 Katalist:    %70
   Broker ≥2 analist (kat yok): %60 (analist güvencesi)
@@ -464,7 +464,7 @@ Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
 Rule 9:  Faal.Kâr(-) + NK(+) → ELEN (standart). RTALB vakası.
 Rule 10: İştirak/NK > %80 → ELEN | > %50 → uyarı. RTALB vakası.
 Rule 12: Faal.Kâr/NK < %30 → Y5 ağırlık artır | < %50 → uyarı. CATES vakası.
-         3 dönem backtest: DEĞİŞMEDİ — Rule 12 + Faz 3 birlikte doğru çalışıyor.
+         3 dönem backtest: DEĞİŞMEDİ — Rule 12 + ADIM 5 birlikte doğru çalışıyor.
 Rule 13: fk_veri_sayisi/750 < %50 → Y1 ağırlık düşür. GSDDE vakası.
 Rule 14: Yat.Geliri/Ciro > %50 → hedef düşür | > %30 → uyarı. GSDDE vakası.
 Rule 15: Ref F/K = min(3Y ort, sektör ort × 1.5). GSDDE vakası.
@@ -526,19 +526,22 @@ YÜKSEK (Turizm, Enerji, Perakende giyim, Tarım):
 ## TAM TARAMA AKIŞI (Pipeline)
 
 ```
-ADIM 0: web_search → TCMB faizi + trendi
+ADIM 0: web_search → TCMB mevcut faizi + yılsonu konsensüs
 ADIM 1: MCP SQL → finansal ham data (6 batch Sorgu 14 CTE)
          + 4Q ciro/NK trendi + GY Q4 NK (YoY)
-         + son fiyat + sermaye + özkaynak
+         + son fiyat + sermaye + özkaynak + İşletme NA
 ADIM 2: ELEME → Rule 9/10 + F/K primli → ~60-90 hisse geçer
 ADIM 3: Mevsimsellik → Trend tespiti → Forward NK seçimi (Rule 18)
 ADIM 4: Kâr sürprizi → Forward NK büyüme çarpanı
-ADIM 5: 5 Yöntem Hedef Fiyat (Y1-Y5 + faiz tavanı + ağırlıklar)
-ADIM 6: Katalist + Broker (SQL + her hisse KAP taraması)
+ADIM 5: Katalist + Broker (SQL + her hisse KAP taraması)
          ★ ZORUNLU — ASLA ATLANMAZ
+         ★ Katalist Forward NK çarpanını belirler (T1=×1.20, T2=×1.10)
+         ★ Hedef fiyat hesaplamasından ÖNCE yapılmalı
+ADIM 6: 5 Yöntem Hedef Fiyat (Y1-Y5 + faiz tavanı + ağırlıklar)
+         ★ Katalist çarpanlı Forward NK burada kullanılır
 ADIM 7: Makro risk (web_search) → sektörel çarpan
-ADIM 8: Gerçekleşme oranı (baz + momentum + PEG + turnaround + güvenlik)
-         ★ Katalist bilgisi ADIM 6'dan gelir → T1=%85, yok=%40
+ADIM 8: Gerçekleşme oranı (baz + momentum + PEG + nakit dönüşüm)
+         ★ Katalist bilgisi ADIM 5'ten gelir → T1=%85, yok=%40
 ADIM 9: Final hesaplama → Makro × Gerçekleşme → Potansiyel %
          → Faiz bazlı sinyal → CSV + GitHub push
 
@@ -549,9 +552,9 @@ ADIM 9: Final hesaplama → Makro × Gerçekleşme → Potansiyel %
 
 ### MCP Çağrı Bütçesi
 ```
-ADIM 1:  6 SQL (Sorgu 14 batch) + 2 SQL (trend + YoY) + 1 SQL (fiyat/sermaye)
-ADIM 6a: 2 SQL (broker tahmin + hedef fiyat)
-ADIM 6b: ~20-25 dokumanlarda_ara (top hisseler KAP)
+ADIM 1:  6 SQL (Sorgu 14 batch) + 2 SQL (trend + YoY) + 1 SQL (fiyat/sermaye/NA)
+ADIM 5a: 2 SQL (broker tahmin + hedef fiyat)
+ADIM 5b: ~20-25 dokumanlarda_ara (top hisseler KAP)
 ADIM 7:  2-3 web_search (makro risk)
 Toplam: ~35-40 MCP/tool çağrısı
 ```
@@ -562,18 +565,18 @@ Toplam: ~35-40 MCP/tool çağrısı
 
 ```
 SÜPER BOĞA (XU100 > +30%):
-  ADIM 1-5 tek başına güçlü (α+37.1%)
-  Katalist ekstra bonus (α+68.4%)
-  Strateji: Geniş tut, ADIM 1-5 yeterli
+  Finansal değerleme tek başına güçlü (α+37.1%)
+  Katalist (ADIM 5) ekstra bonus (α+68.4%)
+  Strateji: Geniş tut, finansal değerleme yeterli
 
 BOĞA (XU100 +5% → +30%):
-  ADIM 1-5 orta (TOP15 α+21.6%)
-  ADIM 6 katalist kritik fark (katalistli α+88.4%)
+  Finansal değerleme orta (TOP15 α+21.6%)
+  ADIM 5 katalist kritik fark (katalistli α+88.4%)
   Strateji: Katalistli hisselere odaklan
 
 AYI (XU100 < +5%):
-  ADIM 1-5 TEK BAŞINA ÇALIŞMIYOR (α-1.9%) ❌
-  ADIM 6 ZORUNLU (katalistli α+39.6%)
+  Finansal değerleme TEK BAŞINA ÇALIŞMIYOR (α-1.9%) ❌
+  ADIM 5 ZORUNLU (katalistli α+39.6%)
   Strateji: SADECE katalistli hisseler al, katalistsiz → mevduat
 ```
 
@@ -596,7 +599,7 @@ AYI (XU100 < +5%):
 Tarama/analiz sırasında:
 - Adım atlama, kısaltma, varsayımla geçiştirme YASAK
 - Demo/sahte veri üretme YASAK
-- ADIM 6 (katalist) atlamak YASAK — backtest kanıtı: +59.9pt fark
+- ADIM 5 (katalist) atlamak YASAK — backtest kanıtı: +59.9pt fark
 - Faiz kontrolü atlamak YASAK — mevduattan kötü hisseye AL demek YASAK
 - Hesaplamayı yaklaşık yapma YASAK
 - Her hisse tek tek taranır, her kural kontrol edilir
