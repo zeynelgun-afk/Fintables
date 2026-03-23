@@ -257,11 +257,34 @@ Sektör Adil F/K doğrudan forward faize bağlı:
 Hedef PD = Referans PD/DD × Ana Ortaklık Özkaynağı
 Hedef Fiyat = Hedef PD / Hisse Adedi
 
-★ FAİZ TAVANI (v6): Referans PD/DD = min(3Y Ort, max(Sektör Adil × 0.4, 2.0))
-  Örnek: Sanayi 3.85 × 0.4 = 1.54 → max(1.54, 2.0) = 2.0 → min(3Y Ort, 2.0)
-  Düşük faiz dönemindeki 5-15x PD/DD çarpanları referans alınmaz
+STANDART ŞİRKET:
+  ★ FAİZ TAVANI: Referans PD/DD = min(3Y Ort, max(Sektör Adil × 0.4, 2.0))
+    Örnek: Sanayi 3.85 × 0.4 = 1.54 → max(1.54, 2.0) = 2.0 → min(3Y Ort, 2.0)
 
-GYO/Holding'de ağırlık %30 (NAV birincil metrik)
+GYO (FAİZ BAZLI PD/DD TAVANI):
+  ★ Referans PD/DD = min(3Y Ort, 1 / (Forward Faiz × 3))
+    @%30 fwd: 1/(0.30×3) = 1.11x | @%15: 2.22x | @%8: 4.17x
+    Faiz yüksek → tavan düşer | Faiz düşük → tavan kalkar (OTOMATİK)
+    
+    Etki:
+    KZBGY: min(9.07, 1.11) = 1.11x ← düşük faiz dönemi şişirmesi engellendi
+    SRVGY: min(1.13, 1.11) = 1.11x ← faiz tavanı aktif
+    HLGYO: min(0.53, 1.11) = 0.53x ← 3Y ort düşük, tavan etkilemez
+    AKFGY: min(0.58, 1.11) = 0.58x ← aynı
+
+HOLDİNG (FAİZ BAZLI + KONGLOMERA İSKONTOSU):
+  ★ Referans PD/DD = min(3Y Ort, 1 / (Forward Faiz × 3) × 0.85)
+    Konglomera iskontosu %15 (global ortalama — yönetim karmaşıklığı, şeffaflık)
+    @%30 fwd: 1.11 × 0.85 = 0.94x | @%15: 2.22 × 0.85 = 1.89x
+    
+    Etki:
+    EUHOL: min(2.45, 0.94) = 0.94x ← tavan aktif
+    GLRYH: min(2.79, 0.94) = 0.94x ← tavan aktif
+    RALYH: min(9.63, 0.94) = 0.94x ← düşük faiz şişirmesi engellendi
+  
+  ★ Max potansiyel sınırı YOKTUR — faiz bazlı PD/DD tavanı + gerçekleşme yeterli.
+
+GYO/Holding'de Y3 ağırlık %30 (NAV birincil metrik)
 Trend bağımsız — varlık bazlı değerleme
 ```
 
@@ -373,12 +396,11 @@ GÜVENLİK MARJI:
     Defter değerine taban koymak gerçekçi değil.
     Y3 zaten 3Y ort PD/DD referans alıyor — bu gerçekçi hedef.
 
-MAX POTANSİYEL SINIRI (gerçekçilik):
-  Standart: max %200 | GYO: max %150
-  Holding (katalist bazlı — backtest doğrulaması):
-    Katalistsiz → max %50  (backtest: ort alfa -3.6%, yapısal iskonto kapanmıyor)
-    T2 Katalist → max %100 (LRSHO +76.7%, GLYHO +25.8%)
-    T1 Katalist → max %150 (TERA +229% — devralma/dönüşüm her şeyi değiştirir)
+MAX POTANSİYEL SINIRI:
+  Standart: max %200 (güvenlik önlemi — aşırı iyimser hedef engeli)
+  GYO/Holding: MAX CAP YOK — faiz bazlı PD/DD tavanı (1/(FF×3)) otomatik sınırlama yapar.
+    GYO: 1/(Forward Faiz × 3) | Holding: aynı × 0.85 (konglomera iskontosu)
+    + düşük gerçekleşme oranları (%15-55) zaten potansiyeli doğal sınırlar.
 ```
 
 ---
@@ -394,7 +416,7 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
    ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
 5. Taban: YOK (hiçbir kategoride defter değeri taban uygulanmaz)
    GYO yapısal iskontoda işlem görür — PD/DD 1.0'a dönme varsayımı yanlış.
-6. Max: Standart %200, GYO %150, Holding %50/%100/%150 (katalist bazlı)
+6. Max: Standart %200 | GYO/Holding: max cap YOK (faiz bazlı PD/DD tavanı yeterli)
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
 
@@ -483,12 +505,14 @@ Rule 19: İşletme NA/FAVÖK < 0.3 → ger -%15 | > 0.7 → ger +%5. ORGE vakas�
 
 GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
 - Y3 (PD/DD) ağırlığı %30'a çıkar (NAV birincil)
-- GYO + PD/DD < 1 → Y3 ağırlık %50 (ama taban YOK — 3Y ort referans)
-- GYO'lar yapısal NAV iskontosunda işlem görür:
-  HLGYO 3Y ort 0.53x (hiç 1.0'a ulaşmamış), AKFGY 0.58x, MHRGY 0.83x
-  PD/DD=1.0'a dönecek varsayımı YANLIŞ — 3Y ort gerçekçi hedef
+- GYO + PD/DD < 1 → Y3 ağırlık %50 (Y3 baskın — taban YOK)
+- GYO Y3 Referans PD/DD = min(3Y Ort, 1 / (Forward Faiz × 3))
+  Faiz bazlı tavan: @%30→1.11x, @%15→2.22x. Otomatik — faiz düşünce gevşer.
+  KZBGY min(9.07, 1.11) = 1.11x | HLGYO min(0.53, 1.11) = 0.53x (değişmez)
+- Holding Y3 Referans PD/DD = min(3Y Ort, 1 / (Forward Faiz × 3) × 0.85)
+  Konglomera iskontosu %15. @%30→0.94x. Yapısal iskonto kalıcı.
 - Çift filtre kontrolü yapılır (PD/DD isk + F/K isk = çift ucuz)
-- Max potansiyel: GYO %150, Holding %50/%100/%150 (katalist bazlı)
+- Max potansiyel sınırı: GYO/Holding YOK — faiz PD/DD tavanı + gerçekleşme yeterli
 - Kâr annualize etme (PEG hesaplanmaz)
 
 ```
