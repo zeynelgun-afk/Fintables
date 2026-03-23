@@ -401,7 +401,9 @@ MOMENTUM DÜZELTMESİ (4 çeyrek NK trendi):
   4Q ardışık artış  → ger +%10 (büyüyen şirket hedefe ulaşır)
   3Q ardışık düşüş → ger -%10 (küçülen şirket ulaşamaz)
 
-PEG DÜZELTMESİ (OPSİYONEL — broker büyüme tahmini varsa):
+PEG DÜZELTMESİ:
+  PEG = Son F/K / YoY Q4 NK Büyüme (%)
+  GYO/Holding → PEG hesaplanmaz. Büyüme ≤ 0 → PEG hesaplanamaz.
   PEG < 0.5 → ger +%8 (çok ucuz büyüme — gerçekleşme yüksek)
   PEG < 1.0 → ger +%5
   PEG > 2.0 → ger -%3 (pahalı büyüme)
