@@ -63,6 +63,8 @@ Min AL Eşiği = Mevcut TCMB Faizi + %15 Risk Primi
    + Son fiyat, ödenmiş sermaye, özkaynak
 3. 4 çeyrek ciro + NK verisi (trend tespiti için)
 4. Geçen yıl aynı çeyrek NK (YoY kâr sürprizi için)
+5. İşletme NA (nakit akış tablosu) → Rule 19 nakit dönüşüm kalitesi için
+   İşletme NA / FAVÖK oranı hesaplanır
 ```
 
 → Çıktı: ~574 hisse ham veri
@@ -87,6 +89,10 @@ UYARI (elen değil, hedef fiyatta yansır):
            > %30 → uyarı (Y1/Y2 ağırlık -%5, Y5 ağırlık +%5)
   Rule 16: Q4 NK / TTM NK > %70 veya < %10 → TTM NK kullan, forward güvenilmez
   Rule 17: Garantili sözleşme → Y5'e bonus çarpan
+  Rule 19: İşletme NA / FAVÖK < 0.3 → gerçekleşme -%15 (nakit dönüşüm kötü)
+           İşletme NA / FAVÖK > 0.7 → gerçekleşme +%5 (nakit dönüşüm güçlü)
+           ★ Backtest: >0.7 → +18.4% getiri, <0.3 → +2.1% getiri (neredeyse sıfır!)
+           ★ ORGE vakası: Kâr yüksek ama nakit dönüşüm 0.22 → gerçek operasyonel güç yok
 ```
 
 → Çıktı: ~60-90 hisse (elemeyi geçen)
@@ -339,7 +345,7 @@ BAZ ORANLAR (katalist durumuna göre — ADIM 6'da tespit edilmiş):
   T2 Katalist:    %70
   Broker ≥2 analist (kat yok): %60 (analist güvencesi)
   Katalistsiz (broker da yok): %40 (mevduata yatır daha iyi olabilir)
-  GYO çift ucuz:  %55 | GYO tekli: %35
+  GYO çift ucuz:  %55 | GYO tekli: %15 (backtest: tekli ucuz ort -10.5% getiri!)
   Holding katalist: %35 | Holding yok: %20
 
 MOMENTUM DÜZELTMESİ (4 çeyrek NK trendi):
@@ -354,6 +360,12 @@ PEG DÜZELTMESİ:
 TURNAROUND BONUSU:
   GY Q4 zarar + Bu yıl Q4 kâr → ger +%5
 
+NAKİT DÖNÜŞÜM KALİTESİ (Rule 19 — Backtest Bulgu #15):
+  İşletme NA / FAVÖK > 0.7 → ger +%5 (nakit makinesi — kâr gerçek)
+  İşletme NA / FAVÖK < 0.3 → ger -%15 (kâğıt üstünde kâr — nakit yok)
+  ★ Backtest: >0.7 grubun ort getirisi +18.4%, <0.3 grubun ort +2.1%
+  ★ ORGE vakası: 0.22 → kâr yüksek ama gerçek operasyonel güç yok
+
 GÜVENLİK MARJI:
   PD/DD < 1.0 → ger +%5 (downside koruması var)
   ★ Taban fiyat YOKTUR — ne standart ne GYO ne Holding'de.
@@ -362,7 +374,8 @@ GÜVENLİK MARJI:
     Y3 zaten 3Y ort PD/DD referans alıyor — bu gerçekçi hedef.
 
 MAX POTANSİYEL SINIRI (gerçekçilik):
-  Standart: max %200 | GYO: max %150 | Holding: max %100
+  Standart: max %200 | GYO: max %150 | Holding: max %50
+  ★ Holding max %50: Backtest doğrulaması — yapısal iskonto kalıcı, katalistsiz kapanmaz.
 ```
 
 ---
@@ -378,7 +391,7 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
    ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
 5. Taban: YOK (hiçbir kategoride defter değeri taban uygulanmaz)
    GYO yapısal iskontoda işlem görür — PD/DD 1.0'a dönme varsayımı yanlış.
-6. Max: Standart %200, GYO %150, Holding %100
+6. Max: Standart %200, GYO %150, Holding %50
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
 
@@ -457,6 +470,8 @@ Rule 16: Q4 NK/TTM NK > %70 veya < %10 → TTM NK kullan.
          ESCOM (%99), OYYAT (%91), TTKOM (%3) vakaları.
 Rule 17: Garantili sözleşme → Y5'e × 2.5 çarpan. CATES EÜAŞ vakası.
 Rule 18: Trend düzeltme → Forward NK seçimi + Y5 trend çarpanı. ATATP vakası.
+Rule 19: İşletme NA/FAVÖK < 0.3 → ger -%15 | > 0.7 → ger +%5. ORGE vakası (0.22).
+         Backtest: >0.7 → +18.4% getiri, <0.3 → +2.1%. Nakit dönüşüm kritik.
 ```
 
 ---
@@ -470,13 +485,13 @@ GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
   HLGYO 3Y ort 0.53x (hiç 1.0'a ulaşmamış), AKFGY 0.58x, MHRGY 0.83x
   PD/DD=1.0'a dönecek varsayımı YANLIŞ — 3Y ort gerçekçi hedef
 - Çift filtre kontrolü yapılır (PD/DD isk + F/K isk = çift ucuz)
-- Max potansiyel: GYO %150, Holding %100
+- Max potansiyel: GYO %150, Holding %50
 - Kâr annualize etme (PEG hesaplanmaz)
 
 ```
 ÇİFT UCUZ (PD/DD isk + F/K isk) → gerçekleşme %55 (GYO) / %35 (Holding)
-TEKLİ UCUZ (PD/DD isk + F/K primli) → gerçekleşme %35 (GYO) / %20 (Holding)
-Backtest: Çift ucuz +6.6% ort | Tekli ucuz -10.5% ort
+TEKLİ UCUZ (PD/DD isk + F/K primli) → gerçekleşme %15 (GYO) / %20 (Holding)
+Backtest: Çift ucuz +6.6% ort | Tekli ucuz -10.5% ort → TEKLİ ÇOK RİSKLİ
 
 Banka: F/DD %60 + F/K %40 | ROE > %20 → ger +%10
        Faiz indirimi trendi → %50-70 gerçekleşme
