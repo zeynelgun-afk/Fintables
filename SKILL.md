@@ -474,6 +474,15 @@ Mevduattan iyi performans gösteremeyen hisseye AL DENMEZ.
 🔴 SAT           → Pot < %0
 
 Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
+
+★ GERÇEKLEŞME FİLTRESİ (sinyal sonrası — son kontrol):
+  Ger < %40 → LİSTEDEN TAMAMEN ELEN (gösterilmez)
+    Backtest: %20 (holding katalistsiz), %15 (GYO tekli ucuz) → neredeyse hiç çalışmadı.
+    Para kaybetme riski yüksek — mevduata yatır.
+  Ger %40-%59 → max sinyal 🟠 TUT (AL/GÜÇLÜ/ALTIN veremezsin)
+    Backtest: %40-55 bazen sürpriz yapıyor ama güvenilir değil.
+    "İlginç ama risk yüksek" — mevcut varsa tut, yeni pozisyon açma.
+  Ger ≥ %60 → sinyal kısıtlaması yok (normal akış)
 ```
 
 ---
