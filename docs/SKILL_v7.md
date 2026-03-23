@@ -408,7 +408,7 @@ PEG DÜZELTMESİ:
   PEG < 1.0 → ger +%5
   PEG > 2.0 → ger -%3 (pahalı büyüme)
 
-TURNAROUND BONUSU:
+TURNAROUND BONUSU (OPSİYONEL — tekil hisse analizinde):
   GY Q4 zarar + Bu yıl Q4 kâr → ger +%5
 
 NAKİT DÖNÜŞÜM KALİTESİ (Rule 19 — Backtest Bulgu #15):
@@ -502,7 +502,7 @@ Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
    Y2 Forward:  ₺B (adil F/K Sx)
    Y3 PD/DD:    ₺C (ref Px)
    Y4 Broker:   ₺D (N analist)
-   Y5 Core:     ₺E (sektör ort F/K: Qx, trend ×T)  ← piyasa çarpanı
+   Y5 Core:     ₺E (Y5 ref: Rx, sektör ort: Qx, trend ×T)
 🔍 Kalite: {✅/⚠️} | Trend: {C:artış N:düşüş ×0.85}
 📰 Katalist: {T1/T2/Yok} | Gerçekleşme: %G
 ⚠️ Makro: {risk} ×M | PEG: P | Turnaround: {✅/—}
@@ -548,7 +548,7 @@ Rule 20: Garantili sözleşme > 2Y → sözleşme ömrü ortalama faiz ile Adil 
 ## KATMAN NAV — GYO/Holding/Banka
 
 GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
-- Y3 (PD/DD) ağırlığı %30'a çıkar (NAV birincil)
+- Y3 (PD/DD) ağırlığı +%10 (broker ≥3: %25, broker az/yok: %30 — NAV birincil)
 - GYO + PD/DD < 1 → Y3 ağırlık %50 (Y3 baskın — taban YOK)
 - GYO Y3 Referans PD/DD = min(3Y Ort, 1 / (Forward Faiz × 3))
   Faiz bazlı tavan: @%30→1.11x, @%15→2.22x. Otomatik — faiz düşünce gevşer.
@@ -560,10 +560,12 @@ GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
 - Kâr annualize etme (PEG hesaplanmaz)
 
 ```
-ÇİFT UCUZ (PD/DD isk + F/K isk) → gerçekleşme %55 (GYO) / %50 (Holding T1) / %35 (Holding T2)
+GYO ÇİFT UCUZ (PD/DD isk + F/K isk) → gerçekleşme %55 | GYO tekli: %15
+  + Katalist bonus: T1/T2 → +%10 (max %95)
+Holding: Katalist tier-bazlı (çift ucuz DEĞİL):
+  T1 → %50 | T2 → %35 | Katalistsiz → %20 (Ger filtresiyle ELEN)
 TEKLİ UCUZ (PD/DD isk + F/K primli) → gerçekleşme %15 (GYO) / %20 (Holding)
 Backtest: Çift ucuz +6.6% ort | Tekli ucuz -10.5% ort → TEKLİ ÇOK RİSKLİ
-Holding katalistsiz: %20 → Ger filtresiyle ELEN (backtest: ort alfa -3.6%)
 
 Banka: F/DD %60 + F/K %40 | ROE > %20 → ger +%10
        Faiz indirimi trendi → %50-70 gerçekleşme
