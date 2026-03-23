@@ -374,8 +374,11 @@ GÜVENLİK MARJI:
     Y3 zaten 3Y ort PD/DD referans alıyor — bu gerçekçi hedef.
 
 MAX POTANSİYEL SINIRI (gerçekçilik):
-  Standart: max %200 | GYO: max %150 | Holding: max %50
-  ★ Holding max %50: Backtest doğrulaması — yapısal iskonto kalıcı, katalistsiz kapanmaz.
+  Standart: max %200 | GYO: max %150
+  Holding (katalist bazlı — backtest doğrulaması):
+    Katalistsiz → max %50  (backtest: ort alfa -3.6%, yapısal iskonto kapanmıyor)
+    T2 Katalist → max %100 (LRSHO +76.7%, GLYHO +25.8%)
+    T1 Katalist → max %150 (TERA +229% — devralma/dönüşüm her şeyi değiştirir)
 ```
 
 ---
@@ -391,7 +394,7 @@ MAX POTANSİYEL SINIRI (gerçekçilik):
    ★ Negatif upside = hisse pahalı. Gerçekleşme artınca düşüş artmamalı.
 5. Taban: YOK (hiçbir kategoride defter değeri taban uygulanmaz)
    GYO yapısal iskontoda işlem görür — PD/DD 1.0'a dönme varsayımı yanlış.
-6. Max: Standart %200, GYO %150, Holding %50
+6. Max: Standart %200, GYO %150, Holding %50/%100/%150 (katalist bazlı)
 7. Potansiyel % = (Final Hedef / Son Fiyat - 1) × 100
 ```
 
@@ -485,7 +488,7 @@ GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
   HLGYO 3Y ort 0.53x (hiç 1.0'a ulaşmamış), AKFGY 0.58x, MHRGY 0.83x
   PD/DD=1.0'a dönecek varsayımı YANLIŞ — 3Y ort gerçekçi hedef
 - Çift filtre kontrolü yapılır (PD/DD isk + F/K isk = çift ucuz)
-- Max potansiyel: GYO %150, Holding %50
+- Max potansiyel: GYO %150, Holding %50/%100/%150 (katalist bazlı)
 - Kâr annualize etme (PEG hesaplanmaz)
 
 ```
