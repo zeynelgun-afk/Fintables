@@ -303,8 +303,14 @@ Son 6 ay aracı kurum hedef fiyatlarının ortalaması
 ### Y5: Core Earning Power
 
 ```
-Hedef PD = (Faaliyet Kârı TTM × Trend Çarpanı) × Sektör Ort F/K
+Hedef PD = (Faaliyet Kârı TTM × Trend Çarpanı) × Y5 Ref F/K
 Hedef Fiyat = Hedef PD / Hisse Adedi
+
+Y5 Ref F/K = (Sektör Ort F/K + min(Sektör Ort F/K, Sektör Adil F/K × 2.0)) / 2
+  → "Piyasa ne diyor" + "Faiz ne diyor" ortası
+  Faiz düşünce → tavan yükselir → ortalama sektör ortalamasına yaklaşır (OTOMATİK)
+  Faiz yükselince → tavan düşer → ortalama daha muhafazakâr olur (OTOMATİK)
+  Örnek @%30 forward: Enerji → (18.48 + min(18.48, 5.78)) / 2 = (18.48 + 5.78) / 2 = 12.13x
 
 ★ Sektör Ort F/K kullanılır (Adil F/K DEĞİL) — piyasanın gerçek çarpanı.
   Y2 zaten Adil F/K (teorik minimum) veriyor.
