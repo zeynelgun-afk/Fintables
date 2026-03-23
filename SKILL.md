@@ -20,28 +20,33 @@ description: >
 
 ## ADIM 0: FAİZ — HER ŞEYİN TEMELİ
 
-Her tarama faizi çekerek başlar. Faiz 3 yerde kullanılır:
-1. **Adil F/K hesabı** → Y2 ve Y5 hedef fiyat
-2. **Faiz tavanı** → Y1 ve Y3'te 3Y çarpanları sınırlar
-3. **Sinyal eşikleri** → mevduattan iyi mi testi
+Her tarama faizi çekerek başlar. İKİ FARKLI FAİZ kullanılır:
+
+1. **Mevcut TCMB Faizi** → Min AL eşiği (mevduat alternatifi)
+2. **Forward Faiz (yılsonu konsensüs)** → Adil F/K hesabı + faiz tavanı
+
+Mantık: Piyasa forward'a bakarak fiyatlıyor, ama mevduat bugünkü faizi veriyor.
 
 ```
 web_search: "TCMB politika faizi güncel"
+web_search: "Türkiye yılsonu faiz beklentisi konsensüs"
 
-Adil F/K = 1 / (TCMB Faizi × 0.70 + %5 Risk Primi)
-Faiz Eğilimi: İNDİRİM → Adil × 1.20 | ARTIRIM → Adil × 0.90
+Adil F/K = 1 / (Forward Faiz × 0.70 + %5 Risk Primi)
+  ★ Forward faiz kullanılır — piyasa yılsonu beklentisiyle fiyatlıyor.
+  ★ Faiz eğilimi çarpanı KALDIRILDI (forward zaten eğilimi yansıtıyor).
 
 Sektör Adil F/K = Adil F/K × Sektör Çarpanı:
   Sanayi 1.00 | Teknoloji/Savunma 1.875 | Bankacılık 0.50 (F/DD birincil)
   Enerji 0.75 | İnşaat 0.625 | Telekom 0.875 | Sigorta/Maden 0.75
   Perakende/Turizm/Gıda/Tarım 1.00 | GYO/Holding → NAV (çarpan yok)
 
-Risksiz Getiri = TCMB Faizi (mevduat yaklaşık bu kadar verir)
-Hisse Risk Primi = +%15
-Min AL Eşiği = Risksiz + Risk Primi
+Min AL Eşiği = Mevcut TCMB Faizi + %15 Risk Primi
+  ★ Mevcut faiz kullanılır — mevduat bugün bu kadar veriyor.
 
-Örnek: %37 faiz → Adil 3.88x → Sanayi Adil 3.88x → Min AL %52
-        %25 faiz → Adil 5.00x → Sanayi Adil 5.00x → Min AL %40
+Örnek: TCMB %37 mevcut, konsensüs %30 forward
+  → Adil F/K = 1/(0.30×0.70+0.05) = 3.85x
+  → Min AL = %37 + %15 = %52
+  → Sanayi Adil = 3.85x | Teknoloji Adil = 7.22x
 ```
 
 ---
@@ -154,7 +159,7 @@ Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5)  ← Rule 15
   %37 faiz → Sanayi max 7.76x, Teknoloji max 14.55x
   Bu tavan düşük faiz dönemindeki 30-50x çarpanların referans alınmasını engeller
 
-★ Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlığı %25 → %10
+★ Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık %10'a düşür, fark Y5'e aktar
 ```
 
 ### Y2: Forward F/K (Sektör Adil Bazlı)
@@ -163,9 +168,9 @@ Referans F/K = min(3Y Kendi Ort, Sektör Ort × 1.5)  ← Rule 15
 Hedef PD = Sektör Adil F/K × Forward NK
 Hedef Fiyat = Hedef PD / Hisse Adedi
 
-Sektör Adil F/K doğrudan TCMB faizine bağlı:
-  %37 faiz → Sanayi 3.88x | Teknoloji 7.28x | Banka 1.94x
-  Faiz düşerse adil F/K yükselir → hedef fiyat otomatik artar
+Sektör Adil F/K doğrudan forward faize bağlı:
+  Forward %30 → Sanayi 3.85x | Teknoloji 7.22x | Banka 1.93x
+  Faiz beklentisi düşerse adil F/K yükselir → hedef fiyat otomatik artar
 ```
 
 ### Y3: PD/DD Reversion
@@ -219,7 +224,7 @@ Y5 Core                 %20               %25              %25
 
 Ek düzeltmeler:
   GYO/Holding → Y3 ağırlık +%10, Y1/Y2 -%5 (NAV birincil)
-  GYO + PD/DD < 1 → Y3 ağırlık %50 (NAV taban aktif)
+  GYO + PD/DD < 1 → Y3 ağırlık %50 (Y3 baskın — taban YOK)
   R13 aktif   → Y1 ağırlık %10'a düşür, farkı Y5'e aktar
   R12 aktif   → Y1 -%5, Y5 +%5 (core earning power önemli)
 
@@ -278,7 +283,7 @@ Katalist sınıflandırma:
   Backtest kanıtı: Katalist farkı +59.9pt ama eski sistemde sadece gerçekleşmeye giriyordu.
   Artık katalist HEM Forward NK'yı HEM gerçekleşmeyi etkiler.
 
-FORWARD NK ÇARPANI (Y1, Y2, Y5'teki fwd_nk'ya uygulanır):
+FORWARD NK ÇARPANI (Y1 ve Y2'deki fwd_nk'ya uygulanır — Y5'e GİRMEZ):
   T1 Katalist → Forward NK × 1.20 (varsayılan %20 kâr artışı beklentisi)
   T2 Katalist → Forward NK × 1.10 (varsayılan %10)
   Katalist yok → Forward NK × 1.00 (değişmez)
@@ -332,8 +337,8 @@ Final Hedef = Son Fiyat + (Makro Düz. Hedef - Son Fiyat) × Gerçekleşme
 BAZ ORANLAR (katalist durumuna göre — ADIM 6'da tespit edilmiş):
   T1 Katalist:    %85 (3 dönem ort — en güvenilir)
   T2 Katalist:    %70
-  Broker (kat yok): %60
-  Katalistsiz:    %40 (mevduata yatır daha iyi olabilir)
+  Broker ≥2 analist (kat yok): %60 (analist güvencesi)
+  Katalistsiz (broker da yok): %40 (mevduata yatır daha iyi olabilir)
   GYO çift ucuz:  %55 | GYO tekli: %35
   Holding katalist: %35 | Holding yok: %20
 
@@ -573,7 +578,7 @@ AYI (XU100 < +5%):
 Tarama/analiz sırasında:
 - Adım atlama, kısaltma, varsayımla geçiştirme YASAK
 - Demo/sahte veri üretme YASAK
-- Faz 3 (katalist) atlamak YASAK — backtest kanıtı: +59.9pt fark
+- ADIM 6 (katalist) atlamak YASAK — backtest kanıtı: +59.9pt fark
 - Faiz kontrolü atlamak YASAK — mevduattan kötü hisseye AL demek YASAK
 - Hesaplamayı yaklaşık yapma YASAK
 - Her hisse tek tek taranır, her kural kontrol edilir
