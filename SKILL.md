@@ -395,7 +395,7 @@ BAZ ORANLAR (katalist durumuna göre — ADIM 5'te tespit edilmiş):
   Broker ≥2 analist (kat yok): %60 (analist güvencesi)
   Katalistsiz (broker da yok): %40 (mevduata yatır daha iyi olabilir)
   GYO çift ucuz:  %55 | GYO tekli: %15 (backtest: tekli ucuz ort -10.5% getiri!)
-  Holding katalist: %35 | Holding yok: %20
+  Holding T1 katalist: %50 | Holding T2: %35 | Holding yok: %20
 
 MOMENTUM DÜZELTMESİ (4 çeyrek NK trendi):
   4Q ardışık artış  → ger +%10 (büyüyen şirket hedefe ulaşır)
@@ -558,9 +558,10 @@ GYO/Holding/Banka için 5 Yöntem AYNI uygulanır ama:
 - Kâr annualize etme (PEG hesaplanmaz)
 
 ```
-ÇİFT UCUZ (PD/DD isk + F/K isk) → gerçekleşme %55 (GYO) / %35 (Holding)
+ÇİFT UCUZ (PD/DD isk + F/K isk) → gerçekleşme %55 (GYO) / %50 (Holding T1) / %35 (Holding T2)
 TEKLİ UCUZ (PD/DD isk + F/K primli) → gerçekleşme %15 (GYO) / %20 (Holding)
 Backtest: Çift ucuz +6.6% ort | Tekli ucuz -10.5% ort → TEKLİ ÇOK RİSKLİ
+Holding katalistsiz: %20 → Ger filtresiyle ELEN (backtest: ort alfa -3.6%)
 
 Banka: F/DD %60 + F/K %40 | ROE > %20 → ger +%10
        Faiz indirimi trendi → %50-70 gerçekleşme
