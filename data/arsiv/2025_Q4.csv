@@ -1,77 +1,77 @@
-kod,sektor,son_fiyat,hedef_final,potansiyel_pct,sinyal,gerceklesme,katalist_tier,katalist_bilgi,makro
-ESCOM,Bilişim ve Yazılım,5.43,16.29,200.0,🏆 ALTIN,0.6,2,T2 6 yazılım yat.,1.0
-KZBGY,Gayrimenkul,3.12,7.8,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95
-EUHOL,Holding,12.99,25.98,100.0,🏆 ALTIN,0.4,1,T1 OTTO 50M USD,0.95
-GLRYH,Holding,4.33,8.66,100.0,🟢 GÜÇLÜ AL,0.2,0,,0.95
-SRVGY,Gayrimenkul,3.31,6.56,98.3,🏆 ALTIN,0.5,2,T2 arsa alım,0.95
-A1CAP,Aracı Kurum,15.73,29.92,90.2,🟢 GÜÇLÜ AL,0.4,0,,0.95
-HLGYO,Gayrimenkul,5.2,9.72,86.9,🟢 GÜÇLÜ AL,0.4,0,,0.95
-VBTYZ,Bilişim ve Yazılım,22.2,37.46,68.7,🟢 GÜÇLÜ AL,0.75,1,T1 SGK+Banka,1.0
-PLTUR,Servis Taşımacılığı ve Araç Kiralama,24.02,39.88,66.0,🟢 GÜÇLÜ AL,0.8,1,T1 Araç kiralama,0.85
-RGYAS,Gayrimenkul,160.6,217.28,35.3,🟠 TUT,0.4,0,,0.95
-ATATP,Bilişim ve Yazılım,146.8,193.42,31.8,🟠 TUT,0.75,1,T1 EEX+yazılım,1.0
-OYYAT,Aracı Kurum,64.4,81.75,26.9,⚪ İZLE,0.4,0,,0.95
-AKFGY,Gayrimenkul,2.89,3.62,25.4,⚪ İZLE,0.4,0,,0.95
-MTRKS,Bilişim ve Yazılım,21.7,27.1,24.9,⚪ İZLE,0.4,0,,1.0
-CATES,Enerji Üretim ve Dağıtım,48.78,60.23,23.5,⚪ İZLE,1.0,1,T1 EÜAŞ 4Y USD,1.15
-ORGE,Enerji Teknolojileri,67.5,79.45,17.7,⚪ İZLE,0.95,1,T1 4 metro/havalimanı,1.1
-ULKER,Gıda ve İçecek,112.5,130.48,16.0,⚪ İZLE,0.55,0,,1.0
-KIMMR,Gıda Perakendeciliği,19.2,22.24,15.8,⚪ İZLE,0.4,0,,1.0
-MHRGY,Gayrimenkul,3.47,3.98,14.8,⚪ İZLE,0.4,0,,0.95
-AKFIS,İnşaat,39.7,44.91,13.1,⚪ İZLE,0.45,0,,0.95
-BNTAS,Ambalaj,6.25,6.92,10.8,⚪ İZLE,0.35,0,,1.0
-EGEGY,Gayrimenkul,29.0,31.99,10.3,⚪ İZLE,0.35,0,,0.95
-LOGO,Bilişim ve Yazılım,135.0,146.78,8.7,⚪ İZLE,0.5,0,,1.0
-KRSTL,Gıda ve İçecek,8.74,9.39,7.4,⚪ İZLE,0.45,0,,1.0
-AHSGY,Gayrimenkul,20.48,21.89,6.9,⚪ İZLE,0.45,0,,0.95
-TTKOM,Haberleşme,59.15,63.06,6.6,⚪ İZLE,0.55,0,,1.0
-FONET,Bilişim ve Yazılım,4.68,4.93,5.4,⚪ İZLE,0.95,1,T1 5 ihale 743M,1.0
-AYES,İmalat,32.0,32.71,2.2,⚪ İZLE,0.4,0,,0.95
-EUREN,Enerji Üretim ve Dağıtım,4.84,4.9,1.2,⚪ İZLE,0.35,0,,1.15
-MERIT,Turizm,16.15,15.42,-4.5,🔴 SAT,0.55,0,,0.7
-ARASE,Enerji Üretim ve Dağıtım,102.5,94.7,-7.6,🔴 SAT,0.4,0,,1.15
-YUNSA,"Tekstil, Giyim ve Deri",8.21,7.41,-9.7,🔴 SAT,0.45,0,,0.95
-GESAN,Enerji Teknolojileri,44.7,38.85,-13.1,🔴 SAT,0.3,0,,1.1
-KATMR,Metal Eşya ve Makine,2.98,2.53,-15.0,🔴 SAT,0.8,1,T1 MSB savunma,1.2
-NTGAZ,Enerji Üretim ve Dağıtım,13.03,10.99,-15.6,🔴 SAT,0.4,0,,1.15
-ASUZU,Otomotiv,66.3,55.37,-16.5,🔴 SAT,0.3,0,,0.9
-SISE,"Cam, Seramik, Porselen",44.26,36.65,-17.2,🔴 SAT,0.75,2,T2 varlık edinimi,0.9
-YYLGD,Gıda ve İçecek,11.14,9.04,-18.9,🔴 SAT,0.35,0,,1.0
-THYAO,Ulaştırma,289.5,231.7,-20.0,🔴 SAT,0.9,1,T1 AJet+kapasite,0.55
-PNLSN,İnşaat,50.5,39.21,-22.4,🔴 SAT,0.4,0,,0.95
-TOASO,Otomotiv,310.25,240.13,-22.6,🔴 SAT,0.6,0,,0.9
-YEOTK,Enerji Teknolojileri,48.78,37.73,-22.7,🔴 SAT,0.75,1,T1 5+ GES,1.1
-GENTS,Mobilya ve Dekorasyon,8.38,6.28,-25.0,🔴 SAT,0.4,0,,0.95
-INFO,Aracı Kurum,3.44,2.57,-25.3,🔴 SAT,0.85,1,T1 Varlık edinimi,0.95
-AKSA,Kimya ve Plastik,11.1,8.17,-26.4,🔴 SAT,0.5,0,,0.9
-MACKO,Destek ve Hizmet,31.5,23.17,-26.4,🔴 SAT,0.5,0,,1.0
-PGSUS,Ulaştırma,177.5,123.28,-30.5,🔴 SAT,0.9,1,T1 Uçuş kapasitesi,0.55
-TUREX,Servis Taşımacılığı ve Araç Kiralama,7.49,5.19,-30.8,🔴 SAT,0.3,0,,0.85
-GLRMK,İnşaat,170.1,117.23,-31.1,🔴 SAT,0.5,0,,0.95
-LILAK,Kağıt ve Kağıt Ürünleri,33.12,22.61,-31.7,🔴 SAT,0.5,0,,0.95
-TCKRC,İmalat,94.0,62.88,-33.1,🔴 SAT,0.4,0,,0.95
-CWENE,Enerji Teknolojileri,28.86,19.24,-33.3,🔴 SAT,0.3,0,,1.1
-BULGS,Girişim Sermayesi Yat. Ort.,44.3,28.43,-35.8,🔴 SAT,0.4,0,,0.95
-OZSUB,"Tarım, Hayvancılık, Balıkçılık",22.16,14.21,-35.9,🔴 SAT,0.4,0,,1.0
-PKENT,Turizm,154.6,95.06,-38.5,🔴 SAT,0.4,0,,0.7
-CGCAM,"Cam, Seramik, Porselen",35.98,20.59,-42.8,🔴 SAT,0.5,0,,0.9
-EGPRO,Kimya ve Plastik,29.02,16.59,-42.8,🔴 SAT,0.4,0,,0.9
-GRSEL,Servis Taşımacılığı ve Araç Kiralama,324.0,184.64,-43.0,🔴 SAT,0.4,0,,0.85
-ENKAI,İnşaat,92.95,52.71,-43.3,🔴 SAT,0.5,0,,0.95
-GEDIK,Aracı Kurum,5.35,2.97,-44.4,🔴 SAT,0.4,0,,0.95
-TERA,Aracı Kurum,320.25,177.05,-44.7,🔴 SAT,0.3,0,,0.95
-GRTHO,Gıda ve İçecek,241.7,133.19,-44.9,🔴 SAT,0.5,0,,1.0
-BEYAZ,Destek ve Hizmet,28.46,15.57,-45.3,🔴 SAT,0.4,0,,1.0
-ELITE,Gıda ve İçecek,28.36,13.8,-51.3,🔴 SAT,0.3,0,,1.0
-ARTMS,"Tekstil, Giyim ve Deri",39.34,17.15,-56.4,🔴 SAT,0.3,0,,0.95
-CMENT,"Taş, Toprak, Çimento",339.0,144.47,-57.4,🔴 SAT,0.4,0,,0.9
-GSDDE,Ulaştırma,9.72,4.03,-58.5,🔴 SAT,0.85,2,T2 2 gemi siparişi,0.55
-SAYAS,Enerji Teknolojileri,42.48,17.41,-59.0,🔴 SAT,0.3,0,,1.1
-SANEL,İnşaat,36.12,14.17,-60.8,🔴 SAT,0.3,0,,0.95
-BESTE,Enerji Üretim ve Dağıtım,24.28,9.07,-62.7,🔴 SAT,0.4,0,,1.15
-RALYH,Holding,139.5,50.02,-64.1,🔴 SAT,0.2,0,,0.95
-CLEBI,Ulaştırma,1829.0,605.24,-66.9,🔴 SAT,0.3,0,,0.55
-MEGMT,Ana Metal,70.7,18.32,-74.1,🔴 SAT,0.4,0,,0.9
-PSDTC,Toptan ve Perakende Ticaret,132.5,33.4,-74.8,🔴 SAT,0.4,0,,0.95
-ATATR,Turizm,10.7,2.59,-75.8,🔴 SAT,0.4,0,,0.7
-KBORU,Ana Metal,17.75,3.63,-79.5,🔴 SAT,0.3,0,,0.9
+kod,sektor,son_fiyat,hedef_final,potansiyel_pct,sinyal,gerceklesme,katalist_tier,katalist_bilgi,makro,kat_nk_carpan
+ESCOM,Bilişim ve Yazılım,5.43,16.29,200.0,🏆 ALTIN,0.6,2,T2 6 yazılım yat.,1.0,1.1
+KZBGY,Gayrimenkul,3.12,7.8,150.0,🟢 GÜÇLÜ AL,0.4,0,,0.95,1.0
+SRVGY,Gayrimenkul,3.31,6.71,102.9,🏆 ALTIN,0.5,2,T2 arsa alım,0.95,1.1
+EUHOL,Holding,12.99,25.98,100.0,🏆 ALTIN,0.4,1,T1 OTTO 50M USD,0.95,1.2
+GLRYH,Holding,4.33,8.66,100.0,🟢 GÜÇLÜ AL,0.2,0,,0.95,1.0
+A1CAP,Aracı Kurum,15.73,29.92,90.2,🟢 GÜÇLÜ AL,0.4,0,,0.95,1.0
+VBTYZ,Bilişim ve Yazılım,22.2,42.09,89.6,🏆 ALTIN,0.75,1,T1 SGK+Banka,1.0,1.2
+HLGYO,Gayrimenkul,5.2,9.72,86.9,🟢 GÜÇLÜ AL,0.4,0,,0.95,1.0
+PLTUR,Servis Taşımacılığı ve Araç Kiralama,24.02,43.55,81.3,🏆 ALTIN,0.8,1,T1 Araç kiralama,0.85,1.2
+CATES,Enerji Üretim ve Dağıtım,48.78,70.75,45.0,🟠 TUT,1.0,1,T1 EÜAŞ 4Y USD,1.15,1.3
+ATATP,Bilişim ve Yazılım,146.8,210.75,43.6,🟠 TUT,0.75,1,T1 EEX+yazılım,1.0,1.2
+RGYAS,Gayrimenkul,160.6,217.28,35.3,🟠 TUT,0.4,0,,0.95,1.0
+OYYAT,Aracı Kurum,64.4,81.75,26.9,⚪ İZLE,0.4,0,,0.95,1.0
+AKFGY,Gayrimenkul,2.89,3.62,25.4,⚪ İZLE,0.4,0,,0.95,1.0
+ORGE,Enerji Teknolojileri,67.5,84.5,25.2,⚪ İZLE,0.95,1,T1 4 metro/havalimanı,1.1,1.2
+MTRKS,Bilişim ve Yazılım,21.7,27.1,24.9,⚪ İZLE,0.4,0,,1.0,1.0
+FONET,Bilişim ve Yazılım,4.68,5.5,17.6,⚪ İZLE,0.95,1,T1 5 ihale 743M,1.0,1.2
+ULKER,Gıda ve İçecek,112.5,130.48,16.0,⚪ İZLE,0.55,0,,1.0,1.0
+KIMMR,Gıda Perakendeciliği,19.2,22.24,15.8,⚪ İZLE,0.4,0,,1.0,1.0
+MHRGY,Gayrimenkul,3.47,3.98,14.8,⚪ İZLE,0.4,0,,0.95,1.0
+AKFIS,İnşaat,39.7,44.91,13.1,⚪ İZLE,0.45,0,,0.95,1.0
+BNTAS,Ambalaj,6.25,6.92,10.8,⚪ İZLE,0.35,0,,1.0,1.0
+EGEGY,Gayrimenkul,29.0,31.99,10.3,⚪ İZLE,0.35,0,,0.95,1.0
+LOGO,Bilişim ve Yazılım,135.0,146.78,8.7,⚪ İZLE,0.5,0,,1.0,1.0
+KRSTL,Gıda ve İçecek,8.74,9.39,7.4,⚪ İZLE,0.45,0,,1.0,1.0
+AHSGY,Gayrimenkul,20.48,21.89,6.9,⚪ İZLE,0.45,0,,0.95,1.0
+TTKOM,Haberleşme,59.15,63.06,6.6,⚪ İZLE,0.55,0,,1.0,1.0
+AYES,İmalat,32.0,32.71,2.2,⚪ İZLE,0.4,0,,0.95,1.0
+EUREN,Enerji Üretim ve Dağıtım,4.84,4.9,1.2,⚪ İZLE,0.35,0,,1.15,1.0
+MERIT,Turizm,16.15,15.42,-4.5,🔴 SAT,0.55,0,,0.7,1.0
+ARASE,Enerji Üretim ve Dağıtım,102.5,94.7,-7.6,🔴 SAT,0.4,0,,1.15,1.0
+YUNSA,"Tekstil, Giyim ve Deri",8.21,7.41,-9.7,🔴 SAT,0.45,0,,0.95,1.0
+KATMR,Metal Eşya ve Makine,2.98,2.65,-11.0,🔴 SAT,0.8,1,T1 MSB savunma,1.2,1.2
+THYAO,Ulaştırma,289.5,256.32,-11.5,🔴 SAT,0.9,1,T1 AJet+kapasite,0.55,1.3
+YEOTK,Enerji Teknolojileri,48.78,42.74,-12.4,🔴 SAT,0.75,1,T1 5+ GES,1.1,1.2
+GESAN,Enerji Teknolojileri,44.7,38.85,-13.1,🔴 SAT,0.3,0,,1.1,1.0
+SISE,"Cam, Seramik, Porselen",44.26,37.54,-15.2,🔴 SAT,0.75,2,T2 varlık edinimi,0.9,1.1
+NTGAZ,Enerji Üretim ve Dağıtım,13.03,10.99,-15.6,🔴 SAT,0.4,0,,1.15,1.0
+ASUZU,Otomotiv,66.3,55.37,-16.5,🔴 SAT,0.3,0,,0.9,1.0
+YYLGD,Gıda ve İçecek,11.14,9.04,-18.9,🔴 SAT,0.35,0,,1.0,1.0
+INFO,Aracı Kurum,3.44,2.68,-22.2,🔴 SAT,0.85,1,T1 Varlık edinimi,0.95,1.15
+PNLSN,İnşaat,50.5,39.21,-22.4,🔴 SAT,0.4,0,,0.95,1.0
+TOASO,Otomotiv,310.25,240.13,-22.6,🔴 SAT,0.6,0,,0.9,1.0
+GENTS,Mobilya ve Dekorasyon,8.38,6.28,-25.0,🔴 SAT,0.4,0,,0.95,1.0
+AKSA,Kimya ve Plastik,11.1,8.17,-26.4,🔴 SAT,0.5,0,,0.9,1.0
+MACKO,Destek ve Hizmet,31.5,23.17,-26.4,🔴 SAT,0.5,0,,1.0,1.0
+PGSUS,Ulaştırma,177.5,128.13,-27.8,🔴 SAT,0.9,1,T1 Uçuş kapasitesi,0.55,1.2
+TUREX,Servis Taşımacılığı ve Araç Kiralama,7.49,5.19,-30.8,🔴 SAT,0.3,0,,0.85,1.0
+GLRMK,İnşaat,170.1,117.23,-31.1,🔴 SAT,0.5,0,,0.95,1.0
+LILAK,Kağıt ve Kağıt Ürünleri,33.12,22.61,-31.7,🔴 SAT,0.5,0,,0.95,1.0
+TCKRC,İmalat,94.0,62.88,-33.1,🔴 SAT,0.4,0,,0.95,1.0
+CWENE,Enerji Teknolojileri,28.86,19.24,-33.3,🔴 SAT,0.3,0,,1.1,1.0
+BULGS,Girişim Sermayesi Yat. Ort.,44.3,28.43,-35.8,🔴 SAT,0.4,0,,0.95,1.0
+OZSUB,"Tarım, Hayvancılık, Balıkçılık",22.16,14.21,-35.9,🔴 SAT,0.4,0,,1.0,1.0
+PKENT,Turizm,154.6,95.06,-38.5,🔴 SAT,0.4,0,,0.7,1.0
+CGCAM,"Cam, Seramik, Porselen",35.98,20.59,-42.8,🔴 SAT,0.5,0,,0.9,1.0
+EGPRO,Kimya ve Plastik,29.02,16.59,-42.8,🔴 SAT,0.4,0,,0.9,1.0
+GRSEL,Servis Taşımacılığı ve Araç Kiralama,324.0,184.64,-43.0,🔴 SAT,0.4,0,,0.85,1.0
+ENKAI,İnşaat,92.95,52.71,-43.3,🔴 SAT,0.5,0,,0.95,1.0
+GEDIK,Aracı Kurum,5.35,2.97,-44.4,🔴 SAT,0.4,0,,0.95,1.0
+TERA,Aracı Kurum,320.25,177.05,-44.7,🔴 SAT,0.3,0,,0.95,1.0
+GRTHO,Gıda ve İçecek,241.7,133.19,-44.9,🔴 SAT,0.5,0,,1.0,1.0
+BEYAZ,Destek ve Hizmet,28.46,15.57,-45.3,🔴 SAT,0.4,0,,1.0,1.0
+ELITE,Gıda ve İçecek,28.36,13.8,-51.3,🔴 SAT,0.3,0,,1.0,1.0
+ARTMS,"Tekstil, Giyim ve Deri",39.34,17.15,-56.4,🔴 SAT,0.3,0,,0.95,1.0
+CMENT,"Taş, Toprak, Çimento",339.0,144.47,-57.4,🔴 SAT,0.4,0,,0.9,1.0
+GSDDE,Ulaştırma,9.72,4.03,-58.5,🔴 SAT,0.85,2,T2 2 gemi siparişi,0.55,1.1
+SAYAS,Enerji Teknolojileri,42.48,17.41,-59.0,🔴 SAT,0.3,0,,1.1,1.0
+SANEL,İnşaat,36.12,14.17,-60.8,🔴 SAT,0.3,0,,0.95,1.0
+BESTE,Enerji Üretim ve Dağıtım,24.28,9.07,-62.7,🔴 SAT,0.4,0,,1.15,1.0
+RALYH,Holding,139.5,50.02,-64.1,🔴 SAT,0.2,0,,0.95,1.0
+CLEBI,Ulaştırma,1829.0,605.24,-66.9,🔴 SAT,0.3,0,,0.55,1.0
+MEGMT,Ana Metal,70.7,18.32,-74.1,🔴 SAT,0.4,0,,0.9,1.0
+PSDTC,Toptan ve Perakende Ticaret,132.5,33.4,-74.8,🔴 SAT,0.4,0,,0.95,1.0
+ATATR,Turizm,10.7,2.59,-75.8,🔴 SAT,0.4,0,,0.7,1.0
+KBORU,Ana Metal,17.75,3.63,-79.5,🔴 SAT,0.3,0,,0.9,1.0

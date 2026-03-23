@@ -271,23 +271,31 @@ Katalist sınıflandırma:
   Stacking: 2+ farklı katalist → ek güç (FONET: 5 ihale = T1+Stack)
 ```
 
-### 6c: Katalist → Gerçekleşme oranını belirler (ADIM 8'de kullanılır)
+### 6c: Katalist → Forward NK Çarpanı + Gerçekleşme (ADIM 8'de kullanılır)
 
 ```
-T1 bulundu → baz gerçekleşme %85 (backtest: 21/22 isabet)
-T2 bulundu → baz gerçekleşme %70
-Hiçbiri    → baz gerçekleşme %40 (çoğu zaman mevduat daha iyi)
+★ YENİ (v7.4): Katalist Forward NK'yı DEĞİŞTİRİR.
+  Backtest kanıtı: Katalist farkı +59.9pt ama eski sistemde sadece gerçekleşmeye giriyordu.
+  Artık katalist HEM Forward NK'yı HEM gerçekleşmeyi etkiler.
 
-★ T1 katalist + SAT sinyali = NORMAL (paradoks değil):
-  Piyasa katalistı ZATEN fiyatlamışsa hedef fiyat < mevcut fiyat.
-  Gerçekleşme yüksek ama negatif upside'a UYGULANMAZ (ADIM 9).
-  Örnek: FONET T1 5 ihale ama F/K 19.6x > Adil 6.08x → pahalı.
+FORWARD NK ÇARPANI (Y1, Y2, Y5'teki fwd_nk'ya uygulanır):
+  T1 Katalist → Forward NK × 1.20 (varsayılan %20 kâr artışı beklentisi)
+  T2 Katalist → Forward NK × 1.10 (varsayılan %10)
+  Katalist yok → Forward NK × 1.00 (değişmez)
 
-★ BİLİNEN SINIR: Katalist Forward NK'yı DEĞİŞTİRMEZ.
-  Framework A (bilanço) geçmiş veriye bakar.
-  Framework B (katalist) gelecek beklentisine bakar.
-  v7'de katalist SADECE gerçekleşme oranına girer.
-  İleride: T1 → Forward NK × 1.20 entegrasyonu düşünülebilir.
+  Özel durumlar (sipariş/ciro oranı biliniyorsa):
+    Sipariş/Ciro > %50 → Forward NK × 1.30 (TRANSFORMATÖR)
+    Sipariş/Ciro %20-50 → Forward NK × 1.20
+    Sipariş/Ciro %10-20 → Forward NK × 1.15
+    Sipariş/Ciro < %10  → Forward NK × 1.10
+
+  R17 (garantili sözleşme) ile ÇAKIŞMAZ:
+    R17 zaten Y5'e ×2.5 veriyor — Forward NK çarpanı Y1/Y2'ye girer, Y5'e girmez.
+
+GERÇEKLEŞMEYİ de belirler (ADIM 8'de):
+  T1 bulundu → baz gerçekleşme %85
+  T2 bulundu → baz gerçekleşme %70
+  Hiçbiri    → baz gerçekleşme %40
 ```
 
 ---
