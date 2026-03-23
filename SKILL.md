@@ -200,15 +200,15 @@ Katalist sınıflandırma:
   Artık katalist HEM Forward NK'yı HEM gerçekleşmeyi etkiler.
 
 FORWARD NK ÇARPANI (Y1 ve Y2'deki fwd_nk'ya uygulanır — Y5'e GİRMEZ):
-  T1 Katalist → Forward NK × 1.20 (varsayılan %20 kâr artışı beklentisi)
+  T1 Katalist → Forward NK × 1.50 (varsayılan %50 kâr artışı beklentisi)
   T2 Katalist → Forward NK × 1.10 (varsayılan %10)
   Katalist yok → Forward NK × 1.00 (değişmez)
 
   Özel durumlar (sipariş/ciro oranı biliniyorsa):
-    Sipariş/Ciro > %50 → Forward NK × 1.30 (TRANSFORMATÖR)
-    Sipariş/Ciro %20-50 → Forward NK × 1.20
-    Sipariş/Ciro %10-20 → Forward NK × 1.15
-    Sipariş/Ciro < %10  → Forward NK × 1.10
+    Sipariş/Ciro > %50 → Forward NK × 1.50 (TRANSFORMATÖR — varsayılanla aynı)
+    Sipariş/Ciro %20-50 → Forward NK × 1.40
+    Sipariş/Ciro %10-20 → Forward NK × 1.30
+    Sipariş/Ciro < %10  → Forward NK × 1.20
 
   R17 (garantili sözleşme) ile ÇAKIŞMAZ:
     R17 zaten Y5'e ×2.5 veriyor — Forward NK çarpanı Y1/Y2'ye girer, Y5'e girmez.
