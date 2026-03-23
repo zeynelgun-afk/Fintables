@@ -86,7 +86,7 @@ UYARI (elen değil, hedef fiyatta yansır):
   Rule 12: Faal.Kâr / NK < %30 → R17 yoksa Y5 ağırlık artır | R17 varsa kaydırma YOK
   Rule 13: fk_veri_sayisi / 750 < %50 → Y1 ağırlık düşür (fark aktarılmaz, normalize)
   Rule 14: Yatırım Geliri / Ciro > %50 → Y1/Y2'de Forward NK yerine Faal.Kâr bazlı NK kullan
-           > %30 → uyarı (Y1/Y2 ağırlık -%5, Y5 ağırlık +%5)
+           > %30 → uyarı (raporda belirt, ağırlık kaydırma OPSİYONEL)
   Rule 16: Q4 NK / TTM NK > %70 veya < %10 → TTM NK kullan, forward güvenilmez
   Rule 17: Garantili sözleşme → Y5'e bonus çarpan
   Rule 19: İşletme NA / FAVÖK < 0.3 → gerçekleşme -%15 (nakit dönüşüm kötü)
@@ -95,7 +95,7 @@ UYARI (elen değil, hedef fiyatta yansır):
            ★ ORGE vakası: Kâr yüksek ama nakit dönüşüm 0.22 → gerçek operasyonel güç yok
   Rule 20: Garantili sözleşme > 2Y → sözleşme ömrü ort faiz ile Adil F/K hesapla
            Y1 faiz tavanı + Y2'de Sözleşme Adil F/K kullan (bugünkü forward yerine)
-           Y3 değişmez (varlık bazlı). Y5 zaten Sektör Ort kullanıyor (etkilenmez).
+           Y3 değişmez (varlık bazlı). Y5 tavanlı kısmı etkilenir (daha yüksek Adil → daha yüksek tavan).
            CATES vakası: 4Y sözleşme → ort faiz %20 → Adil 5.31x → Enerji 3.98x
 ```
 
@@ -138,17 +138,17 @@ ATATP: Spike → medyan(121, 503, 341) = 341 → 341×4 = 1364M
 
 ## ADIM 4: KÂR SÜRPRİZİ → Forward NK Büyüme Çarpanı
 
-Q4 2025 vs Q4 2024 (YoY) ve Q4 vs Q3 (QoQ) karşılaştır:
+Q4 2025 vs Q4 2024 (YoY) karşılaştır:
 
 ```
 YoY > +%100  → Forward NK × 1.08 (güçlü büyüme devam beklentisi)
 YoY > +%30   → Forward NK × 1.05
 YoY < -%30   → Forward NK × 0.95
 
-QoQ > +%50   → Forward NK × 1.05 (ek bonus)
-QoQ < -%30   → Forward NK × 0.97
-
-Çift pozitif (YoY+ ve QoQ+) → en güçlü sinyal
+OPSİYONEL (veri varsa):
+  QoQ > +%50   → Forward NK × 1.05 (ek bonus)
+  QoQ < -%30   → Forward NK × 0.97
+  Çift pozitif (YoY+ ve QoQ+) → en güçlü sinyal
 ```
 
 ---
@@ -287,7 +287,7 @@ HOLDİNG (FAİZ BAZLI + KONGLOMERA İSKONTOSU):
   
   ★ Max potansiyel sınırı YOKTUR — faiz bazlı PD/DD tavanı + gerçekleşme yeterli.
 
-GYO/Holding'de Y3 ağırlık %30 (NAV birincil metrik)
+GYO/Holding'de Y3 ağırlık +%10 (broker ≥3: %25, broker az/yok: %30)
 Trend bağımsız — varlık bazlı değerleme
 ```
 
@@ -312,10 +312,10 @@ Y5 Ref F/K = (Sektör Ort F/K + min(Sektör Ort F/K, Sektör Adil F/K × 2.0)) /
   Faiz yükselince → tavan düşer → ortalama daha muhafazakâr olur (OTOMATİK)
   Örnek @%30 forward: Enerji → (18.48 + min(18.48, 5.78)) / 2 = (18.48 + 5.78) / 2 = 12.13x
 
-★ Sektör Ort F/K kullanılır (Adil F/K DEĞİL) — piyasanın gerçek çarpanı.
+★ Y5 Ref F/K = (Sektör Ort + Faiz Tavanlı) / 2 — piyasa ile faiz dengesini yansıtır.
   Y2 zaten Adil F/K (teorik minimum) veriyor.
-  Y5'in amacı: "Piyasa bu operasyonel güce ne değer veriyor?"
-  → Cevap sektör ortalaması — teorik Adil F/K değil.
+  Y5'in amacı: "Piyasa bu operasyonel güce ne değer veriyor?" + "Faiz ne diyor?"
+  → İkisinin ortası: ne piyasa kadar iyimser ne faiz kadar kötümser.
 ★ Faal.Kâr < NK → sektör ort (NK bazlı) × Faal.Kâr = doğal muhafazakârlık.
 ★ Yatırım/finansal gelir DAHİL DEĞİL — saf operasyonel güç.
 ★ Trend çarpanı burada uygulanır (artış → kâr artacak, düşüş → azalacak).
@@ -401,7 +401,7 @@ MOMENTUM DÜZELTMESİ (4 çeyrek NK trendi):
   4Q ardışık artış  → ger +%10 (büyüyen şirket hedefe ulaşır)
   3Q ardışık düşüş → ger -%10 (küçülen şirket ulaşamaz)
 
-PEG DÜZELTMESİ:
+PEG DÜZELTMESİ (OPSİYONEL — broker büyüme tahmini varsa):
   PEG < 0.5 → ger +%8 (çok ucuz büyüme — gerçekleşme yüksek)
   PEG < 1.0 → ger +%5
   PEG > 2.0 → ger -%3 (pahalı büyüme)
@@ -456,7 +456,7 @@ Mevduattan iyi performans gösteremeyen hisseye AL DENMEZ.
 
 🏆 ALTIN FIRSAT  → Pot > Min AL×1.5 + T1/T2 Katalist
                    Hem çok ucuz hem somut haber — HEMEN AL
-                   Gerçekleşme %85+, backtest 3/3 dönem pozitif
+                   T1 ger %85+, T2 ger %60-70. Backtest 3/3 dönem pozitif
 
 🟢 GÜÇLÜ AL      → Pot > Min AL + Katalist VEYA Pot > Min AL×1.5
                    Mevduattan çok iyi — AL
@@ -537,7 +537,7 @@ Rule 18: Trend düzeltme → Forward NK seçimi + Y5 trend çarpanı. ATATP vaka
 Rule 19: İşletme NA/FAVÖK < 0.3 → ger -%15 | > 0.7 → ger +%5. ORGE vakası (0.22).
          Backtest: >0.7 → +18.4% getiri, <0.3 → +2.1%. Nakit dönüşüm kritik.
 Rule 20: Garantili sözleşme > 2Y → sözleşme ömrü ortalama faiz ile Adil F/K hesapla.
-         Y1 faiz tavanı + Y2'de Sözleşme Adil kullan. Y3/Y5 etkilenmez.
+         Y1 faiz tavanı + Y2'de Sözleşme Adil kullan. Y3 etkilenmez. Y5 tavanlı kısmı etkilenir.
          CATES: 4Y EÜAŞ → ort faiz %20 → Adil 5.31x → Enerji 3.98x (vs bugün 2.89x).
 ```
 
@@ -653,8 +653,8 @@ AYI (XU100 < +5%):
 
 | Dosya | İçerik |
 |-------|--------|
-| `sql-sorgulari_v26.md` | Sorgu 14 CTE + 15/16 broker + KAP şablonu |
-| `backtest-bulgular_v26.md` | 3 dönem backtest + GSDDE/CATES/RTALB vakaları |
+| `sql-sorgulari.md` | Sorgu 14 CTE + 15/16 broker + KAP şablonu |
+| `backtest-bulgular.md` | 3 dönem backtest + GSDDE/CATES/RTALB vakaları |
 | `sektor-detay.md` | Sektör çarpanları, mevsimsellik kuralları |
 | `haber-katalist-avcisi.md` | Katalist Avcısı v2 tam metodoloji |
 | `prompt-kullanim.md` | Kullanım örnekleri |
