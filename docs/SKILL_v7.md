@@ -207,14 +207,19 @@ Hedef Fiyat = Hedef PD / Hisse Adedi
 
 ```
                     Broker VAR (≥3)    Broker AZ (1-2)    Broker YOK
-Y1 Mean Rev.            %20               %25              %25
-Y2 Forward              %20               %25              %25
+Y1 Mean Rev.            %25               %30              %30
+Y2 Forward              %10               %10              %10
 Y3 PD/DD                %15               %20              %20
 Y4 Broker               %30               %15               -
-Y5 Core                 %15               %15              %15
+Y5 Core                 %20               %25              %25
+
+★ Y2 düşük ağırlıklı: Adil F/K tamamen teorik, piyasa gerçeğiyle uyuşmuyor.
+  Piyasa hiçbir zaman Adil F/K'da (3-4x) işlem görmüyor.
+  Y1 (tarihsel mean reversion) + Y5 (operasyonel kâr gücü) daha güvenilir.
 
 Ek düzeltmeler:
   GYO/Holding → Y3 ağırlık +%10, Y1/Y2 -%5 (NAV birincil)
+  GYO + PD/DD < 1 → Y3 ağırlık %50 (NAV taban aktif)
   R13 aktif   → Y1 ağırlık %10'a düşür, farkı Y5'e aktar
   R12 aktif   → Y1 -%5, Y5 +%5 (core earning power önemli)
 
