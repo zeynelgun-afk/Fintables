@@ -485,7 +485,7 @@ Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
    Y2 Forward:  ₺B (adil F/K Sx)
    Y3 PD/DD:    ₺C (ref Px)
    Y4 Broker:   ₺D (N analist)
-   Y5 Core:     ₺E (trend ×T)
+   Y5 Core:     ₺E (sektör ort F/K: Qx, trend ×T)  ← piyasa çarpanı
 🔍 Kalite: {✅/⚠️} | Trend: {C:artış N:düşüş ×0.85}
 📰 Katalist: {T1/T2/Yok} | Gerçekleşme: %G
 ⚠️ Makro: {risk} ×M | PEG: P | Turnaround: {✅/—}
@@ -494,9 +494,11 @@ Faiz düşünce Min AL düşer → daha çok hisse AL sinyali alır (otomatik)
 
 ### Özet Tablo
 ```
-# Kod    Son₺   Hedef₺   POT%  vsMevd  Ger  Sinyal     Katalist
-1 XXXXX  XX.XX  YY.YY   +ZZ%  +NNpt   85%  🏆 ALTIN    T1 sipariş
+# Kod    Son₺   Hedef₺   POT%  vsMevd  Y5₺    SekOrt  Ger  Sinyal     Katalist
+1 XXXXX  XX.XX  YY.YY   +ZZ%  +NNpt   EE.EE  QQ.Qx   85%  🏆 ALTIN    T1 sipariş
 ```
+★ Y5₺ ve SekOrt (Sektör Ort F/K) ayrıca gösterilir — piyasanın operasyonel
+  güce verdiği değer ile teorik Adil F/K arasındaki farkı görünür kılar.
 
 ---
 
