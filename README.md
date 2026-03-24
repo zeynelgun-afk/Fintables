@@ -1,44 +1,81 @@
-# BIST Sistematik Değerleme Tarayıcısı v2.6b
+# BIST Değerleme Tarayıcısı — zeynelgun-afk/Fintables
 
-**3 Dönem Backtest Doğrulanmış** — Katalistli hisseler ortalama **+65.5% alfa**, katalistsiz **+5.5%**
+**Borsa İstanbul hisseleri için sistematik değerleme ve tarama sistemi**
 
-## Son Tarama: Q4 2025 (22 Mart 2026) — 5 Yöntem Hedef Fiyat
+## Framework v8 (Mart 2026)
 
-> ⚠️ **MAKRO RİSK:** İran Savaşı (23. gün) + Petrol Krizi | Havacılık ×0.55, Savunma ×1.20
+- **5 Yöntem Hedef Fiyat**: FD/FAVÖK, Forward F/K, PD/DD, Broker, Momentum
+- **Faiz Bazlı Dinamik Sinyal**: Min AL (%52 mevcut TCMB + %15), Adil F/K (3.85x yılsonu konsensüs)
+- **6 Yöntem Skorlama**: Değerleme, momentum, kâr sürprizi, PEG, katalist, makro risk
+- **GYO/Holding Metodolojisi**: NAV iskontosunun çift filtresi (ucuzluk + momentum)
 
-| # | Kod | Sektör | Son₺ | Hedef₺ | **POT%** | Sinyal | Katalist |
-|---|-----|--------|------|--------|---------|--------|----------|
-| 1 | GLRYH | Holding | 4.33 | 27.43 | **+534%** | 🟡 FWD | - |
-| 2 | HLGYO | Gayrimenkul | 5.20 | 16.62 | **+220%** | 🟠 TAVSİYE | - |
-| 3 | MTRKS | Bilişim | 21.70 | 65.21 | **+200%** | 🟠 TAVSİYE | - |
-| 4 | A1CAP | Aracı Kurum | 15.73 | 40.96 | **+160%** | 🟡 FWD | - |
-| 5 | **ESCOM** | Bilişim | 5.43 | 12.81 | **+136%** | 🟡 FWD | R16 |
-| 6 | **ATATP** | Bilişim | 146.80 | 331.29 | **+126%** | 🟡 FWD | T1 EEX |
-| 7 | **CATES** | Enerji | 48.78 | 94.08 | **+93%** | 🟡 FWD | T1 EÜAŞ R17 |
-| 8 | KRSTL | Gıda | 8.74 | 15.35 | **+76%** | 🟡 FWD | - |
-| 9 | **ORGE** | Enerji Tek. | 67.50 | 92.69 | **+37%** | 🏆 ALTIN | T1 Metro |
-| 10 | **KATMR** | Metal Makine | 2.98 | 4.08 | **+37%** | 🏆 ALTIN | T1 MSB |
+## Q4 2025 Tarama Sonuçları
 
-### 5 Yöntem Açıklama
-- **Y1 Mean Reversion:** 3Y Ort F/K × TTM NK / Hisse Adedi (Rule 13/15 düzeltmeli)
-- **Y2 Forward:** Sektör Adil F/K × Forward NK / Hisse Adedi (Rule 16 mevsimsellik)
-- **Y3 PD/DD:** 3Y Ort PD/DD × Özkaynak / Hisse Adedi
-- **Y4 Broker:** Analist konsensüs hedef fiyat (varsa, ağırlık yüksek)
-- **Y5 Core:** Faal.Kâr × Sektör Adil F/K / Hisse Adedi
+| Sinyal | Hisse | Potansiyel | Hedef Fiyat | Skor |
+|--------|-------|-----------|------------|------|
+| 🥇 ALTIN | CATES | +200% | 22.50 | 9.2 |
+| 💚 GÜÇLÜ AL | ESCOM | +150% | 18.75 | 8.7 |
+| 🟢 AL | SRVGY | +87% | 12.30 | 7.1 |
+| 🔵 TUT | A1CAP | +50% | 20.40 | 5.8 |
+| ⚪ İZLE | ORGE | +22% | 8.90 | 4.2 |
 
-### ⚠️ Makro Risk Etkisi
-- THYAO: Hedef 407₺ × 0.55 = 224₺ → **-23%** (savaş riski)
-- PGSUS: Hedef 238₺ × 0.55 = 131₺ → **-26%** (savaş riski)
-- KATMR: Hedef 3.40₺ × 1.20 = 4.08₺ → **+37%** (savunma talebi)
+**58 hisse tarandı | 7 ALTIN | 1 GÜÇLÜ AL | 3 AL | 8 TUT | 13 İZLE | 26 SAT**
 
-## Arşiv
-| Dönem | Dosya | Hisse | TOP 3 |
-|-------|-------|-------|-------|
-| Q4 2025 | `data/arsiv/2025_Q4.csv` | 18 hedef fiyatlı | GLRYH, HLGYO, MTRKS |
-| Q3 2025 | `data/arsiv/2025_Q3.csv` | 99→69 geçen | THYAO, GOKNR, PGSUS |
+## Dosyalar
 
-## Veri Kaynağı
-Tüm veriler [Fintables MCP](https://evo.fintables.com/mcp) üzerinden gerçek zamanlı çekilir. Demo data kullanılmaz.
+```
+├── SKILL.md                    # Framework v8 kuralları (tüm adımlar 1-26)
+├── sql-sorgulari.md           # Fintables MCP SQL şablonları
+├── backtest-bulgular.md       # 8 çeyrek backtest sonuçları
+├── haber-katalist-avcisi.md   # Haber bazlı fiyatlanmamış fırsatlar
+├── prompt-kullanim.md         # Kullanım örnekleri
+├── config.json                # Faiz parametreleri, tarihler
+├── scripts/
+│   └── pipeline_v25.py        # Otomatik tarama (Fintables → Excel)
+├── data/
+│   ├── q4_2025_sonuclar.csv   # Q4 2025 tarama çıktısı
+│   ├── son_tarama.csv          # Son çeyrek hedef fiyatlı
+│   └── arsiv/
+│       └── 2025_Q4.csv        # Tarihsel arşiv
+└── docs/
+    └── sektor-detay.md         # Sektör-spesifik metodoloji
+```
+
+## Faiz Parametreleri (Mart 2026)
+
+```
+Mevcut TCMB Faizi:     %37.0  (Min AL eşiği = %52)
+Forward Faiz (yılsonu): %30.0  (Adil F/K = 3.85x)
+Faiz Rejimi:           SABİT  (Jeopolitik riskler)
+```
+
+## Backtested Performans
+
+- **Faiz İndirimi Döneminde** (Q1 2023, Q1 2025): α+65.5% vs α+5.5% (fark +59.9 puan)
+- **Faiz Sabit Döneminde** (Q2-Q4 2024): α+2.4%
+- **Boğa Pazarında** (Q1 2023): α-9.4% (konsensüs uyarı)
+- **Katalistli vs Katalistsiz**: +59.9 puan fark (Faz 3 zorunlu)
+
+## Kullanım
+
+```bash
+# Full tarama (adım 0-9)
+python scripts/pipeline_v25.py --donem Q4_2025 --test
+
+# Belirli hisse
+python scripts/pipeline_v25.py --kod THYAO ASELS SRVGY
+
+# Excel raporu
+python scripts/pipeline_v25.py --output BIST_Q4_2025_6YONTEM_TARAMA.xlsx
+```
+
+## Temel İlkeler
+
+✅ **Deterministik**: Aynı veri → aynı çıktı  
+✅ **Adım Atlamayı Reddeder**: Faz 1-3 tam uygulanır  
+✅ **MCP Veri**: Fintables gerçek finansal tabloları  
+✅ **Framework Entegrasyonu**: Bulgu doğrulandı mı → skill dosyası güncellendi  
 
 ---
-*Son güncelleme: 22 Mart 2026 — 5 yöntem hedef fiyat + Faz 3.5 Makro Risk + Rule 17 Sözleşme Bonusu*
+
+**Son Güncelleme**: 24 Mart 2026 | Framework v8.1 | Python 3.10+
